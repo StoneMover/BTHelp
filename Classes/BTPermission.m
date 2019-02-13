@@ -125,6 +125,10 @@ static BTPermission * permission;
                                      }];
                                  }
                              }];
+            }else{
+                if (block) {
+                    block();
+                }
             }
         }];
         return;

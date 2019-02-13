@@ -88,8 +88,8 @@
 
 
 #pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)aImage editingInfo:(NSDictionary *)editingInfo
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info{
+    UIImage * aImage=info[UIImagePickerControllerOriginalImage];
     [picker dismissViewControllerAnimated:YES completion:^(void){
         UIImage * imgResult=nil;
         if (self.isClip&&aImage.size.width!=aImage.size.height) {
@@ -104,9 +104,8 @@
             self.block(imgResult);
         }
     }];
-
-    
 }
+
 
 
 - (UIImage*)clicpImg:(UIImage*)img{

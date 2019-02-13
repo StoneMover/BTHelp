@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 加密&解密
 +(NSString*)base64Decode:(NSString*)str;
 +(NSString*)base64Encode:(NSString*)str;
-//+(NSString*)MD5:(NSString*)str;
++(NSString*)MD5:(NSString*)str;
 
 
 #pragma mark 设置一边圆角的方法

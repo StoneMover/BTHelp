@@ -522,19 +522,19 @@
     NSData *data = [[NSData alloc]initWithBase64EncodedString:str options:0];
     return [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 }
-//+(NSString*)MD5:(NSString*)str{
-//    const char *cStr = [str UTF8String];
-//    unsigned char digest[CC_MD5_DIGEST_LENGTH];
-//    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
-//    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-//    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
-//        [output appendFormat:@"%02x", digest[i]];
-//    }
-//    
-//    
-//    
-//    return  output;
-//}
++(NSString*)MD5:(NSString*)str{
+    const char *cStr = [str UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    
+    
+    return  output;
+}
 
 +(void)setCornerRadiusBottom:(UIView*)view withCorner:(CGFloat)corner{
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(corner, corner)];
