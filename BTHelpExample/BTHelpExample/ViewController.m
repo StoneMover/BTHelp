@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "BTIconHelp.h"
+#import "BTHelp.h"
+#import "LoginViewController.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) BTIconHelp * help;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end
@@ -20,7 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.title=@"BTHelp";
+    UserMan.loginVcName=@"LoginViewController";
+    if (IS_LOGIN_PUSH(self)) {
+        
+    }
 }
 
 - (IBAction)click:(id)sender {

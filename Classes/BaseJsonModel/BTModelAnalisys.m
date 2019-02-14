@@ -6,17 +6,17 @@
 //  Copyright © 2016年 StoneMover. All rights reserved.
 //
 
-#import "BaseModelAnalisys.h"
-#import "BaseModelProperty.h"
+#import "BTModelAnalisys.h"
+#import "BTModelProperty.h"
 #import <objc/runtime.h>
 
-@implementation BaseModelAnalisys
+@implementation BTModelAnalisys
 
--(void)analysisDict:(NSDictionary*)dict withModel:(BaseModel*)model{
+-(void)analysisDict:(NSDictionary*)dict withModel:(BTModel*)model{
     
     NSArray * attributes=[self propertyKeys:model isAnalisys:YES];
     
-    for (BaseModelProperty * key in attributes) {
+    for (BTModelProperty * key in attributes) {
         NSString * dictKey=key.aliasName;
         if ([dict valueForKey:dictKey]) {
             //当字典中存在该key的时候
@@ -59,7 +59,7 @@
                         NSMutableArray * mutableArray=[[NSMutableArray alloc]init];
                         for (NSDictionary * dictChild in dictArray) {
                             Class child=NSClassFromString(className);
-                            BaseModel * modelChild=[[child alloc]init];
+                            BTModel * modelChild=[[child alloc]init];
                             [self analysisDict:dictChild withModel:modelChild];
                             [mutableArray addObject:modelChild];
                         }
@@ -91,7 +91,7 @@
                     }
                     
                     Class child=NSClassFromString(className);
-                    BaseModel * modelChild=[[child alloc]init];
+                    BTModel * modelChild=[[child alloc]init];
                     [self analysisDict:dictChild withModel:modelChild];
                     [model setValue:modelChild forKey:key.propertyName];
                     break;
@@ -104,10 +104,10 @@
     }
 }
 
--(NSDictionary*)autoDataToDictionary:(BaseModel*)model{
+-(NSDictionary*)autoDataToDictionary:(BTModel*)model{
     NSDictionary * dict=[[NSMutableDictionary alloc]init];
     NSArray * attributes=[self propertyKeys:model isAnalisys:NO];
-    for (BaseModelProperty * property in attributes) {
+    for (BTModelProperty * property in attributes) {
         switch (property.type) {
             case BaseModelTypeString:
             case BaseModelTypeInt:
@@ -125,7 +125,7 @@
             {
                 NSMutableArray * array=[[NSMutableArray alloc]init];
                 NSArray * arrayData=[model valueForKey:property.propertyName];
-                for (BaseModel * childModel in arrayData) {
+                for (BTModel * childModel in arrayData) {
                     NSDictionary * dictChild=[self autoDataToDictionary:childModel];
                     [array addObject:dictChild];
                 }
@@ -136,7 +136,7 @@
             }
                 
             case BaseModelTypeBase:{
-                BaseModel * childModel=[model valueForKey:property.propertyName];
+                BTModel * childModel=[model valueForKey:property.propertyName];
                 NSDictionary * dictValue=[self autoDataToDictionary:childModel];
                 [dict setValue:dictValue forKey:property.aliasName];
                 break;
@@ -150,7 +150,7 @@
     return dict;
 }
 
-- (NSArray*)propertyKeys:(BaseModel*)baseModel isAnalisys:(BOOL)isAnalisys
+- (NSArray*)propertyKeys:(BTModel*)baseModel isAnalisys:(BOOL)isAnalisys
 {
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList([baseModel class], &outCount);
@@ -169,7 +169,7 @@
         if (isAnalisys) {
             if (![baseModel.ignoreAnalisysField containsObject:propertyName]) {
                 NSString * propertyType=[[NSString alloc]initWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
-                BaseModelProperty * model=[[BaseModelProperty alloc]init];
+                BTModelProperty * model=[[BTModelProperty alloc]init];
                 model.propertyName=propertyName;
                 model.aliasName=aliasName;
                 [model autoType:propertyType];
@@ -178,7 +178,7 @@
         }else{
             if (![baseModel.ignoreUnAnalisysField containsObject:propertyName]) {
                 NSString * propertyType=[[NSString alloc]initWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
-                BaseModelProperty * model=[[BaseModelProperty alloc]init];
+                BTModelProperty * model=[[BTModelProperty alloc]init];
                 model.propertyName=propertyName;
                 model.aliasName=aliasName;
                 [model autoType:propertyType];

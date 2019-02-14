@@ -6,9 +6,9 @@
 //  Copyright © 2017年 StoneMover. All rights reserved.
 //
 
-#import "AccountModel.h"
+#import "BTUserModel.h"
 
-@implementation AccountModel
+@implementation BTUserModel
 
 -(void)initSelf{
     [super initSelf];

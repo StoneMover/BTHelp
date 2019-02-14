@@ -220,9 +220,7 @@ static BTPermission * permission;
                                                        }];
         [alertController addAction:action];
     }
-    
-    NSObject * obj=[[UIApplication sharedApplication] delegate];
-    UIWindow * window=[obj valueForKey:@"window"];
+    UIWindow * window=[[UIApplication sharedApplication] delegate].window;
     [window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 

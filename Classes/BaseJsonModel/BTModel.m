@@ -6,11 +6,11 @@
 //  Copyright © 2016年 StoneMover. All rights reserved.
 //
 
-#import "BaseModel.h"
-#import "BaseModelAnalisys.h"
+#import "BTModel.h"
+#import "BTModelAnalisys.h"
 
 
-@implementation BaseModel
+@implementation BTModel
 
 +(instancetype)modelWithDict:(NSDictionary*)dict{
     return [[self alloc]initWithDict:dict];
@@ -35,13 +35,13 @@
 }
 
 -(void)analisys:(NSDictionary*)dict{
-    BaseModelAnalisys * analysis=[[BaseModelAnalisys alloc]init];
+    BTModelAnalisys * analysis=[[BTModelAnalisys alloc]init];
     [analysis analysisDict:dict withModel:self];
 }
 
 
 -(NSDictionary*)autoDataToDictionary{
-    BaseModelAnalisys * analysis=[[BaseModelAnalisys alloc]init];
+    BTModelAnalisys * analysis=[[BTModelAnalisys alloc]init];
     return [analysis autoDataToDictionary:self];
 }
 

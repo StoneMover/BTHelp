@@ -7,15 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AccountModel.h"
+#import "BTUserModel.h"
 #import <UIKit/UIKit.h>
 
-#define UserMan [AccountMananger share]
+#define UserMan [BTUserMananger share]
+
 #define UserManModel UserMan.model
 
-@interface AccountMananger : NSObject
+#define IS_LOGIN [UserMan isLogin]
 
-+(AccountMananger*)share;
+#define IS_LOGIN_PUSH(rootVc) [UserMan isLoginPush:rootVc]
+
+@interface BTUserMananger : NSObject
+
++(BTUserMananger*)share;
 
 //是否是第一次打开应用程序
 @property(nonatomic,assign) BOOL isFirstOpenApp;
@@ -33,7 +38,7 @@
 @property (nonatomic, assign) BOOL isRemerberPwd;
 
 //用户个人信息的model
-@property (nonatomic, strong) AccountModel * model;
+@property (nonatomic, strong) BTUserModel * model;
 
 //是否需要更新个人资料信息
 @property (nonatomic, assign) BOOL isNeedUpdateInfoView;
@@ -45,9 +50,13 @@
 - (void)updateUserInfo;
 
 //是否登录
--(BOOL)isLogin;
+- (BOOL)isLogin;
 
-- (BOOL)isLoginPush:(UINavigationController*)nav;
+//初始化的时候设置一次就可以了
+@property (nonatomic, strong) NSString * loginVcName;
+
+//是否登录，未登录跳转到登录界面
+- (BOOL)isLoginPush:(UIViewController*)rootVc;
 
 
 

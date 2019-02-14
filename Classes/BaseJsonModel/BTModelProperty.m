@@ -6,9 +6,9 @@
 //  Copyright © 2016年 StoneMover. All rights reserved.
 //
 
-#import "BaseModelProperty.h"
+#import "BTModelProperty.h"
 
-@implementation BaseModelProperty
+@implementation BTModelProperty
 
 
 -(void)autoType:(NSString*)typeStr{

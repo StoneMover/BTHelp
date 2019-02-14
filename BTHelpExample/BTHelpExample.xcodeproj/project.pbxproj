@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2C21932215001200BD952A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2C21912215001200BD952A /* LoginViewController.m */; };
+		0C2C21942215001200BD952A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2C21922215001200BD952A /* LoginViewController.xib */; };
 		0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89812213F26D0043E8EB /* AppDelegate.m */; };
 		0CFA89852213F26D0043E8EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89842213F26D0043E8EB /* ViewController.m */; };
 		0CFA89882213F26D0043E8EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CFA89862213F26D0043E8EB /* Main.storyboard */; };
@@ -18,19 +20,23 @@
 		0CFA89BA2213F27F0043E8EB /* UIView+BTViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA899B2213F27F0043E8EB /* UIView+BTViewTool.m */; };
 		0CFA89BB2213F27F0043E8EB /* UIImage+BTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA899D2213F27F0043E8EB /* UIImage+BTImage.m */; };
 		0CFA89BC2213F27F0043E8EB /* BTLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA899F2213F27F0043E8EB /* BTLineView.m */; };
-		0CFA89BD2213F27F0043E8EB /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A62213F27F0043E8EB /* BaseModel.m */; };
-		0CFA89BE2213F27F0043E8EB /* BaseModelAnalisys.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A72213F27F0043E8EB /* BaseModelAnalisys.m */; };
-		0CFA89BF2213F27F0043E8EB /* BaseModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A82213F27F0043E8EB /* BaseModelProperty.m */; };
+		0CFA89BD2213F27F0043E8EB /* BTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A62213F27F0043E8EB /* BTModel.m */; };
+		0CFA89BE2213F27F0043E8EB /* BTModelAnalisys.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */; };
+		0CFA89BF2213F27F0043E8EB /* BTModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A82213F27F0043E8EB /* BTModelProperty.m */; };
 		0CFA89C02213F27F0043E8EB /* BTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AA2213F27F0043E8EB /* BTUtils.m */; };
 		0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */; };
-		0CFA89C22213F27F0043E8EB /* AccountMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B12213F27F0043E8EB /* AccountMananger.m */; };
-		0CFA89C32213F27F0043E8EB /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B22213F27F0043E8EB /* AccountModel.m */; };
+		0CFA89C22213F27F0043E8EB /* BTUserMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B12213F27F0043E8EB /* BTUserMananger.m */; };
+		0CFA89C32213F27F0043E8EB /* BTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B22213F27F0043E8EB /* BTUserModel.m */; };
 		0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B32213F27F0043E8EB /* BTPermission.m */; };
 		0CFA89C52213F27F0043E8EB /* BTBtnAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B42213F27F0043E8EB /* BTBtnAutoLayout.m */; };
 		0CFA89C62213F27F0043E8EB /* BTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B72213F27F0043E8EB /* BTButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C2C218F2214FF3300BD952A /* BTHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTHelp.h; sourceTree = "<group>"; };
+		0C2C21902215001200BD952A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0C2C21912215001200BD952A /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		0C2C21922215001200BD952A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		0CFA897D2213F26D0043E8EB /* BTHelpExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTHelpExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CFA89802213F26D0043E8EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CFA89812213F26D0043E8EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -52,20 +58,20 @@
 		0CFA89A02213F27F0043E8EB /* BTBtnAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBtnAutoLayout.h; sourceTree = "<group>"; };
 		0CFA89A12213F27F0043E8EB /* BTPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTPermission.h; sourceTree = "<group>"; };
 		0CFA89A22213F27F0043E8EB /* BTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTButton.h; sourceTree = "<group>"; };
-		0CFA89A42213F27F0043E8EB /* BaseModelProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelProperty.h; sourceTree = "<group>"; };
-		0CFA89A52213F27F0043E8EB /* BaseModelAnalisys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelAnalisys.h; sourceTree = "<group>"; };
-		0CFA89A62213F27F0043E8EB /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		0CFA89A72213F27F0043E8EB /* BaseModelAnalisys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelAnalisys.m; sourceTree = "<group>"; };
-		0CFA89A82213F27F0043E8EB /* BaseModelProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelProperty.m; sourceTree = "<group>"; };
-		0CFA89A92213F27F0043E8EB /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		0CFA89A42213F27F0043E8EB /* BTModelProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTModelProperty.h; sourceTree = "<group>"; };
+		0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTModelAnalisys.h; sourceTree = "<group>"; };
+		0CFA89A62213F27F0043E8EB /* BTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTModel.m; sourceTree = "<group>"; };
+		0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTModelAnalisys.m; sourceTree = "<group>"; };
+		0CFA89A82213F27F0043E8EB /* BTModelProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTModelProperty.m; sourceTree = "<group>"; };
+		0CFA89A92213F27F0043E8EB /* BTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTModel.h; sourceTree = "<group>"; };
 		0CFA89AA2213F27F0043E8EB /* BTUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUtils.m; sourceTree = "<group>"; };
 		0CFA89AB2213F27F0043E8EB /* BTTimerHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTimerHelp.h; sourceTree = "<group>"; };
 		0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTIconHelp.m; sourceTree = "<group>"; };
 		0CFA89AD2213F27F0043E8EB /* BTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLocation.h; sourceTree = "<group>"; };
-		0CFA89AF2213F27F0043E8EB /* AccountMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountMananger.h; sourceTree = "<group>"; };
-		0CFA89B02213F27F0043E8EB /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
-		0CFA89B12213F27F0043E8EB /* AccountMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountMananger.m; sourceTree = "<group>"; };
-		0CFA89B22213F27F0043E8EB /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
+		0CFA89AF2213F27F0043E8EB /* BTUserMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUserMananger.h; sourceTree = "<group>"; };
+		0CFA89B02213F27F0043E8EB /* BTUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUserModel.h; sourceTree = "<group>"; };
+		0CFA89B12213F27F0043E8EB /* BTUserMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUserMananger.m; sourceTree = "<group>"; };
+		0CFA89B22213F27F0043E8EB /* BTUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUserModel.m; sourceTree = "<group>"; };
 		0CFA89B32213F27F0043E8EB /* BTPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPermission.m; sourceTree = "<group>"; };
 		0CFA89B42213F27F0043E8EB /* BTBtnAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBtnAutoLayout.m; sourceTree = "<group>"; };
 		0CFA89B52213F27F0043E8EB /* BTLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLineView.h; sourceTree = "<group>"; };
@@ -84,6 +90,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2C21952215007600BD952A /* login */ = {
+			isa = PBXGroup;
+			children = (
+				0C2C21902215001200BD952A /* LoginViewController.h */,
+				0C2C21912215001200BD952A /* LoginViewController.m */,
+				0C2C21922215001200BD952A /* LoginViewController.xib */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
 		0CFA89742213F26D0043E8EB = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +119,7 @@
 		0CFA897F2213F26D0043E8EB /* BTHelpExample */ = {
 			isa = PBXGroup;
 			children = (
+				0C2C21952215007600BD952A /* login */,
 				0CFA89962213F27F0043E8EB /* Classes */,
 				0CFA89802213F26D0043E8EB /* AppDelegate.h */,
 				0CFA89812213F26D0043E8EB /* AppDelegate.m */,
@@ -139,6 +156,7 @@
 				0CFA89B62213F27F0043E8EB /* BTUtils.h */,
 				0CFA89A22213F27F0043E8EB /* BTButton.h */,
 				0CFA89B72213F27F0043E8EB /* BTButton.m */,
+				0C2C218F2214FF3300BD952A /* BTHelp.h */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -158,12 +176,12 @@
 		0CFA89A32213F27F0043E8EB /* BaseJsonModel */ = {
 			isa = PBXGroup;
 			children = (
-				0CFA89A42213F27F0043E8EB /* BaseModelProperty.h */,
-				0CFA89A52213F27F0043E8EB /* BaseModelAnalisys.h */,
-				0CFA89A62213F27F0043E8EB /* BaseModel.m */,
-				0CFA89A72213F27F0043E8EB /* BaseModelAnalisys.m */,
-				0CFA89A82213F27F0043E8EB /* BaseModelProperty.m */,
-				0CFA89A92213F27F0043E8EB /* BaseModel.h */,
+				0CFA89A42213F27F0043E8EB /* BTModelProperty.h */,
+				0CFA89A82213F27F0043E8EB /* BTModelProperty.m */,
+				0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */,
+				0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */,
+				0CFA89A92213F27F0043E8EB /* BTModel.h */,
+				0CFA89A62213F27F0043E8EB /* BTModel.m */,
 			);
 			path = BaseJsonModel;
 			sourceTree = "<group>";
@@ -171,10 +189,10 @@
 		0CFA89AE2213F27F0043E8EB /* account */ = {
 			isa = PBXGroup;
 			children = (
-				0CFA89AF2213F27F0043E8EB /* AccountMananger.h */,
-				0CFA89B02213F27F0043E8EB /* AccountModel.h */,
-				0CFA89B12213F27F0043E8EB /* AccountMananger.m */,
-				0CFA89B22213F27F0043E8EB /* AccountModel.m */,
+				0CFA89AF2213F27F0043E8EB /* BTUserMananger.h */,
+				0CFA89B12213F27F0043E8EB /* BTUserMananger.m */,
+				0CFA89B02213F27F0043E8EB /* BTUserModel.h */,
+				0CFA89B22213F27F0043E8EB /* BTUserModel.m */,
 			);
 			path = account;
 			sourceTree = "<group>";
@@ -236,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2C21942215001200BD952A /* LoginViewController.xib in Resources */,
 				0CFA898D2213F26E0043E8EB /* LaunchScreen.storyboard in Resources */,
 				0CFA898A2213F26E0043E8EB /* Assets.xcassets in Resources */,
 				0CFA89882213F26D0043E8EB /* Main.storyboard in Resources */,
@@ -249,12 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CFA89BE2213F27F0043E8EB /* BaseModelAnalisys.m in Sources */,
-				0CFA89BD2213F27F0043E8EB /* BaseModel.m in Sources */,
+				0CFA89BE2213F27F0043E8EB /* BTModelAnalisys.m in Sources */,
+				0CFA89BD2213F27F0043E8EB /* BTModel.m in Sources */,
 				0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */,
-				0CFA89BF2213F27F0043E8EB /* BaseModelProperty.m in Sources */,
+				0CFA89BF2213F27F0043E8EB /* BTModelProperty.m in Sources */,
 				0CFA89C52213F27F0043E8EB /* BTBtnAutoLayout.m in Sources */,
-				0CFA89C22213F27F0043E8EB /* AccountMananger.m in Sources */,
+				0CFA89C22213F27F0043E8EB /* BTUserMananger.m in Sources */,
 				0CFA89BC2213F27F0043E8EB /* BTLineView.m in Sources */,
 				0CFA89C62213F27F0043E8EB /* BTButton.m in Sources */,
 				0CFA89B82213F27F0043E8EB /* BTTimerHelp.m in Sources */,
@@ -264,7 +283,8 @@
 				0CFA89C02213F27F0043E8EB /* BTUtils.m in Sources */,
 				0CFA89852213F26D0043E8EB /* ViewController.m in Sources */,
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
-				0CFA89C32213F27F0043E8EB /* AccountModel.m in Sources */,
+				0C2C21932215001200BD952A /* LoginViewController.m in Sources */,
+				0CFA89C32213F27F0043E8EB /* BTUserModel.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,
 				0CFA89BB2213F27F0043E8EB /* UIImage+BTImage.m in Sources */,
 			);

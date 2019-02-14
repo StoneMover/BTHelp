@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 StoneMover. All rights reserved.
 //
 
-#import "AccountMananger.h"
+#import "BTUserMananger.h"
 //#import "LoginViewController.h"
 
 //指针和内容都不允许改变,如果写成 const NSString * str的形式,则只表示指针不可修改
@@ -21,13 +21,13 @@ NSString * const KEY_USER_INFO=@"KEY_USER_INFO";
 NSString * const KEY_IS_NO_WIFI_DOWNLOAD=@"KEY_IS_NO_WIFI_DOWNLOAD";
 
 
-static AccountMananger*mananger=nil;
+static BTUserMananger*mananger=nil;
 
 NSUserDefaults * defaults;
 
 
 
-@implementation AccountMananger
+@implementation BTUserMananger
 
 
 -(instancetype)init{
@@ -42,15 +42,15 @@ NSUserDefaults * defaults;
     self.accountCache=[defaults objectForKey:KEY_ACCOUNT_CACHE];
     self.isAutoLogin=[defaults boolForKey:KEY_AUTO_LOGIN];
     self.isRemerberPwd=[defaults boolForKey:KEY_REMERBER_PWD];
-    self.model=[AccountModel modelWithDict:[defaults dictionaryForKey:KEY_USER_INFO]];
+    self.model=[BTUserModel modelWithDict:[defaults dictionaryForKey:KEY_USER_INFO]];
     self.isNeedUpdateInfoView=YES;
     return self;
 }
 
 
-+(AccountMananger*)share{
++(BTUserMananger*)share{
     if (mananger==nil) {
-        mananger=[[AccountMananger alloc] init];
+        mananger=[[BTUserMananger alloc] init];
     }
     return mananger;
 }
@@ -89,7 +89,7 @@ NSUserDefaults * defaults;
     
     NSDictionary * dic=[[NSDictionary alloc]init];
     [defaults setObject:dic forKey:KEY_USER_INFO];
-    self.model=[AccountModel modelWithDict:dic];
+    self.model=[BTUserModel modelWithDict:dic];
 }
 
 -(BOOL)isLogin{
@@ -99,12 +99,16 @@ NSUserDefaults * defaults;
     return NO;
 }
 
-- (BOOL)isLoginPush:(UINavigationController*)nav{
+
+- (BOOL)isLoginPush:(UIViewController*)rootVc{
     BOOL islogin=[self isLogin];
-//    if (!islogin) {
-//        LoginViewController * vc=[LoginViewController new];
-//        [nav pushViewController:vc animated:YES];
-//    }
+    if (self.loginVcName) {
+        Class cls = NSClassFromString(self.loginVcName);
+        UIViewController *vc = [[cls alloc] init];
+        if ([vc isKindOfClass:[UIViewController class]]) {
+            [rootVc.navigationController pushViewController:vc animated:YES];
+        }
+    }
     return islogin;
 }
 

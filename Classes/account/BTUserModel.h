@@ -6,9 +6,9 @@
 //  Copyright © 2017年 StoneMover. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "BTModel.h"
 
-@interface AccountModel : BaseModel
+@interface BTUserModel : BTModel
 
 @property(nonatomic,strong) NSString * userName;//用户名
 

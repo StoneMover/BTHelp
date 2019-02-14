@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger,BaseModelType) {
     BaseModelTypeBase
 };
 
-@interface BaseModelProperty : NSObject
+@interface BTModelProperty : NSObject
 
 @property(nonatomic,strong) NSString * propertyName;
 

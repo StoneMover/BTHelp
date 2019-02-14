@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BaseModel : NSObject
+@interface BTModel : NSObject
 
 +(instancetype)modelWithDict:(NSDictionary*)dict;
 
