@@ -94,6 +94,23 @@
 - (CGFloat)corner{
     return self.layer.cornerRadius;
 }
+    
+- (void)setBorderColor:(UIColor *)borderColor{
+    self.layer.borderColor=borderColor.CGColor;
+}
+    
+- (UIColor*)borderColor{
+    //不知道怎么用CGColor转Color
+    return [UIColor whiteColor];
+}
+    
+- (void)setBorderWidth:(CGFloat)borderWidth{
+    self.layer.borderWidth=borderWidth;
+}
+    
+- (CGFloat)borderWidth{
+    return self.layer.borderWidth;
+}
 
 - (void)setCorner:(CGFloat)corner borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor{
     self.layer.cornerRadius=corner;
@@ -102,6 +119,38 @@
     self.clipsToBounds=YES;
 }
 
+- (void)setCornerRadiusBottom:(CGFloat)corner{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(corner, corner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+    
+- (void)setCornerRadiusTop:(CGFloat)corner{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(corner, corner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+    
+- (void)setCornerRadiusLeft:(CGFloat)corner{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(corner, corner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+    
+- (void)setCornerRadiusRight:(CGFloat)corner{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerTopRight | UIRectCornerTopLeft cornerRadii:CGSizeMake(corner, corner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+    
 - (void)removeChild:(UIView*)childView{
     if (!childView) {
         return;
@@ -130,10 +179,18 @@
 }
 
 - (void)setDefaultShade{
-    self.layer.shadowOpacity=.35;
-    self.layer.shadowColor=[UIColor blackColor].CGColor;
-    self.layer.shadowRadius=6;
-    self.layer.shadowOffset=CGSizeZero;
+    [self setShade:.35 color:[UIColor blackColor] radius:6 offset:CGSizeZero];
+}
+    
+- (void)setShade:(CGFloat)opacity radius:(CGFloat)radius{
+    [self setShade:opacity color:[UIColor blackColor] radius:radius offset:CGSizeZero];
+}
+    
+- (void)setShade:(CGFloat)opacity color:(UIColor*)color radius:(CGFloat)radius offset:(CGSize)size{
+    self.layer.shadowOpacity=opacity;
+    self.layer.shadowColor=color.CGColor;
+    self.layer.shadowRadius=radius;
+    self.layer.shadowOffset=size;
 }
 
 

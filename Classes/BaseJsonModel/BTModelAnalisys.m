@@ -36,6 +36,9 @@
                 case BaseModelTypeBool:
                 {
                     id result=[dict objectForKey:dictKey];
+                    if ([result class]==[NSNull class]){
+                        result=@"";
+                    }
                     [model setValue:result forKey:key.propertyName];
                     break;
                 }
@@ -152,6 +155,10 @@
 
 - (NSArray*)propertyKeys:(BTModel*)baseModel isAnalisys:(BOOL)isAnalisys
 {
+    if (![baseModel isKindOfClass:[BTModel class]]) {
+        [self LogError:@"data is not kind of BaseModel"];
+        return @[];
+    }
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList([baseModel class], &outCount);
     NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity:outCount];

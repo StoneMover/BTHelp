@@ -147,14 +147,6 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)MD5:(NSString*)str;
 
 
-#pragma mark 设置一边圆角的方法
-+(void)setCornerRadiusBottom:(UIView*)view withCorner:(CGFloat)corner;
-
-+(void)setCornerRadiusTop:(UIView*)view withCorner:(CGFloat)corner;
-
-+(void)setCornerRadiusLeft:(UIView*)view withCorner:(CGFloat)corner;
-
-+(void)setCornerRadiusRight:(UIView*)view withCorner:(CGFloat)corner;
 
 @end
 
