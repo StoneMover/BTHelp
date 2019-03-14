@@ -13,7 +13,7 @@
 #import "BTIconHelp.h"
 #import "BTLocation.h"
 #import "BTTimerHelp.h"
-#import "UIview+BTViewTool.h"
+#import "UIView+BTViewTool.h"
 #import "UIImage+BTImage.h"
 #import "BTModel.h"
 #import "BTUserMananger.h"
