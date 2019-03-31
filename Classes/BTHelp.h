@@ -8,7 +8,7 @@
 #import "BTUtils.h"
 #import "BTButton.h"
 #import "BTPermission.h"
-#import "BTBtnAutoLayout.h"
+#import "BTKeyboardHelp.h"
 #import "BTLineView.h"
 #import "BTIconHelp.h"
 #import "BTLocation.h"
