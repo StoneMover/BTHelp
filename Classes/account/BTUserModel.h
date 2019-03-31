@@ -38,16 +38,5 @@
 
 #pragma mark 项目添加
 
-@property (nonatomic, strong) NSString * balance;
-
-@property (nonatomic, strong) NSString * gender;
-
-@property (nonatomic, strong) NSString * inviteCode;
-
-@property (nonatomic, assign) NSInteger isCloseSMS;
-
-@property (nonatomic, strong) NSString * score;
-
-@property (nonatomic, strong) NSString * unionLoginId;
 
 @end

@@ -20,8 +20,20 @@ typedef NS_ENUM(NSInteger,BTButtonStyle) {
 
 @interface BTButton : UIButton
 
-@property (nonatomic, assign) IBInspectable CGFloat  verticalValue;
-
 @property (nonatomic, assign) IBInspectable NSInteger style;
+
+@property (nonatomic, assign) IBInspectable CGFloat  margin;
+
+//-1隐藏,bageNum是在有图片的时候，根据图片的位置显示在图片的右上角
+@property (nonatomic, strong) IBInspectable NSString * bageNum;
+
+@property (nonatomic, strong) IBInspectable UIColor * bageNumColor;
+
+//bage距离默认中心的偏移量
+@property (nonatomic, assign) IBInspectable CGFloat topDistance;
+
+@property (nonatomic, assign) IBInspectable CGFloat lefDistance;
+
+@property (nonatomic, strong) UILabel * labelBage;
 
 @end

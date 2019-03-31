@@ -536,6 +536,13 @@
     return  output;
 }
 
-
++(UIViewController*)createVc:(NSString*)storyBoardName{
+    return [self createVc:storyBoardName storyBoardName:@"Main"];
+}
++(UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:name bundle:[NSBundle mainBundle]];
+    UIViewController *vc = [story instantiateViewControllerWithIdentifier:storyBoardId];
+    return vc;
+}
 
 @end

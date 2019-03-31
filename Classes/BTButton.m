@@ -7,16 +7,34 @@
 //
 
 #import "BTButton.h"
+#import "UIView+BTViewTool.h"
+#import "BTMacro.h"
 
 @implementation BTButton
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    [self initSelf];
 }
-*/
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    self=[super initWithFrame:frame];
+    [self initSelf];
+    return self;
+}
+
+- (void)initSelf{
+    self.labelBage=[[UILabel alloc] init];
+    self.labelBage.textAlignment=NSTextAlignmentCenter;
+    self.labelBage.font=[UIFont systemFontOfSize:8 weight:UIFontWeightSemibold];
+    self.labelBage.layer.cornerRadius=6;
+    self.labelBage.clipsToBounds=YES;
+    self.labelBage.textColor=[UIColor whiteColor];
+    self.labelBage.backgroundColor=BT_RGB(247, 89, 89);
+    [self addSubview:self.labelBage];
+}
+
+
 
 -(void)layoutSubviews {
     [super layoutSubviews];
@@ -26,13 +44,15 @@
             // Center image
             CGPoint center = self.imageView.center;
             center.x = self.frame.size.width/2;
-            center.y = self.imageView.frame.size.height/2;
+            center.y = self.frame.size.height/2-(self.imageView.frame.size.height+self.titleLabel.frame.size.height+self.margin)/2+self.imageView.frame.size.height/2;
+
             self.imageView.center = center;
             
             //Center text
             CGRect newFrame = [self titleLabel].frame;
             newFrame.origin.x = 0;
-            newFrame.origin.y = self.imageView.frame.size.height + self.verticalValue;
+            newFrame.origin.y = self.imageView.frame.size.height + self.margin+self.imageView.frame.origin.y;
+
             newFrame.size.width = self.frame.size.width;
             
             self.titleLabel.frame = newFrame;
@@ -41,22 +61,48 @@
             break;
         case BTButtonStyleHoz:
         {
-            self.titleLabel.frame=CGRectMake(0, self.frame.size.height/2-self.titleLabel.frame.size.height/2, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
-            self.imageView.frame=CGRectMake(self.titleLabel.frame.size.width+self.verticalValue, self.frame.size.height/2-self.imageView.frame.size.height/2, self.imageView.frame.size.width, self.imageView.frame.size.height);
+            CGFloat startX=self.frame.size.width/2-(self.titleLabel.frame.size.width+self.margin+self.imageView.frame.size.width)/2;
+            
+            self.titleLabel.frame=CGRectMake(startX, self.frame.size.height/2-self.titleLabel.frame.size.height/2, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+            self.imageView.frame=CGRectMake(self.titleLabel.frame.size.width+self.titleLabel.frame.origin.x+self.margin, self.frame.size.height/2-self.imageView.frame.size.height/2, self.imageView.frame.size.width, self.imageView.frame.size.height);
             
         }
             break;
     }
     
+    if (!self.bageNum) {
+        self.labelBage.hidden=YES;
+    }else{
+        self.labelBage.hidden=NO;
+        self.labelBage.text=self.bageNum;
+        [self.labelBage sizeToFit];
+        self.labelBage.height=12;
+        if (self.labelBage.width+4<16) {
+            self.labelBage.width=16;
+        }else{
+            self.labelBage.width+=4;
+        }
+        
+        self.labelBage.center=CGPointMake(self.imageView.right+self.lefDistance, self.imageView.top+self.topDistance);
+    }
+    
+    
+    
 }
 
--(void)setVerticalValue:(CGFloat)verticalValue{
-    _verticalValue=verticalValue;
+-(void)setMargin:(CGFloat)margin{
+    _margin=margin;
     [self setNeedsDisplay];
 }
 
 - (void)setStyle:(NSInteger)style{
     _style=style;
+    [self setNeedsDisplay];
+}
+
+- (void)setBageNum:(NSString *)bageNum{
+    _bageNum=bageNum;
+    self.labelBage.text=self.bageNum;
     [self setNeedsDisplay];
 }
 

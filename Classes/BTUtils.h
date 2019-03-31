@@ -146,6 +146,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)base64Encode:(NSString*)str;
 +(NSString*)MD5:(NSString*)str;
 
+#pragma mark storyboard
+
++(UIViewController*)createVc:(NSString*)storyBoardName;
++(UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name;
 
 
 @end

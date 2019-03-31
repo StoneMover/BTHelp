@@ -1,8 +1,8 @@
 //
-//  LoginViewController.h
+//  BTBtnViewController.h
 //  BTHelpExample
 //
-//  Created by Motion Code on 2019/2/14.
+//  Created by stonemover on 2019/3/31.
 //  Copyright © 2019 stonemover. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginViewController : UIViewController
+@interface BTBtnViewController : UIViewController
 
 @end
 

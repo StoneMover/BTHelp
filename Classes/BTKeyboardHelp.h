@@ -12,13 +12,13 @@
 @protocol BTBtnAutoLayoutDelegate<NSObject>
 
 @optional
--(void)BTBtnAutoLayoutKeyBoardWillShow;
--(void)BTBtnAutoLayoutKeyBoardWillHide;
--(void)BTBtnAutoLayoutKeyBoardMove:(int)moveY;
+-(void)BTKeyBoardWillShow:(CGFloat)keyboardH;
+-(void)BTBKeyBoardWillHide;
+-(void)BTKeyBoardMove:(CGFloat)moveY;
 
 @end
 
-@interface BTBtnAutoLayout : NSObject
+@interface BTKeyboardHelp : NSObject
 
 
 -(instancetype)initWithDisPlayView:(UIView*)displayView;

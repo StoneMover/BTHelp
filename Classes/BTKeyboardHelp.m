@@ -6,9 +6,9 @@
 //  Copyright © 2015年 StoneMover. All rights reserved.
 //
 
-#import "BTBtnAutoLayout.h"
+#import "BTKeyboardHelp.h"
 
-@interface BTBtnAutoLayout()
+@interface BTKeyboardHelp()
 
 
 @property(nonatomic,assign)int windowOriY;//需要不被键盘遮挡的view在屏幕上的Y坐标
@@ -23,7 +23,7 @@
 @end
 
 
-@implementation BTBtnAutoLayout
+@implementation BTKeyboardHelp
 
 
 -(instancetype)initWithDisPlayView:(UIView*)displayView{
@@ -55,11 +55,11 @@
 }
 
 //当键盘消失的时候调用
-- (void)keyboardWillHide:(NSNotification *)notif {
+- (void)keyboardWillHide:(NSNotification *)not{
     _isKeyBoardOpen=NO;
     self.window.frame = CGRectMake(self.window.frame.origin.x,self.windowOriY, self.window.frame.size.width, self.window.frame.size.height);
-    if(self.delegate&&[self.delegate respondsToSelector:@selector(BTBtnAutoLayoutKeyBoardWillHide)]){
-        [self.delegate BTBtnAutoLayoutKeyBoardWillHide];
+    if(self.delegate&&[self.delegate respondsToSelector:@selector(BTBKeyBoardWillHide)]){
+        [self.delegate BTBKeyBoardWillHide];
     }
     self.resutlY=0;
 }
@@ -87,12 +87,12 @@
         _isKeyBoardOpen=YES;
     }
     
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTBtnAutoLayoutKeyBoardWillShow)]) {
-        [self.delegate BTBtnAutoLayoutKeyBoardWillShow];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTKeyBoardWillShow:)]) {
+        [self.delegate BTKeyBoardWillShow:keyboardHeight];
     }
     self.resutlY=result;
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTBtnAutoLayoutKeyBoardMove:)]) {
-        [self.delegate BTBtnAutoLayoutKeyBoardMove:result];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTKeyBoardMove:)]) {
+        [self.delegate BTKeyBoardMove:result];
     }
     
 }
