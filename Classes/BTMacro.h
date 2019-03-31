@@ -8,7 +8,7 @@
 
 #define BT_STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
 
-#define BT_HOME_INDICATOR_HEIGHT (UI_IS_IPHONEX ? 34.f : 0.f)
+#define BT_HOME_INDICATOR_HEIGHT (BT_UI_IS_IPHONEX ? 34.f : 0.f)
 
 #define BT_HOME_INDICATOR_HEIGHT_SMALL (BT_UI_IS_IPHONEX ? 14.f : 0.f)
 
