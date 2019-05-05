@@ -84,7 +84,6 @@
 		9BACA62B224BA24100EF00A8 /* BTTextInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextInputView.h; sourceTree = "<group>"; };
 		9BACA62C224BA24100EF00A8 /* BTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextView.h; sourceTree = "<group>"; };
 		9BACA62D224BA24100EF00A8 /* BTTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextInputView.m; sourceTree = "<group>"; };
-		9BACA630224BA31F00EF00A8 /* BTMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +154,6 @@
 				0CFA89AA2213F27F0043E8EB /* BTUtils.m */,
 				9BACA627224BA23600EF00A8 /* BTButton.h */,
 				9BACA626224BA23600EF00A8 /* BTButton.m */,
-				9BACA630224BA31F00EF00A8 /* BTMacro.h */,
 				0C2C218F2214FF3300BD952A /* BTHelp.h */,
 			);
 			name = Classes;

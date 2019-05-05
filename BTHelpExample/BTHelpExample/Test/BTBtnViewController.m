@@ -8,7 +8,7 @@
 
 #import "BTBtnViewController.h"
 #import "BTTextInputView.h"
-#import "BTMacro.h"
+#import "BTUtils.h"
 
 @interface BTBtnViewController ()
 
@@ -37,7 +37,7 @@
         self.inputView=[[BTTextInputView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
     
-    [self.inputView show:BT_APP_WINDOW];
+    [self.inputView show:BTUtils.APP_WINDOW];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
