@@ -42,7 +42,7 @@
                     [model setValue:result forKey:key.propertyName];
                     break;
                 }
-
+                    
                 case BaseModelTypeArray:
                 case BaseModelTypeMutableArray:
                 {
@@ -79,7 +79,7 @@
                     }
                     break;
                 }
-
+                    
                 case BaseModelTypeBase:{
                     NSDictionary * dictChild=[dict objectForKey:dictKey];
                     if (![dictChild isKindOfClass:[NSDictionary class]]) {
@@ -99,7 +99,7 @@
                     [model setValue:modelChild forKey:key.propertyName];
                     break;
                 }
-   
+                    
                 default:
                     break;
             }
@@ -159,22 +159,41 @@
         [self LogError:@"data is not kind of BaseModel"];
         return @[];
     }
+    
+    NSMutableArray * array =[NSMutableArray new];
+    [array addObjectsFromArray:[self propertyKey:[baseModel class] aliasDict:baseModel.aliasDict ignoreAnalisysField:baseModel.ignoreAnalisysField ignoreUnAnalisysField:baseModel.ignoreUnAnalisysField isAnalisys:isAnalisys]];
+    
+    Class claSuper =[baseModel superclass];
+    while (claSuper !=[BTModel class]) {
+        [array addObjectsFromArray:[self propertyKey:claSuper aliasDict:baseModel.aliasDict ignoreAnalisysField:baseModel.ignoreAnalisysField ignoreUnAnalisysField:baseModel.ignoreUnAnalisysField isAnalisys:isAnalisys]];
+        claSuper=[claSuper superclass];
+    }
+    
+    return array;
+}
+
+- (NSArray*)propertyKey:(Class)cla
+              aliasDict:(NSDictionary*)aliasDict
+    ignoreAnalisysField:(NSSet*)ignoreAnalisysField
+  ignoreUnAnalisysField:(NSSet*)ignoreUnAnalisysField
+             isAnalisys:(BOOL)isAnalisys
+{
     unsigned int outCount, i;
-    objc_property_t *properties = class_copyPropertyList([baseModel class], &outCount);
+    objc_property_t *properties = class_copyPropertyList(cla, &outCount);
     NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity:outCount];
-    NSSet * aliasKeys=[[NSSet alloc]initWithArray:baseModel.aliasDict.allKeys];
+    NSSet * aliasKeys=[[NSSet alloc]initWithArray:aliasDict.allKeys];
     for (i = 0; i < outCount; i++) {
         objc_property_t property = properties[i];
         NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
         //如果有配置别名信息,则取出别名赋值
         NSString * aliasName=propertyName;
         if ([aliasKeys containsObject:propertyName]) {
-            aliasName=[baseModel.aliasDict objectForKey:propertyName];
+            aliasName=[aliasDict objectForKey:propertyName];
         }
         
         //如果不是被忽略的解析字段则加入解析数组中
         if (isAnalisys) {
-            if (![baseModel.ignoreAnalisysField containsObject:propertyName]) {
+            if (![ignoreAnalisysField containsObject:propertyName]) {
                 NSString * propertyType=[[NSString alloc]initWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
                 BTModelProperty * model=[[BTModelProperty alloc]init];
                 model.propertyName=propertyName;
@@ -183,7 +202,7 @@
                 [keys addObject:model];
             }
         }else{
-            if (![baseModel.ignoreUnAnalisysField containsObject:propertyName]) {
+            if (![ignoreUnAnalisysField containsObject:propertyName]) {
                 NSString * propertyType=[[NSString alloc]initWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
                 BTModelProperty * model=[[BTModelProperty alloc]init];
                 model.propertyName=propertyName;

@@ -18,26 +18,39 @@
 
 @property(nonatomic,assign)int resutlY;//计算出需要移动的距离
 
-@property (nonatomic, weak) UIWindow *window;//程序的window窗口
+//将要移动的rootView,当键盘收起的时候会将其返回到0点的位置
+@property (nonatomic, weak) UIView * moveView;
 
 @end
 
 
 @implementation BTKeyboardHelp
 
-
--(instancetype)initWithDisPlayView:(UIView*)displayView{
-    return [self initWithDisPlayView:displayView withMargin:5];
-}
-
--(instancetype)initWithDisPlayView:(UIView*)displayView withMargin:(int)margin{
+- (instancetype)initWithShowView:(UIView*)showView moveView:(UIView*)moveView margin:(NSInteger)margin{
     self=[super init];
-    self.window=[[[UIApplication sharedApplication] delegate] window];
+    self.moveView=moveView;
+    if (!self.moveView) {
+        self.moveView=[[[UIApplication sharedApplication] delegate] window];
+    }
     [self addKeyBoardNofication];
-    [self replaceDisplayView:displayView withDistance:margin];
+    [self replaceDisplayView:showView withDistance:margin];
     return self;
-
 }
+
+- (instancetype)initWithShowView:(UIView*)showView moveView:(UIView*)moveView{
+    return [self initWithShowView:showView moveView:moveView margin:0];
+}
+
+- (instancetype)initWithShowView:(UIView*)showView{
+    return [self initWithShowView:showView moveView:nil margin:0];
+}
+
+- (instancetype)initWithShowView:(UIView*)showView margin:(NSInteger)margin{
+    return [self initWithShowView:showView moveView:nil margin:margin];
+}
+
+
+
 
 
 //添加键盘监听通知
@@ -57,7 +70,7 @@
 //当键盘消失的时候调用
 - (void)keyboardWillHide:(NSNotification *)not{
     _isKeyBoardOpen=NO;
-    self.window.frame = CGRectMake(self.window.frame.origin.x,self.windowOriY, self.window.frame.size.width, self.window.frame.size.height);
+    self.moveView.frame = CGRectMake(self.moveView.frame.origin.x,0, self.moveView.frame.size.width, self.moveView.frame.size.height);
     if(self.delegate&&[self.delegate respondsToSelector:@selector(keyBoardWillHide)]){
         [self.delegate keyBoardWillHide];
     }
@@ -76,14 +89,18 @@
     NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [aValue CGRectValue];
     int keyboardHeight = keyboardRect.size.height;
-    int keyboardY=self.window.frame.size.height-keyboardHeight;
+    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+    int keyboardY=window.frame.size.height-keyboardHeight;
     
     //计算需要移动的距离,键盘针对屏幕的y坐标如果大于需要显示view的y+height说明不会被遮挡则不需要移动,否则则需要将view的y坐标减去result的值保证不被遮挡
     int result=keyboardY-self.viewDisplay.frame.size.height-self.viewDisplayScreenY;
     if (result<0){
         int newY=self.windowOriY+result;
-        UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
-        window.frame = CGRectMake(0, newY, window.frame.size.width, window.frame.size.height);
+        
+        if (self.moveView==nil) {
+            self.moveView=window;
+        }
+        self.moveView.frame = CGRectMake(0, newY, self.moveView.frame.size.width, self.moveView.frame.size.height);
         _isKeyBoardOpen=YES;
     }
     
@@ -102,11 +119,11 @@
 }
 
 
--(void)replaceDisplayView:(UIView*)displayView withDistance:(int)distance{
+-(void)replaceDisplayView:(UIView*)displayView withDistance:(NSInteger)distance{
     self.viewDisplay=displayView;
-    self.windowOriY=self.window.frame.origin.y;
+    self.windowOriY=self.moveView.frame.origin.y;
     //将移动view的坐标转换为屏幕坐标
-    self.viewDisplayScreenY=[self.viewDisplay convertRect: self.viewDisplay.bounds toView:self.window].origin.y+distance;
+    self.viewDisplayScreenY=[self.viewDisplay convertRect: self.viewDisplay.bounds toView:self.moveView].origin.y+distance;
     
 }
 

@@ -27,12 +27,25 @@ typedef void(^BTIconBlock)(UIImage*image);
 
 @property (nonatomic, copy) BTIconBlock block;
 
+//标题文字
 @property (nonatomic, strong) NSString * actionTitle;
+
+//相机文字,不设置会有默认文字替代
+@property (nonatomic, strong) NSString * cameraTitle;
+
+//相册文字，不设置会有默认文字替代
+@property (nonatomic, strong) NSString * photoAlbumTitle;
 
 //图片的最大长宽,为0不限制
 @property (nonatomic, assign) CGFloat imgSize;
 
 //是否需要长宽相等,在isClip=YES的时候,系统返回的才将可能不是正方形,如果为YES则会裁剪出中间的正方形部分
 @property (nonatomic, assign) BOOL isNeedWidthEqualsHeight;
+
+//取消按钮文字颜色
+@property (nonatomic, strong) UIColor * cancelActionTitleColor;
+
+//其它按钮文字颜色
+@property (nonatomic, strong) UIColor * otherActionTitleColor;
 
 @end

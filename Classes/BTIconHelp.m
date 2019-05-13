@@ -37,13 +37,22 @@
         
     }];
     
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"相机" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:self.cameraTitle?self.cameraTitle:@"相机" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         [weakSelf actionClick:0];
     }];
     
-    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"相册" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:self.photoAlbumTitle?self.photoAlbumTitle:@"相册" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         [weakSelf actionClick:1];
     }];
+    
+    if (self.cancelActionTitleColor) {
+        [cancelAction setValue:self.cancelActionTitleColor forKey:@"titleTextColor"];
+    }
+    
+    if (self.otherActionTitleColor) {
+        [cameraAction setValue:self.otherActionTitleColor forKey:@"titleTextColor"];
+        [photoAction setValue:self.otherActionTitleColor forKey:@"titleTextColor"];
+    }
     
     [alertController addAction:cameraAction];
     [alertController addAction:photoAction];
@@ -89,7 +98,7 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info{
-    UIImage * aImage=info[UIImagePickerControllerOriginalImage];
+    UIImage * aImage=self.isClip?info[UIImagePickerControllerEditedImage]:info[UIImagePickerControllerOriginalImage];
     [picker dismissViewControllerAnimated:YES completion:^(void){
         UIImage * imgResult=nil;
         if (self.isClip&&aImage.size.width!=aImage.size.height) {

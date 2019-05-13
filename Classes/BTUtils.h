@@ -204,7 +204,19 @@
 
 +(UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name;
 
+#pragma mark 渐变创建
++(CAGradientLayer*)createGradient:(CGSize)size
+                            start:(CGPoint)start
+                              end:(CGPoint)end
+                           colors:(NSArray*)colors;
 
+//水平方向渐变
++(CAGradientLayer*)createGradientHoz:(CGSize)size
+                              colors:(NSArray*)colors;
+
+//垂直方向渐变
++(CAGradientLayer*)createGradientVer:(CGSize)size
+                              colors:(NSArray*)colors;
 
 @end
 

@@ -685,4 +685,37 @@
     return vc;
 }
 
+
++(CAGradientLayer*)createGradient:(CGSize)size
+                            start:(CGPoint)start
+                              end:(CGPoint)end
+                           colors:(NSArray*)colors{
+    CAGradientLayer *gl = [CAGradientLayer layer];
+    gl.frame = CGRectMake(0, 0, size.width, size.height);
+    gl.startPoint=start;
+    gl.endPoint=end;
+    NSMutableArray * array=[NSMutableArray new];
+    
+    for (int i=0;i<colors.count;i++) {
+        UIColor * color =colors[i];
+        [array addObject:(id)color.CGColor];
+    }
+    
+    gl.colors=array;
+    
+    return gl;
+}
+
+//水平方向渐变
++(CAGradientLayer*)createGradientHoz:(CGSize)size
+                              colors:(NSArray*)colors{
+    return [self createGradient:size start:CGPointMake(0, .5) end:CGPointMake(1, .5) colors:colors];
+}
+
+//垂直方向渐变
++(CAGradientLayer*)createGradientVer:(CGSize)size
+                              colors:(NSArray*)colors{
+    return [self createGradient:size start:CGPointMake(.5, 0) end:CGPointMake(.5, 1) colors:colors];
+}
+
 @end

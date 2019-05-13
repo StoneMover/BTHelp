@@ -13,7 +13,9 @@
 
 @optional
 -(void)keyBoardWillShow:(CGFloat)keyboardH;
+
 -(void)keyBoardWillHide;
+
 -(void)keyBoardMove:(CGFloat)moveY;
 
 @end
@@ -21,9 +23,13 @@
 @interface BTKeyboardHelp : NSObject
 
 
--(instancetype)initWithDisPlayView:(UIView*)displayView;
+- (instancetype)initWithShowView:(UIView*)showView moveView:(UIView*)moveView margin:(NSInteger)margin;
 
--(instancetype)initWithDisPlayView:(UIView*)displayView withMargin:(int)margin;
+- (instancetype)initWithShowView:(UIView*)showView moveView:(UIView*)moveView;
+
+- (instancetype)initWithShowView:(UIView*)showView;
+
+- (instancetype)initWithShowView:(UIView*)showView margin:(NSInteger)margin;
 
 @property(nonatomic,assign,readonly)BOOL isKeyBoardOpen;
 
@@ -32,6 +38,8 @@
 //在界面消失的时候设置为YES,出现的时候设置为NO,以免影响其它界面的弹出
 @property (nonatomic, assign) BOOL isPause;
 
--(void)replaceDisplayView:(UIView*)displayView withDistance:(int)distance;
+-(void)replaceDisplayView:(UIView*)displayView withDistance:(NSInteger)distance;
+
+
 
 @end

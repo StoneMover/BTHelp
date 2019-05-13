@@ -12,10 +12,6 @@
 
 -(void)initSelf{
     [super initSelf];
-    self.aliasDict=@{@"userId":@"id",
-                     @"userNickName":@"nick",
-                     @"userMobilePhone":@"phone",
-                     @"userIconUrl":@"avatar"};
 }
 
 @end
