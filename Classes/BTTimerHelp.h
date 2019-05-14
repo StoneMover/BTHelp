@@ -7,31 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class BTTimerHelp;
 @protocol BTTimerHelpDelegate <NSObject>
 
 @required
--(void)BTTimeChanged:(BTTimerHelp*)smTimerHelp;
+-(void)BTTimeChanged:(BTTimerHelp*)timer;
 
 @end
 
-typedef void(^SMTimerChnagedBlock)(void);
+typedef void(^BTTimerChangeBlock)(void);
 
 @interface BTTimerHelp : NSObject
+
+//间隔时间,必须设置,且只能设置一次
+@property(nonatomic,assign)CGFloat changeTime;
+
+//计时器目前跑的总的时间
+@property(nonatomic,assign,readonly)CGFloat totalTime;
 
 
 @property(nonatomic,weak)id<BTTimerHelpDelegate> delegate;
 
-@property(nonatomic,assign)float changeTime;//间隔时间,必须设置,且只能设置一次
-
-@property(nonatomic,strong,readonly)NSTimer * timer;//
-
-@property(nonatomic,assign,readonly)BOOL isStart;//是否已经开始
-
-@property(nonatomic,assign,readonly)int totalTime;//计时器目前跑的总的时间
-
-@property (nonatomic, copy) SMTimerChnagedBlock block;//时间变化后的block回调
+//时间变化后的block回调
+@property (nonatomic, copy) BTTimerChangeBlock block;
 
 /**
  *  @author StoneMover, 15-12-05 17:12:39

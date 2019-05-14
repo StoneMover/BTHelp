@@ -12,13 +12,29 @@
 
 @property(nonatomic,assign)BOOL isHasFire;
 
+@property(nonatomic,strong)NSTimer * timer;
+
+//是否已经开始
+@property(nonatomic,assign,readonly)BOOL isStart;
+
+
 @end
 
 @implementation BTTimerHelp
 
--(void)setChangeTime:(float)changeTime{
+- (instancetype)initTimerWithChangeTime:(CGFloat)changeTime{
+    self=[super init];
+    self.timer=[NSTimer timerWithTimeInterval:changeTime target:self selector:@selector(timeChanged) userInfo:nil repeats:YES];
+    return self;
+}
+
+- (void)setChangeTime:(CGFloat)changeTime{
     _changeTime=changeTime;
-    _timer=[NSTimer timerWithTimeInterval:changeTime target:self selector:@selector(timeChanged) userInfo:nil repeats:YES];
+    if (self.timer) {
+        [self stop];
+        self.timer=nil;
+    }
+    self.timer=[NSTimer timerWithTimeInterval:changeTime target:self selector:@selector(timeChanged) userInfo:nil repeats:YES];
 }
 
 -(void)timeChanged{
@@ -36,7 +52,7 @@
     if (!self.isHasFire) {
         self.isHasFire=YES;
         _isStart=YES;
-        [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSRunLoopCommonModes];
     }else{
         if (_isStart) {
             return;
