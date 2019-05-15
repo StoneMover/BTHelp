@@ -16,4 +16,3 @@
 #import "UIView+BTViewTool.h"
 #import "UIImage+BTImage.h"
 #import "BTModel.h"
-#import "BTUserMananger.h"

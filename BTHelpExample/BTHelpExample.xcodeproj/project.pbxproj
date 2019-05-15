@@ -23,8 +23,6 @@
 		0CFA89BF2213F27F0043E8EB /* BTModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A82213F27F0043E8EB /* BTModelProperty.m */; };
 		0CFA89C02213F27F0043E8EB /* BTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AA2213F27F0043E8EB /* BTUtils.m */; };
 		0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */; };
-		0CFA89C22213F27F0043E8EB /* BTUserMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B12213F27F0043E8EB /* BTUserMananger.m */; };
-		0CFA89C32213F27F0043E8EB /* BTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B22213F27F0043E8EB /* BTUserModel.m */; };
 		0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B32213F27F0043E8EB /* BTPermission.m */; };
 		0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */; };
 		9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */; };
@@ -66,10 +64,6 @@
 		0CFA89AB2213F27F0043E8EB /* BTTimerHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTimerHelp.h; sourceTree = "<group>"; };
 		0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTIconHelp.m; sourceTree = "<group>"; };
 		0CFA89AD2213F27F0043E8EB /* BTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLocation.h; sourceTree = "<group>"; };
-		0CFA89AF2213F27F0043E8EB /* BTUserMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUserMananger.h; sourceTree = "<group>"; };
-		0CFA89B02213F27F0043E8EB /* BTUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUserModel.h; sourceTree = "<group>"; };
-		0CFA89B12213F27F0043E8EB /* BTUserMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUserMananger.m; sourceTree = "<group>"; };
-		0CFA89B22213F27F0043E8EB /* BTUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUserModel.m; sourceTree = "<group>"; };
 		0CFA89B32213F27F0043E8EB /* BTPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPermission.m; sourceTree = "<group>"; };
 		0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTKeyboardHelp.m; sourceTree = "<group>"; };
 		0CFA89B52213F27F0043E8EB /* BTLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLineView.h; sourceTree = "<group>"; };
@@ -135,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				9BACA629224BA24100EF00A8 /* textView */,
-				0CFA89AE2213F27F0043E8EB /* account */,
 				0CFA89A32213F27F0043E8EB /* BaseJsonModel */,
 				0CFA899A2213F27F0043E8EB /* category */,
 				0CFA89AB2213F27F0043E8EB /* BTTimerHelp.h */,
@@ -184,17 +177,6 @@
 				0CFA89A62213F27F0043E8EB /* BTModel.m */,
 			);
 			path = BaseJsonModel;
-			sourceTree = "<group>";
-		};
-		0CFA89AE2213F27F0043E8EB /* account */ = {
-			isa = PBXGroup;
-			children = (
-				0CFA89AF2213F27F0043E8EB /* BTUserMananger.h */,
-				0CFA89B12213F27F0043E8EB /* BTUserMananger.m */,
-				0CFA89B02213F27F0043E8EB /* BTUserModel.h */,
-				0CFA89B22213F27F0043E8EB /* BTUserModel.m */,
-			);
-			path = account;
 			sourceTree = "<group>";
 		};
 		9B4BFD5B2250B061009B3C65 /* Test */ = {
@@ -293,7 +275,6 @@
 				9BACA62F224BA24100EF00A8 /* BTTextInputView.m in Sources */,
 				0CFA89BF2213F27F0043E8EB /* BTModelProperty.m in Sources */,
 				0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */,
-				0CFA89C22213F27F0043E8EB /* BTUserMananger.m in Sources */,
 				0CFA89BC2213F27F0043E8EB /* BTLineView.m in Sources */,
 				0CFA89B82213F27F0043E8EB /* BTTimerHelp.m in Sources */,
 				0CFA89BA2213F27F0043E8EB /* UIView+BTViewTool.m in Sources */,
@@ -304,7 +285,6 @@
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
 				9BAAAC23226459A000ED207D /* UIView+BTConstraint.m in Sources */,
 				9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */,
-				0CFA89C32213F27F0043E8EB /* BTUserModel.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,
 				9BACA62E224BA24100EF00A8 /* BTTextView.m in Sources */,
 				0CFA89BB2213F27F0043E8EB /* UIImage+BTImage.m in Sources */,

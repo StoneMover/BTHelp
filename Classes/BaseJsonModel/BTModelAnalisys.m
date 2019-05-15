@@ -129,8 +129,13 @@
                 NSMutableArray * array=[[NSMutableArray alloc]init];
                 NSArray * arrayData=[model valueForKey:property.propertyName];
                 for (BTModel * childModel in arrayData) {
-                    NSDictionary * dictChild=[self autoDataToDictionary:childModel];
-                    [array addObject:dictChild];
+                    if ([childModel isKindOfClass:[BTModel class]]) {
+                        NSDictionary * dictChild=[self autoDataToDictionary:childModel];
+                        [array addObject:dictChild];
+                    }else{
+                        [array addObject:childModel];
+                    }
+                    
                 }
                 
                 [dict setValue:array forKey:property.aliasName];
