@@ -11,7 +11,7 @@
 
 typedef void(^BTTextInputBlock)(void);
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface BTTextInputView : UIView
 
@@ -27,4 +27,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+

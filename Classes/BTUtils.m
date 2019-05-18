@@ -718,4 +718,15 @@
     return [self createGradient:size start:CGPointMake(.5, 0) end:CGPointMake(.5, 1) colors:colors];
 }
 
+//00 - 11 渐变
++(CAGradientLayer*)createGradientInclined:(CGSize)size
+                                   colors:(NSArray*)colors{
+    return [self createGradient:size start:CGPointMake(0, 0) end:CGPointMake(1, 1) colors:colors];
+}
+//11 - 00渐变
++(CAGradientLayer*)createGradientInclinedOpposite:(CGSize)size
+                                           colors:(NSArray*)colors{
+    return [self createGradient:size start:CGPointMake(1, 1) end:CGPointMake(0, 0) colors:colors];
+}
+
 @end

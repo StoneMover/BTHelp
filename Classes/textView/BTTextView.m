@@ -26,10 +26,13 @@
     return self;
 }
 
-- (void)awakeFromNib{
-    [super awakeFromNib];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self=[super initWithCoder:aDecoder];
     [self initSelf];
+    return self;
 }
+
+
 
 - (void)initSelf{
     [self addObserver];
@@ -122,6 +125,17 @@
         self.blockContentChange();
     }
     
+}
+
+
+- (void)setLineSpeac:(NSInteger)lineSpeac{
+    _lineSpeac=lineSpeac;
+    if (self.font&&self.textColor) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = self.lineSpeac;// 字体的行间距
+        NSDictionary *attributes = @{NSFontAttributeName:self.font,NSParagraphStyleAttributeName:paragraphStyle,NSForegroundColorAttributeName:self.textColor};
+        self.typingAttributes = attributes;
+    }
 }
 
 - (void)dealloc{

@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (BTImage)
 
-+(UIImage *)imageWithColor:(UIColor *)color;
++ (UIImage*)imageWithColor:(UIColor *)color;
+
++ (UIImage*)imageOriWithName:(NSString*)imgName;
 
 @end
 

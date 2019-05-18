@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger,BTLineViewAlignment) {
     BTLineViewAlignmentRight
 };
 
-IB_DESIGNABLE
+
 
 @interface BTLineView : UIView
 

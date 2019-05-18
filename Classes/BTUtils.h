@@ -218,6 +218,15 @@
 +(CAGradientLayer*)createGradientVer:(CGSize)size
                               colors:(NSArray*)colors;
 
+
+//00 - 11 渐变
++(CAGradientLayer*)createGradientInclined:(CGSize)size
+                                   colors:(NSArray*)colors;
+
+//11 - 00渐变
++(CAGradientLayer*)createGradientInclinedOpposite:(CGSize)size
+                                           colors:(NSArray*)colors;
+
 @end
 
 

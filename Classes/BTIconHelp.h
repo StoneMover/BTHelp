@@ -48,4 +48,11 @@ typedef void(^BTIconBlock)(UIImage*image);
 //其它按钮文字颜色
 @property (nonatomic, strong) UIColor * otherActionTitleColor;
 
+
+//需要添加其它的选项内容
+@property (nonatomic, strong) NSMutableArray<UIAlertAction*> * actions;
+
+//是否添加在默认action的前面
+@property (nonatomic, assign) BOOL isAddDefaultAction;
+
 @end

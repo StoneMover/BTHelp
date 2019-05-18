@@ -23,6 +23,7 @@
 -(instancetype)init:(UIViewController*)vc{
     self=[super init];
     self.rootViewController=vc;
+    self.actions=[NSMutableArray new];
     return self;
 }
 
@@ -54,8 +55,25 @@
         [photoAction setValue:self.otherActionTitleColor forKey:@"titleTextColor"];
     }
     
+    if (self.actions&&self.isAddDefaultAction) {
+        for (UIAlertAction * a in self.actions) {
+            [alertController addAction:a];
+            if (self.otherActionTitleColor) {
+                [a setValue:self.otherActionTitleColor forKey:@"titleTextColor"];
+            }
+        }
+    }
     [alertController addAction:cameraAction];
     [alertController addAction:photoAction];
+    if (self.actions&&!self.isAddDefaultAction) {
+        for (UIAlertAction * a in self.actions) {
+            [alertController addAction:a];
+            if (self.otherActionTitleColor) {
+                [a setValue:self.otherActionTitleColor forKey:@"titleTextColor"];
+            }
+        }
+    }
+    
     [alertController addAction:cancelAction];
     
     [self.rootViewController presentViewController:alertController animated:YES completion:nil];

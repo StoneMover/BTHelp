@@ -30,4 +30,9 @@
     
 }
 
+
++ (UIImage*)imageOriWithName:(NSString*)imgName{
+    return [[UIImage imageNamed:imgName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 @end

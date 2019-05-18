@@ -12,7 +12,7 @@ typedef void(^BTTextViewMaxBlock)(void);
 typedef void(^BTTextViewHeightChangeBlock)(CGFloat height);
 typedef void(^BTTextViewTextChangeBlock)(void);
 
-IB_DESIGNABLE
+
 
 @interface BTTextView : UITextView
 
@@ -22,6 +22,7 @@ IB_DESIGNABLE
 
 @property (nonatomic, assign) IBInspectable NSInteger maxStrNum;
 
+//这个在xib中使用的时候不能这是textView的内容，不然没有效果
 @property (nonatomic, assign) IBInspectable NSInteger lineSpeac;
 
 @property (nonatomic, strong) UILabel * labelPlaceHolder;

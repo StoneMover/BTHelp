@@ -9,20 +9,29 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol BTBtnAutoLayoutDelegate<NSObject>
+@protocol BTKeyboardDelegate<NSObject>
 
 @optional
--(void)keyBoardWillShow:(CGFloat)keyboardH;
 
--(void)keyBoardWillHide;
+-(void)keyboardWillShow:(CGFloat)keyboardH;
 
--(void)keyBoardMove:(CGFloat)moveY;
+-(void)keyboardWillHide;
+
+-(void)keyboardMove:(CGFloat)moveY;
 
 @end
 
 @interface BTKeyboardHelp : NSObject
 
 
+/**
+ 初始化方法
+ 
+ @param showView 不希望被键盘遮挡的view
+ @param moveView 当键盘出现而且会遮挡住showView将会被移动的view
+ @param margin showView 与键盘的间距
+ @return BTKeyboardHelp
+ */
 - (instancetype)initWithShowView:(UIView*)showView moveView:(UIView*)moveView margin:(NSInteger)margin;
 
 - (instancetype)initWithShowView:(UIView*)showView moveView:(UIView*)moveView;
@@ -31,15 +40,22 @@
 
 - (instancetype)initWithShowView:(UIView*)showView margin:(NSInteger)margin;
 
+//键盘是否打开
 @property(nonatomic,assign,readonly)BOOL isKeyBoardOpen;
 
-@property(nonatomic,weak)id<BTBtnAutoLayoutDelegate> delegate;
+//代理
+@property(nonatomic,weak)id<BTKeyboardDelegate> delegate;
 
 //在界面消失的时候设置为YES,出现的时候设置为NO,以免影响其它界面的弹出
 @property (nonatomic, assign) BOOL isPause;
 
+//是否不自动移动view的坐标，只返回计算的值,默认YES
+@property (nonatomic, assign) BOOL isKeyboardMoveAuto;
+
+//需要抬高的view的约束,这个值不为空的时候则会以改变约束的值为标准执行
+@property (nonatomic, strong) NSLayoutConstraint * contraintTop;
+
+
 -(void)replaceDisplayView:(UIView*)displayView withDistance:(NSInteger)distance;
-
-
 
 @end
