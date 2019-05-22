@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithSubView:(UIView*)subView;
 - (instancetype)initWithSize:(CGSize)size;
+- (instancetype)initWithEqualSize:(CGFloat)size;
 
 
 #pragma mark 位置坐标相关方法
@@ -42,6 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setCenterX:(CGFloat)centerX;
 - (CGFloat)centerX;
 
+- (CGSize)size;
+- (CGPoint)origin;
+
 #pragma mark 圆角相关处理
 @property (nonatomic, assign) CGFloat corner;
     
@@ -66,6 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setShade:(CGFloat)opacity radius:(CGFloat)radius;
 - (void)setShade:(CGFloat)opacity color:(UIColor*)color radius:(CGFloat)radius offset:(CGSize)size;
 + (instancetype)loadInstanceFromNib;
+- (void)addSubViewArray:(NSArray<UIView*>*)subviews;
 @end
 
 NS_ASSUME_NONNULL_END

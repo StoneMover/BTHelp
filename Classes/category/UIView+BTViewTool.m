@@ -20,6 +20,10 @@
    return [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
 }
 
+- (instancetype)initWithEqualSize:(CGFloat)size{
+    return [self initWithFrame:CGRectMake(0, 0, size, size)];
+}
+
 
 - (void)setWidth:(CGFloat)width{
     self.frame=CGRectMake(self.left, self.top, width, self.height);
@@ -85,6 +89,13 @@
     return self.center.x;
 }
 
+- (CGSize)size{
+    return self.frame.size;
+}
+
+- (CGPoint)origin{
+    return self.frame.origin;
+}
 
 - (void)setCorner:(CGFloat)corner{
     self.layer.cornerRadius=corner;
@@ -208,6 +219,12 @@
         }
     }
     return result;
+}
+
+- (void)addSubViewArray:(NSArray<UIView*>*)subviews{
+    for (UIView * v in subviews) {
+        [self addSubview:v];
+    }
 }
 
 @end

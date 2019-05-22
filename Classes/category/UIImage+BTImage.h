@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage*)imageWithColor:(UIColor *)color;
 
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
++ (UIImage *)imageWithColor:(UIColor *)color equalSize:(CGFloat)size;
+
 + (UIImage*)imageOriWithName:(NSString*)imgName;
 
 @end
