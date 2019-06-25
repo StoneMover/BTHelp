@@ -58,12 +58,12 @@ static BTPermission * permission;
                 if (!granted){
                     [self showSysAlert:@"温馨提示"
                               messages:meg?meg:@"当前没有相机权限,是否前往设置?"
-                                btns:@[@"取消",@"确定"]
-                               block:^(NSInteger index) {
-                                   if (index==1) {
-                                       [BTUtils openSetVc];
-                                   }
-                               }];
+                                  btns:@[@"取消",@"确定"]
+                                 block:^(NSInteger index) {
+                                     if (index==1) {
+                                         [BTUtils openSetVc];
+                                     }
+                                 }];
                 }else{
                     if (block) {
                         block();
@@ -84,6 +84,10 @@ static BTPermission * permission;
                              [BTUtils openSetVc];
                          }
                      }];
+    }else{
+        if (block) {
+            block();
+        }
     }
     
 }
@@ -138,7 +142,14 @@ static BTPermission * permission;
                              [BTUtils openSetVc];
                          }
                      }];
+    }else{
+        if (block) {
+            block();
+        }
     }
+    
+    
+    
 }
 
 //请求麦克风权限
@@ -163,13 +174,13 @@ static BTPermission * permission;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!granted){
                     [self showSysAlert:@"温馨提示"
-                            messages:meg
-                                btns:@[@"取消",@"确定"]
-                               block:^(NSInteger index) {
-                                   if (index==1) {
-                                       [BTUtils openSetVc];
-                                   }
-                               }];
+                              messages:meg
+                                  btns:@[@"取消",@"确定"]
+                                 block:^(NSInteger index) {
+                                     if (index==1) {
+                                         [BTUtils openSetVc];
+                                     }
+                                 }];
                 }
             });
         }];
@@ -186,8 +197,11 @@ static BTPermission * permission;
                              [BTUtils openSetVc];
                          }
                      }];
+    }else{
+        if (block) {
+            block();
+        }
     }
-    
 }
 
 
@@ -209,9 +223,10 @@ static BTPermission * permission;
                                                        }];
         [alertController addAction:action];
     }
-    UIWindow * window=[[UIApplication sharedApplication] delegate].window;
-    [window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    //    UIWindow * window=[[UIApplication sharedApplication] delegate].window;
+    [[BTUtils getCurrentVc] presentViewController:alertController animated:YES completion:nil];
 }
+
 
 
 

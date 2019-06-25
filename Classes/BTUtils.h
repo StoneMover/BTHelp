@@ -22,6 +22,8 @@
 
 + (CGFloat)HOME_INDICATOR_HEIGHT;
 
++ (CGFloat)HOME_INDICATOR_HEIGHT_MEDIUM;
+
 + (CGFloat)HOME_INDICATOR_HEIGHT_SMALL;
 
 + (CGFloat)TAB_HEIGHT;
@@ -67,6 +69,10 @@
 + (NSURL*)URL:(NSString*)url;
 
 + (void)openSetVc;
+
++ (UIViewController*)getCurrentVc;
+
++ (UIViewController*)getCurrentVcFrom:(UIViewController *)rootVC;
 
 + (BOOL)isEmpty:(NSString*)str;
 

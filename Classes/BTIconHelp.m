@@ -15,6 +15,8 @@
 
 @property(nonatomic,strong)UIImagePickerController * photoVC;
 
+@property (nonatomic, strong) UIButton * btnCancel;
+
 @end
 
 
@@ -24,9 +26,17 @@
     self=[super init];
     self.rootViewController=vc;
     self.actions=[NSMutableArray new];
+    self.btnCancel=[[UIButton alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-80, 80, 80)];
+    self.btnCancel.backgroundColor=UIColor.clearColor;
+    [self.btnCancel addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
     return self;
 }
 
+- (void)cancelClick{
+    if (self.photoVC.viewControllers.count==3) {
+        [self.photoVC popViewControllerAnimated:YES];
+    }
+}
 
 
 -(void)go{
@@ -107,7 +117,11 @@
     }else if(index == 1){
         //调用相册
         self.photoVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self.rootViewController presentViewController:self.photoVC animated:YES completion:nil];
+        [self.rootViewController presentViewController:self.photoVC animated:YES completion:^{
+            UIWindow * window =[UIApplication sharedApplication].delegate.window;
+            [window addSubview:self.btnCancel];
+        }];
+        
     }
 }
 
@@ -116,6 +130,7 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info{
+    [self.btnCancel removeFromSuperview];
     UIImage * aImage=self.isClip?info[UIImagePickerControllerEditedImage]:info[UIImagePickerControllerOriginalImage];
     [picker dismissViewControllerAnimated:YES completion:^(void){
         UIImage * imgResult=nil;
@@ -133,6 +148,11 @@
     }];
 }
 
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self.btnCancel removeFromSuperview];
+}
 
 
 - (UIImage*)clicpImg:(UIImage*)img{

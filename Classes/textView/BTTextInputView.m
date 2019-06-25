@@ -74,7 +74,7 @@
         weakSelf.rootView.bottom=[UIScreen mainScreen].bounds.size.height-weakSelf.keyboardH;
     };
     self.textView.blockContentChange = ^{
-        if (weakSelf.textView.text.length==0) {
+        if (weakSelf.textView.text.length==0||![self.textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length) {
             [weakSelf.btnCommit setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         }else{
             [weakSelf.btnCommit setTitleColor:weakSelf.commitColor?weakSelf.commitColor:UIColor.redColor forState:UIControlStateNormal];
@@ -126,8 +126,8 @@
 //当键盘消失的时候调用
 - (void)keyboardWillHide:(NSNotification *)notif {
     [UIView animateWithDuration:.2 animations:^{
-        self.rootView.bottom=[UIScreen mainScreen].bounds.size.height;
-        self.rootView.alpha=0;
+        self.rootView.bottom=[UIScreen mainScreen].bounds.size.height+self.rootView.height;
+        //        self.rootView.alpha=0;
     } completion:^(BOOL finished) {
         self.rootView.hidden=YES;
         self.rootView.alpha=1;
@@ -154,6 +154,14 @@
     if (self.textView.text.length==0) {
         return;
     }
+    
+    
+    //全部为空格
+    if(![self.textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length) {
+        return;
+    }
+    
+    
     if (self.block) {
         self.block();
     }

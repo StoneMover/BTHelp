@@ -4,7 +4,9 @@
 //
 //  Created by stonemover on 2017/12/19.
 //  Copyright © 2017年 stonemover. All rights reserved.
-//
+//  直接调用每个权限的获取方法即可，未选择权限的情况下会弹出权限请求框，被拒绝则会提示用户去开启
+//  已经拒绝情况会直接提示用户打开权限
+//  已经获得授权的会直接在block中回调，isCamera等参数只是提供外部判断的一个方便的途径
 
 #import <Foundation/Foundation.h>
 

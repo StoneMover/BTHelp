@@ -32,6 +32,14 @@
     }
 }
 
++ (CGFloat)HOME_INDICATOR_HEIGHT_MEDIUM{
+    if (BTUtils.UI_IS_IPHONEX) {
+        return 24;
+    }else{
+        return 0;
+    }
+}
+
 + (CGFloat)HOME_INDICATOR_HEIGHT_SMALL{
     if (BTUtils.UI_IS_IPHONEX) {
         return 14;
@@ -101,7 +109,7 @@
 }
 
 + (CGFloat)SCALE_6_H:(CGFloat)height{
-    return (height)*(BTUtils.SCREEN_H/375.0f);
+    return (height)*(BTUtils.SCREEN_H/667.0f);
 }
 
 + (UIFont*)SYS_FONT_SIZE:(CGFloat)size weight:(UIFontWeight)weight{
@@ -154,6 +162,44 @@
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] ];
     }
     
+}
+
++ (UIViewController *)getCurrentVc
+{
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
+    
+    return currentVC;
+}
+
++ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVc
+{
+    UIViewController *currentVC;
+    
+    if ([rootVc presentedViewController]) {
+        // 视图是被presented出来的
+        
+        rootVc = [rootVc presentedViewController];
+    }
+    
+    if ([rootVc isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVc selectedViewController]];
+        
+    } else if ([rootVc isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVc visibleViewController]];
+        
+    } else {
+        // 根视图为非导航类
+        
+        currentVC = rootVc;
+    }
+    
+    return currentVC;
 }
 
 
@@ -655,8 +701,9 @@
 
 
 +(NSString*)base64Decode:(NSString*)str{
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    return [data base64EncodedStringWithOptions:0];
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    return string;
 }
 +(NSString*)base64Encode:(NSString*)str{
     NSData *data = [[NSData alloc]initWithBase64EncodedString:str options:0];

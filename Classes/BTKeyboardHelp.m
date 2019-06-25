@@ -136,7 +136,7 @@
                 }];
             }else{
                 [UIView animateWithDuration:.25 animations:^{
-                    self.viewMove.frame = CGRectMake(0, newY, self.viewMove.frame.size.width, self.viewMove.frame.size.height);
+                    self.viewMove.frame = CGRectMake(self.viewMove.frame.origin.x, newY, self.viewMove.frame.size.width, self.viewMove.frame.size.height);
                 }];
             }
             
