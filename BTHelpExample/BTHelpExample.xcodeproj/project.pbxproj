@@ -128,9 +128,22 @@
 		0CFA89962213F27F0043E8EB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9BACA629224BA24100EF00A8 /* textView */,
-				0CFA89A32213F27F0043E8EB /* BaseJsonModel */,
-				0CFA899A2213F27F0043E8EB /* category */,
+				0CFA89A42213F27F0043E8EB /* BTModelProperty.h */,
+				0CFA89A82213F27F0043E8EB /* BTModelProperty.m */,
+				0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */,
+				0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */,
+				0CFA89A92213F27F0043E8EB /* BTModel.h */,
+				0CFA89A62213F27F0043E8EB /* BTModel.m */,
+				9BACA62C224BA24100EF00A8 /* BTTextView.h */,
+				9BACA62A224BA24100EF00A8 /* BTTextView.m */,
+				9BACA62B224BA24100EF00A8 /* BTTextInputView.h */,
+				9BACA62D224BA24100EF00A8 /* BTTextInputView.m */,
+				9BAAAC21226459A000ED207D /* UIView+BTConstraint.h */,
+				9BAAAC22226459A000ED207D /* UIView+BTConstraint.m */,
+				0CFA899E2213F27F0043E8EB /* UIView+BTViewTool.h */,
+				0CFA899B2213F27F0043E8EB /* UIView+BTViewTool.m */,
+				0CFA899C2213F27F0043E8EB /* UIImage+BTImage.h */,
+				0CFA899D2213F27F0043E8EB /* UIImage+BTImage.m */,
 				0CFA89AB2213F27F0043E8EB /* BTTimerHelp.h */,
 				0CFA89972213F27F0043E8EB /* BTTimerHelp.m */,
 				0CFA89AD2213F27F0043E8EB /* BTLocation.h */,
@@ -153,32 +166,6 @@
 			path = ../../Classes;
 			sourceTree = "<group>";
 		};
-		0CFA899A2213F27F0043E8EB /* category */ = {
-			isa = PBXGroup;
-			children = (
-				9BAAAC21226459A000ED207D /* UIView+BTConstraint.h */,
-				9BAAAC22226459A000ED207D /* UIView+BTConstraint.m */,
-				0CFA899E2213F27F0043E8EB /* UIView+BTViewTool.h */,
-				0CFA899B2213F27F0043E8EB /* UIView+BTViewTool.m */,
-				0CFA899C2213F27F0043E8EB /* UIImage+BTImage.h */,
-				0CFA899D2213F27F0043E8EB /* UIImage+BTImage.m */,
-			);
-			path = category;
-			sourceTree = "<group>";
-		};
-		0CFA89A32213F27F0043E8EB /* BaseJsonModel */ = {
-			isa = PBXGroup;
-			children = (
-				0CFA89A42213F27F0043E8EB /* BTModelProperty.h */,
-				0CFA89A82213F27F0043E8EB /* BTModelProperty.m */,
-				0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */,
-				0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */,
-				0CFA89A92213F27F0043E8EB /* BTModel.h */,
-				0CFA89A62213F27F0043E8EB /* BTModel.m */,
-			);
-			path = BaseJsonModel;
-			sourceTree = "<group>";
-		};
 		9B4BFD5B2250B061009B3C65 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,17 +173,6 @@
 				9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */,
 			);
 			path = Test;
-			sourceTree = "<group>";
-		};
-		9BACA629224BA24100EF00A8 /* textView */ = {
-			isa = PBXGroup;
-			children = (
-				9BACA62C224BA24100EF00A8 /* BTTextView.h */,
-				9BACA62A224BA24100EF00A8 /* BTTextView.m */,
-				9BACA62B224BA24100EF00A8 /* BTTextInputView.h */,
-				9BACA62D224BA24100EF00A8 /* BTTextInputView.m */,
-			);
-			path = textView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CSPDPNP92Z;
 				INFOPLIST_FILE = BTHelpExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -448,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CSPDPNP92Z;
 				INFOPLIST_FILE = BTHelpExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -22,7 +22,7 @@ typedef void(^BTTextViewTextChangeBlock)(void);
 
 @property (nonatomic, assign) IBInspectable NSInteger maxStrNum;
 
-//这个在xib中使用的时候不能这是textView的内容，不然没有效果
+//这个在xib中使用的时候不能设置textView的初始内容，得在代码里面设置，不然没有效果
 @property (nonatomic, assign) IBInspectable NSInteger lineSpeac;
 
 @property (nonatomic, strong) UILabel * labelPlaceHolder;
