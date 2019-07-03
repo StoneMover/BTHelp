@@ -68,6 +68,8 @@
 
 + (NSURL*)URL:(NSString*)url;
 
++ (NSString*)APP_VERSION;
+
 + (void)openSetVc;
 
 + (UIViewController*)getCurrentVc;

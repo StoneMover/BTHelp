@@ -152,6 +152,12 @@
     return [NSURL URLWithString:@"http://www.baidu.com"];
 }
 
++ (NSString*)APP_VERSION{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString * appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    return appVersion;
+}
+
 
 + (void)openSetVc{
     if (@available(iOS 10.0, *)) {

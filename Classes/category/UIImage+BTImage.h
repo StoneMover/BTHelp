@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage*)imageOriWithName:(NSString*)imgName;
 
+- (NSData *)compressQualityWithMaxLength:(NSInteger)maxLength;
+
+- (UIImage *)scaleToSize:(CGSize)size;
+
 @end
 
 NS_ASSUME_NONNULL_END
