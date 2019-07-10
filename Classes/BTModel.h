@@ -13,6 +13,8 @@
 
 +(instancetype)modelWithDict:(NSDictionary*)dict;
 
++(NSMutableArray*)modelWithArray:(NSArray*)array;
+
 -(instancetype)initWithDict:(NSDictionary*)dict;
 
 -(void)analisys:(NSDictionary*)dict;

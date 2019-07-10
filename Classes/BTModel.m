@@ -16,6 +16,15 @@
     return [[self alloc]initWithDict:dict];
 }
 
++(NSMutableArray*)modelWithArray:(NSArray*)array{
+    NSMutableArray * dataArray =[NSMutableArray new];
+    for (NSDictionary * dict in array) {
+        [dataArray addObject:[self modelWithDict:dict]];
+    }
+    
+    return dataArray;
+}
+
 -(instancetype)init{
     self=[super init];
     [self initSelf];

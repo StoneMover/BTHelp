@@ -30,6 +30,7 @@
 		9BACA628224BA23700EF00A8 /* BTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BACA626224BA23600EF00A8 /* BTButton.m */; };
 		9BACA62E224BA24100EF00A8 /* BTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BACA62A224BA24100EF00A8 /* BTTextView.m */; };
 		9BACA62F224BA24100EF00A8 /* BTTextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BACA62D224BA24100EF00A8 /* BTTextInputView.m */; };
+		9BCAA9E122D5C62C000554FC /* BTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAA9E022D5C62C000554FC /* BTTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		9BACA62B224BA24100EF00A8 /* BTTextInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextInputView.h; sourceTree = "<group>"; };
 		9BACA62C224BA24100EF00A8 /* BTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextView.h; sourceTree = "<group>"; };
 		9BACA62D224BA24100EF00A8 /* BTTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextInputView.m; sourceTree = "<group>"; };
+		9BCAA9DF22D5C62C000554FC /* BTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextField.h; sourceTree = "<group>"; };
+		9BCAA9E022D5C62C000554FC /* BTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 		0CFA89962213F27F0043E8EB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9BCAA9DF22D5C62C000554FC /* BTTextField.h */,
+				9BCAA9E022D5C62C000554FC /* BTTextField.m */,
 				0CFA89A42213F27F0043E8EB /* BTModelProperty.h */,
 				0CFA89A82213F27F0043E8EB /* BTModelProperty.m */,
 				0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */,
@@ -253,6 +258,7 @@
 				0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */,
 				0CFA89BC2213F27F0043E8EB /* BTLineView.m in Sources */,
 				0CFA89B82213F27F0043E8EB /* BTTimerHelp.m in Sources */,
+				9BCAA9E122D5C62C000554FC /* BTTextField.m in Sources */,
 				0CFA89BA2213F27F0043E8EB /* UIView+BTViewTool.m in Sources */,
 				0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */,
 				0CFA89B92213F27F0043E8EB /* BTLocation.m in Sources */,

@@ -36,7 +36,7 @@
 
 - (void)initSelf{
     [self addObserver];
-    self.textContainerInset=UIEdgeInsetsMake(0, 0, 0, 0);
+    self.textContainerInset=UIEdgeInsetsMake(0, -1.5, 0, 0);
     self.labelPlaceHolder=[[UILabel alloc] init];
     self.labelPlaceHolder.font=self.font;
     if (self.placeHolderColor) {
@@ -115,7 +115,14 @@
     
     
     if (self.text&&self.maxStrNum!=0&&self.text.length>self.maxStrNum) {
-        self.text=[self.text substringToIndex:self.maxStrNum];
+        NSString * toBeString = self.text;
+        NSRange rangeIndex = [toBeString rangeOfComposedCharacterSequenceAtIndex:self.maxStrNum];
+        if(rangeIndex.length ==1){
+            self.text = [toBeString substringToIndex:self.maxStrNum];
+        }else{
+            NSRange rangeRange = [toBeString rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, rangeIndex.location)];
+            self.text = [toBeString substringWithRange:rangeRange];
+        }
         if (self.blockMax) {
             self.blockMax();
         }
