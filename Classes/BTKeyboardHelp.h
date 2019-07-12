@@ -13,11 +13,13 @@
 
 @optional
 
--(void)keyboardWillShow:(CGFloat)keyboardH;
+- (void)keyboardWillShow:(CGFloat)keyboardH;
 
--(void)keyboardWillHide;
+- (void)keyboardWillHide;
 
--(void)keyboardMove:(CGFloat)moveY;
+- (void)keyboardMove:(CGFloat)moveY;
+
+- (void)keyboardDidHide;
 
 @end
 

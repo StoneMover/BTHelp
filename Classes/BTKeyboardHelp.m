@@ -93,10 +93,18 @@
             [UIView animateWithDuration:.25 animations:^{
                 self.contraintTop.constant=self.viewOriContraintTop;
                 [self.viewDisplay.superview layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                if(self.delegate&&[self.delegate respondsToSelector:@selector(keyboardDidHide)]){
+                    [self.delegate keyboardDidHide];
+                }
             }];
         }else{
             [UIView animateWithDuration:.25 animations:^{
                 self.viewMove.frame = CGRectMake(self.viewMove.frame.origin.x,self.viewMoveOriY, self.viewMove.frame.size.width, self.viewMove.frame.size.height);
+            } completion:^(BOOL finished) {
+                if(self.delegate&&[self.delegate respondsToSelector:@selector(keyboardDidHide)]){
+                    [self.delegate keyboardDidHide];
+                }
             }];
         }
         

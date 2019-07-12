@@ -36,7 +36,7 @@
 
 - (void)initSelf{
     [self addObserver];
-    self.textContainerInset=UIEdgeInsetsMake(0, -1.5, 0, 0);
+    self.textContainerInset=UIEdgeInsetsMake(0, 0, 0, 0);
     self.labelPlaceHolder=[[UILabel alloc] init];
     self.labelPlaceHolder.font=self.font;
     if (self.placeHolderColor) {
