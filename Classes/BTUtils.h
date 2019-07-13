@@ -99,30 +99,30 @@
 
 #pragma mark NSDate常用函数
 //获取当前的日期,根据系统的时区
-+(NSDate*)getCurrentDateWithSystemTimeZone;
++ (NSDate*)getCurrentDateWithSystemTimeZone;
 
 //根据传入的字符串日期时间和formater 格式转化为date对象
-+(NSDate*)getDateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
++ (NSDate*)getDateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
 
 //根据系统时间判断传入时间是否是未来时间
-+(BOOL)isFutureTime:(NSDate*)date;
++ (BOOL)isFutureTime:(NSDate*)date;
 
 //得到距离系统当前时间的显示时间,比如一小时前,三分钟前,时间格式:yyyy-MM-dd HH:mm:ss
-+(NSString*)getTimeFromNowStr:(NSString*)dateString;
++ (NSString*)getTimeFromNowStr:(NSString*)dateString;
 
 //根据传入的日期格式转化为特定日期字符串
-+(NSString*)getCurrentTime:(NSString*)formatter;
++ (NSString*)getCurrentTime:(NSString*)formatter;
 
 //得到当前日期时间的字符串,YYYY-MM-dd HH:mm:ss
-+(NSString*)getCurrentTime;
++ (NSString*)getCurrentTime;
 
 //传入秒数,转换成00:00:00格式
-+(NSString*)convertSecToTime:(int)second;
++ (NSString*)convertSecToTime:(int)second;
 
 #pragma mark 字典常用方法
 
 //得到字典中对应key的string类型字段
-+(NSString*)getString:(NSDictionary*)dict withKey:(NSString*)key;
++ (NSString*)getString:(NSDictionary*)dict withKey:(NSString*)key;
 
 //将json字符串转为字典
 + (NSDictionary *)convertJsonToDict:(NSString *)jsonString;
@@ -149,91 +149,94 @@
  */
 
 //得到沙盒的root路径
-+(NSString*)getHomePath;
++ (NSString*)getHomePath;
 
 //得到沙盒下Document文件夹的路径
-+(NSString*)getDocumentPath;
++ (NSString*)getDocumentPath;
 
 //得到Cache文件夹的路径
-+(NSString*)getCachePath;
++ (NSString*)getCachePath;
 
 //得到Library文件夹的路径
-+(NSString*)getLibraryPath;
++ (NSString*)getLibraryPath;
 
 //得到tmp文件夹的路径
-+(NSString*)getTmpPath;
++ (NSString*)getTmpPath;
 
 //文件是否存在
-+(BOOL)isFileExit:(NSString*)path;
++ (BOOL)isFileExit:(NSString*)path;
 
 //删除文件
-+(void)deleteFile:(NSString*)path;
++ (void)deleteFile:(NSString*)path;
 
 //复制文件到某个路径
-+(void)copyFile:(NSString*)filePath toPath:(NSString*)path isOverride:(BOOL)overrid;
++ (void)copyFile:(NSString*)filePath toPath:(NSString*)path isOverride:(BOOL)overrid;
 
 
 //创建路径
-+(void)createPath:(NSString*)path;
++ (void)createPath:(NSString*)path;
 
 //在document目录下创建子文件路径
-+(void)createDocumentPath:(NSString*)path;
++ (void)createDocumentPath:(NSString*)path;
 
 //保存文件到沙盒,如果存在该文件则继续写入
-+(NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data;
++ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data;
 
 //保存文件到沙盒,如果存在该文件则继续写入
-+(NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data isCover:(BOOL)cover;
++ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data isCover:(BOOL)cover;
 
 //获取cache目录下的图片文件夹,没有则创建
-+(NSString*)getCachePic;
++ (NSString*)getCachePic;
 
 //获取cache目录下的video文件夹,没有则创建
-+(NSString*)getCacheVideo;
++ (NSString*)getCacheVideo;
 
 //获取cache目录下的voice文件夹,没有则创建
-+(NSString*)getCacheVoice;
++ (NSString*)getCacheVoice;
 
 #pragma mark webview 与js操作的方法
 
-+(NSString*)createJsStr:(NSString*)name,...;
++ (NSString*)createJsStr:(NSString*)name,...;
 
 
 #pragma mark 加密&解密
-+(NSString*)base64Decode:(NSString*)str;
++ (NSString*)base64Decode:(NSString*)str;
 
-+(NSString*)base64Encode:(NSString*)str;
++ (NSString*)base64Encode:(NSString*)str;
 
-+(NSString*)MD5:(NSString*)str;
++ (NSString*)MD5:(NSString*)str;
 
 #pragma mark storyboard
 
-+(UIViewController*)createVc:(NSString*)storyBoardName;
++ (UIViewController*)createVc:(NSString*)storyBoardName;
 
-+(UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name;
++ (UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name;
 
 #pragma mark 渐变创建
-+(CAGradientLayer*)createGradient:(CGSize)size
-                            start:(CGPoint)start
-                              end:(CGPoint)end
-                           colors:(NSArray*)colors;
++ (CAGradientLayer*)createGradient:(CGSize)size
+                             start:(CGPoint)start
+                               end:(CGPoint)end
+                            colors:(NSArray*)colors;
 
 //水平方向渐变
-+(CAGradientLayer*)createGradientHoz:(CGSize)size
-                              colors:(NSArray*)colors;
++ (CAGradientLayer*)createGradientHoz:(CGSize)size
+                               colors:(NSArray*)colors;
 
 //垂直方向渐变
-+(CAGradientLayer*)createGradientVer:(CGSize)size
-                              colors:(NSArray*)colors;
++ (CAGradientLayer*)createGradientVer:(CGSize)size
+                               colors:(NSArray*)colors;
 
 
 //00 - 11 渐变
-+(CAGradientLayer*)createGradientInclined:(CGSize)size
-                                   colors:(NSArray*)colors;
++ (CAGradientLayer*)createGradientInclined:(CGSize)size
+                                    colors:(NSArray*)colors;
 
 //11 - 00渐变
-+(CAGradientLayer*)createGradientInclinedOpposite:(CGSize)size
-                                           colors:(NSArray*)colors;
++ (CAGradientLayer*)createGradientInclinedOpposite:(CGSize)size
+                                            colors:(NSArray*)colors;
+
+//是否全部为数字
++ (BOOL)isStrAllNumber:(NSString*)checkedNumString;
 
 @end
 

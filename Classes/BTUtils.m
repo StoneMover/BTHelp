@@ -209,7 +209,7 @@
 }
 
 
-+(BOOL)isEmpty:(NSString*)str{
++ (BOOL)isEmpty:(NSString*)str{
     
     if (![str isKindOfClass:NSString.class]) {
         return YES;
@@ -239,7 +239,7 @@
 
 
 
-+(UIImage*)circleImage:(UIImage*)image {
++ (UIImage*)circleImage:(UIImage*)image {
     
     
     CGRect rectClip;
@@ -253,9 +253,6 @@
     CGImageRef cgimg = CGImageCreateWithImageInRect([image CGImage], rectClip);
     UIImage * clipImage = [UIImage imageWithCGImage:cgimg];
     CGImageRelease(cgimg);//用完一定要释放，否则内存泄露
-    
-    
-    
     UIGraphicsBeginImageContext(clipImage.size);
     
     CGContextRef context =UIGraphicsGetCurrentContext();
@@ -286,7 +283,7 @@
     
 }
 
-+(void)setAppIconNotifiNum:(NSString*)num{
++ (void)setAppIconNotifiNum:(NSString*)num{
     // 应用程序右上角数字
     UIApplication *app = [UIApplication sharedApplication];
     app.applicationIconBadgeNumber =num.intValue;
@@ -294,27 +291,27 @@
 
 
 
-+(CGFloat)calculateStrHeight:(NSString*)str width:(CGFloat)width font:(UIFont*)font{
++ (CGFloat)calculateStrHeight:(NSString*)str width:(CGFloat)width font:(UIFont*)font{
     
     NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
     CGSize labelSize =[str boundingRectWithSize:CGSizeMake(width, 1500) options:NSStringDrawingUsesLineFragmentOrigin  attributes:dic context:nil].size;
     return labelSize.height;
 }
 
-+(CGFloat)calculateLabelHeight:(UILabel*)label{
++ (CGFloat)calculateLabelHeight:(UILabel*)label{
     return [self calculateStrHeight:label.text width:label.frame.size.width font:label.font];
 }
 
-+(CGFloat)calculateStrWidth:(NSString*)str height:(CGFloat)height font:(UIFont*)font{
++ (CGFloat)calculateStrWidth:(NSString*)str height:(CGFloat)height font:(UIFont*)font{
     NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
     CGSize labelSize =[str boundingRectWithSize:CGSizeMake(1500, height) options:NSStringDrawingUsesLineFragmentOrigin  attributes:dic context:nil].size;
     return labelSize.width;
 }
-+(CGFloat)calculateLabelWidth:(UILabel*)label{
++ (CGFloat)calculateLabelWidth:(UILabel*)label{
     return [self calculateStrWidth:label.text height:label.frame.size.height font:label.font];
 }
 
-+(NSString *)translationArabicNum:(NSInteger)arabicNum{
++ (NSString *)translationArabicNum:(NSInteger)arabicNum{
     NSString *arabicNumStr = [NSString stringWithFormat:@"%ld",(long)arabicNum];
     NSArray *arabicNumeralsArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"0"];
     NSArray *chineseNumeralsArray = @[@"一",@"二",@"三",@"四",@"五",@"六",@"七",@"八",@"九",@"零"];
@@ -368,7 +365,7 @@
 
 
 
-+(NSDate*)getCurrentDateWithSystemTimeZone{
++ (NSDate*)getCurrentDateWithSystemTimeZone{
     NSDate * currentDate=[NSDate date];
     NSTimeZone *zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: currentDate];
@@ -376,7 +373,7 @@
     return localeDate;
 }
 
-+(NSDate*)getDateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr{
++ (NSDate*)getDateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr{
     
     NSDate * result;
     
@@ -392,7 +389,7 @@
     return result;
 }
 
-+(BOOL)isFutureTime:(NSDate*)date{
++ (BOOL)isFutureTime:(NSDate*)date{
     
     NSDate * localeDate=[self getCurrentDateWithSystemTimeZone];
     
@@ -405,7 +402,7 @@
     return YES;
 }
 
-+(NSString*)getTimeFromNowStr:(NSString*)dateString{
++ (NSString*)getTimeFromNowStr:(NSString*)dateString{
     NSDateFormatter *date=[[NSDateFormatter alloc] init];
     [date setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *d=[date dateFromString:dateString];
@@ -438,7 +435,7 @@
 }
 
 
-+(NSString*)getCurrentTime:(NSString*)formatter{
++ (NSString*)getCurrentTime:(NSString*)formatter{
     NSDate *senddate=[NSDate date];
     //    NSTimeZone *zone = [NSTimeZone systemTimeZone];
     //    NSInteger interval = [zone secondsFromGMTForDate: senddate];
@@ -452,11 +449,11 @@
     return locationString;
 }
 
-+(NSString*)getCurrentTime{
++ (NSString*)getCurrentTime{
     return [self getCurrentTime:@"YYYY-MM-dd HH:mm:ss"];
 }
 
-+(NSString*)convertSecToTime:(int)second{
++ (NSString*)convertSecToTime:(int)second{
     int h=0;
     int m=0;
     int s=0;
@@ -479,7 +476,7 @@
     return [self convertSecToTimeStr:h minute:m second:s];
 }
 
-+(NSString*)convertSecToTimeStr:(int)h minute:(int)minute second:(int)second{
++ (NSString*)convertSecToTimeStr:(int)h minute:(int)minute second:(int)second{
     NSString * hstr=h<10?[NSString stringWithFormat:@"0%d",h]:[NSString stringWithFormat:@"%d",h];
     
     NSString * mstr=minute<10?[NSString stringWithFormat:@"0%d",minute]:[NSString stringWithFormat:@"%d",minute];
@@ -492,7 +489,7 @@
     
 }
 
-+(NSString*)getString:(NSDictionary*)dict withKey:(NSString*)key{
++ (NSString*)getString:(NSDictionary*)dict withKey:(NSString*)key{
     //不存在该KEY就返回nil
     if (![dict.allKeys containsObject:key]) {
         NSLog(@"该字典没有对应的key:%@",key);
@@ -535,45 +532,45 @@
 }
 
 
-+(NSString*)getHomePath{
++ (NSString*)getHomePath{
     return NSHomeDirectory();
 }
 
 
 
-+(NSString*)getDocumentPath{
++ (NSString*)getDocumentPath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     return path;
 }
 
 
-+(NSString*)getCachePath{
++ (NSString*)getCachePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     return path;
 }
 
 
-+(NSString*)getLibraryPath{
++ (NSString*)getLibraryPath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     return path;
 }
 
 
-+(NSString*)getTmpPath{
++ (NSString*)getTmpPath{
     NSString *path = NSTemporaryDirectory();
     return path;
 }
 
 
-+(BOOL)isFileExit:(NSString*)path{
++ (BOOL)isFileExit:(NSString*)path{
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
 
-+(void)deleteFile:(NSString*)path{
++ (void)deleteFile:(NSString*)path{
     if ([self isFileExit:path]) {
         NSError *error;
         [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
@@ -584,7 +581,7 @@
 }
 
 
-+(void)copyFile:(NSString*)filePath toPath:(NSString*)path isOverride:(BOOL)overrid{
++ (void)copyFile:(NSString*)filePath toPath:(NSString*)path isOverride:(BOOL)overrid{
     NSFileManager * mananger=[NSFileManager defaultManager];
     if (overrid) {
         [self deleteFile:filePath];
@@ -608,7 +605,7 @@
 }
 
 
-+(void)createPath:(NSString*)path{
++ (void)createPath:(NSString*)path{
     if (![self isFileExit:path]) {
         NSFileManager * fileManager=[NSFileManager defaultManager];
         NSString * parentPath=[path stringByDeletingLastPathComponent];
@@ -623,17 +620,17 @@
     }
 }
 
-+(void)createDocumentPath:(NSString*)path{
++ (void)createDocumentPath:(NSString*)path{
     NSString *pathRestul=[NSString stringWithFormat:@"%@/%@",[self getDocumentPath],path];
     [self createPath:pathRestul];
 }
 
 
-+(NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data{
++ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data{
     return [self saveFile:path withFileName:name withData:data isCover:NO];
 }
 
-+(NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data isCover:(BOOL)cover{
++ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data isCover:(BOOL)cover{
     [self createPath:path];
     NSData * resultData=nil;
     NSString * resultPath=[NSString stringWithFormat:@"%@/%@",path,name];
@@ -650,7 +647,7 @@
     return [NSString stringWithFormat:@"%@/%@",path,name];
 }
 
-+(NSString*)getCachePic{
++ (NSString*)getCachePic{
     NSString * pic=[NSString stringWithFormat:@"%@/pic",[self getCachePath]];
     if (![self isFileExit:pic]) {
         [self createPath:pic];
@@ -658,7 +655,7 @@
     
     return pic;
 }
-+(NSString*)getCacheVideo{
++ (NSString*)getCacheVideo{
     
     NSString * video =[NSString stringWithFormat:@"%@/video",[self getCachePath]];
     if (![self isFileExit:video]) {
@@ -668,7 +665,7 @@
     return video;
 }
 
-+(NSString*)getCacheVoice{
++ (NSString*)getCacheVoice{
     NSString * voice=[NSString stringWithFormat:@"%@/voice",[self getCachePath]];
     if (![self isFileExit:voice]) {
         [self createPath:voice];
@@ -679,7 +676,7 @@
 
 
 
-+(NSString*)createJsStr:(NSString*)name,...{
++ (NSString*)createJsStr:(NSString*)name,...{
     NSString*result=name;
     NSString*ns;
     va_list arg_list;
@@ -706,16 +703,16 @@
 
 
 
-+(NSString*)base64Decode:(NSString*)str{
++ (NSString*)base64Decode:(NSString*)str{
     NSData *data = [[NSData alloc]initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
     NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     return string;
 }
-+(NSString*)base64Encode:(NSString*)str{
++ (NSString*)base64Encode:(NSString*)str{
     NSData *data = [[NSData alloc]initWithBase64EncodedString:str options:0];
     return [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 }
-+(NSString*)MD5:(NSString*)str{
++ (NSString*)MD5:(NSString*)str{
     const char *cStr = [str UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
@@ -729,20 +726,20 @@
     return  output;
 }
 
-+(UIViewController*)createVc:(NSString*)storyBoardName{
++ (UIViewController*)createVc:(NSString*)storyBoardName{
     return [self createVc:storyBoardName storyBoardName:@"Main"];
 }
-+(UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name{
++ (UIViewController*)createVc:(NSString*)storyBoardId storyBoardName:(NSString*)name{
     UIStoryboard *story = [UIStoryboard storyboardWithName:name bundle:[NSBundle mainBundle]];
     UIViewController *vc = [story instantiateViewControllerWithIdentifier:storyBoardId];
     return vc;
 }
 
 
-+(CAGradientLayer*)createGradient:(CGSize)size
-                            start:(CGPoint)start
-                              end:(CGPoint)end
-                           colors:(NSArray*)colors{
++ (CAGradientLayer*)createGradient:(CGSize)size
+                             start:(CGPoint)start
+                               end:(CGPoint)end
+                            colors:(NSArray*)colors{
     CAGradientLayer *gl = [CAGradientLayer layer];
     gl.frame = CGRectMake(0, 0, size.width, size.height);
     gl.startPoint=start;
@@ -760,26 +757,34 @@
 }
 
 //水平方向渐变
-+(CAGradientLayer*)createGradientHoz:(CGSize)size
-                              colors:(NSArray*)colors{
++ (CAGradientLayer*)createGradientHoz:(CGSize)size
+                               colors:(NSArray*)colors{
     return [self createGradient:size start:CGPointMake(0, .5) end:CGPointMake(1, .5) colors:colors];
 }
 
 //垂直方向渐变
-+(CAGradientLayer*)createGradientVer:(CGSize)size
-                              colors:(NSArray*)colors{
++ (CAGradientLayer*)createGradientVer:(CGSize)size
+                               colors:(NSArray*)colors{
     return [self createGradient:size start:CGPointMake(.5, 0) end:CGPointMake(.5, 1) colors:colors];
 }
 
 //00 - 11 渐变
-+(CAGradientLayer*)createGradientInclined:(CGSize)size
-                                   colors:(NSArray*)colors{
++ (CAGradientLayer*)createGradientInclined:(CGSize)size
+                                    colors:(NSArray*)colors{
     return [self createGradient:size start:CGPointMake(0, 0) end:CGPointMake(1, 1) colors:colors];
 }
 //11 - 00渐变
-+(CAGradientLayer*)createGradientInclinedOpposite:(CGSize)size
-                                           colors:(NSArray*)colors{
++ (CAGradientLayer*)createGradientInclinedOpposite:(CGSize)size
+                                            colors:(NSArray*)colors{
     return [self createGradient:size start:CGPointMake(1, 1) end:CGPointMake(0, 0) colors:colors];
+}
+
++ (BOOL)isStrAllNumber:(NSString*)checkedNumString{
+    checkedNumString = [checkedNumString stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+    if(checkedNumString.length > 0) {
+        return NO;
+    }
+    return YES;
 }
 
 @end
