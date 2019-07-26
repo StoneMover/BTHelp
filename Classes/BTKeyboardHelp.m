@@ -33,9 +33,6 @@
 //需要多加的间距
 @property (nonatomic, assign) CGFloat moreMargin;
 
-//是否有导航器，修正起始坐标问题
-@property (nonatomic, assign) BOOL isNavHidden;
-
 //约束的原始位置点
 @property (nonatomic, assign) CGFloat viewOriContraintTop;
 
@@ -171,15 +168,10 @@
 
 -(void)replaceDisplayView:(UIView*)viewDisplay withDistance:(NSInteger)distance{
     self.viewDisplay=viewDisplay;
-    self.isNavHidden=self.viewDisplay.viewController.navigationController.navigationBar.hidden;
     self.viewMoveOriY=self.viewMove.frame.origin.y;
     //将移动view的坐标转换为屏幕坐标
     CGRect rect =[self.viewDisplay convertRect: self.viewDisplay.bounds toView:[[[UIApplication sharedApplication] delegate] window]];
     self.viewDisplayScreenY=rect.origin.y;
-    if (!self.isNavHidden) {
-        self.viewDisplayScreenY+=BTUtils.NAVCONTENT_HEIGHT;
-    }
-    
     if (!self.contraintTop) {
         for (NSLayoutConstraint * c in viewDisplay.constraints) {
             if (c.identifier&&[c.identifier isEqualToString:@"BT_KEYBOARD_CONSTRAING_ID"]) {
@@ -192,18 +184,13 @@
     
 }
 
-- (void)setIsNavHidden:(BOOL)isNavHidden{
-    _isNavHidden=isNavHidden;
-    if (!isNavHidden) {
-        self.viewMoveOriY+=BTUtils.NAV_HEIGHT;
-    }else{
-        self.viewMoveOriY-=BTUtils.NAV_HEIGHT;
-    }
-}
-
 - (void)setContraintTop:(NSLayoutConstraint *)contraintTop{
     _contraintTop=contraintTop;
     self.viewOriContraintTop=contraintTop.constant;
+}
+
+- (void)setNavTransSafeAreaStyle{
+    self.viewDisplayScreenY+=BTUtils.NAVCONTENT_HEIGHT;
 }
 
 -(void)dealloc{

@@ -4,7 +4,8 @@
 //  用来控制view不被键盘遮挡,该界面必须无导航器
 //  Created by whbt_mac on 15/11/6.
 //  Copyright © 2015年 StoneMover. All rights reserved.
-//
+//  初始化之前保证移动的view坐标确定，在vc的viewDidload中view的大小和位置不一定确定，需要在viewDidLayoutSubview中初始化
+//  目前的一种情况是在导航栏透明并且有safeArea的情况下少44的移动距离，直接新增一个方法在该情况下调用
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -58,6 +59,8 @@
 @property (nonatomic, strong) NSLayoutConstraint * contraintTop;
 
 
--(void)replaceDisplayView:(UIView*)displayView withDistance:(NSInteger)distance;
+- (void)replaceDisplayView:(UIView*)displayView withDistance:(NSInteger)distance;
+
+- (void)setNavTransSafeAreaStyle;
 
 @end

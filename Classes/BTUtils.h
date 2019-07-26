@@ -74,7 +74,7 @@
 
 + (UIViewController*)getCurrentVc;
 
-+ (UIViewController*)getCurrentVcFrom:(UIViewController *)rootVC;
++ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVc;
 
 + (BOOL)isEmpty:(NSString*)str;
 
@@ -128,7 +128,11 @@
 + (NSDictionary *)convertJsonToDict:(NSString *)jsonString;
 
 //将字典转为json字符串
-+ (NSString*)convertDictToStr:(NSDictionary *)dic;
++ (NSString*)convertDictToJsonStr:(NSDictionary *)dic;
+
++ (NSArray *)convertJsonToArray:(NSString *)jsonString;
+
++ (NSString*)convertArrayToJsonStr:(NSArray *)array;
 
 #pragma mark 沙盒常用方法
 /*
