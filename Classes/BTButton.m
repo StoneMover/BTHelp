@@ -27,7 +27,7 @@
     self.labelBage=[[UILabel alloc] init];
     self.labelBage.textAlignment=NSTextAlignmentCenter;
     self.labelBage.font=[UIFont systemFontOfSize:8 weight:UIFontWeightSemibold];
-    self.labelBage.layer.cornerRadius=6;
+    self.labelBage.layer.cornerRadius=self.labelBageHeight==0?6:self.labelBageHeight/2.0;
     self.labelBage.clipsToBounds=YES;
     self.labelBage.textColor=[UIColor whiteColor];
     self.labelBage.backgroundColor=[BTUtils RGB:247 G:89 B:89];
@@ -45,14 +45,14 @@
             CGPoint center = self.imageView.center;
             center.x = self.frame.size.width/2;
             center.y = self.frame.size.height/2-(self.imageView.frame.size.height+self.titleLabel.frame.size.height+self.margin)/2+self.imageView.frame.size.height/2;
-
+            
             self.imageView.center = center;
             
             //Center text
             CGRect newFrame = [self titleLabel].frame;
             newFrame.origin.x = 0;
             newFrame.origin.y = self.imageView.frame.size.height + self.margin+self.imageView.frame.origin.y;
-
+            
             newFrame.size.width = self.frame.size.width;
             
             self.titleLabel.frame = newFrame;
@@ -76,11 +76,11 @@
         self.labelBage.hidden=NO;
         self.labelBage.text=self.bageNum;
         [self.labelBage sizeToFit];
-        self.labelBage.height=12;
-        if (self.labelBage.width+4<16) {
-            self.labelBage.width=16;
-        }else{
+        self.labelBage.height=self.labelBageHeight==0?12:self.labelBageHeight;
+        if (self.labelBage.width>self.labelBage.height) {
             self.labelBage.width+=4;
+        }else{
+            self.labelBage.width=self.labelBage.height;
         }
         
         self.labelBage.center=CGPointMake(self.imageView.right+self.lefDistance, self.imageView.top+self.topDistance);
@@ -103,7 +103,8 @@
 - (void)setBageNum:(NSString *)bageNum{
     _bageNum=bageNum;
     self.labelBage.text=self.bageNum;
-    [self setNeedsDisplay];
+    [self layoutSubviews];
 }
+
 
 @end

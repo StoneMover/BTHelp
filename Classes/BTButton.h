@@ -31,4 +31,7 @@ typedef NS_ENUM(NSInteger,BTButtonStyle) {
 
 @property (nonatomic, strong) UILabel * labelBage;
 
+@property (nonatomic, assign) CGFloat labelBageHeight;
+
+
 @end
