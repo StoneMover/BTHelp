@@ -706,6 +706,27 @@
 }
 
 
++ (NSArray*)getFolderAllFileName:(NSString*)folderPath fileType:(NSString*)fileType{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *myDirectoryEnumerator = [fileManager enumeratorAtPath:folderPath];  //baseSavePath 为文件夹的路径
+    NSMutableArray *filePathArray = [[NSMutableArray alloc]init];   //用来存目录名字的数组
+    NSString *file;
+    while((file=[myDirectoryEnumerator nextObject]))     //遍历当前目录
+    {
+        if (fileType) {
+            if([[file pathExtension] isEqualToString:fileType])  //取得后缀名为.xml的文件名
+            {
+                [filePathArray addObject:file];
+            }
+        }else{
+            [filePathArray addObject:file];
+        }
+        
+    }
+    return filePathArray;
+}
+
+
 
 
 + (NSString*)createJsStr:(NSString*)name,...{

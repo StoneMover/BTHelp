@@ -15,9 +15,6 @@
 		0CFA89902213F26E0043E8EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA898F2213F26E0043E8EB /* main.m */; };
 		0CFA89B82213F27F0043E8EB /* BTTimerHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89972213F27F0043E8EB /* BTTimerHelp.m */; };
 		0CFA89B92213F27F0043E8EB /* BTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89982213F27F0043E8EB /* BTLocation.m */; };
-		0CFA89BA2213F27F0043E8EB /* UIView+BTViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA899B2213F27F0043E8EB /* UIView+BTViewTool.m */; };
-		0CFA89BB2213F27F0043E8EB /* UIImage+BTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA899D2213F27F0043E8EB /* UIImage+BTImage.m */; };
-		0CFA89BC2213F27F0043E8EB /* BTLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA899F2213F27F0043E8EB /* BTLineView.m */; };
 		0CFA89BD2213F27F0043E8EB /* BTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A62213F27F0043E8EB /* BTModel.m */; };
 		0CFA89BE2213F27F0043E8EB /* BTModelAnalisys.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */; };
 		0CFA89BF2213F27F0043E8EB /* BTModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89A82213F27F0043E8EB /* BTModelProperty.m */; };
@@ -25,12 +22,15 @@
 		0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */; };
 		0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B32213F27F0043E8EB /* BTPermission.m */; };
 		0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */; };
+		60D28A1323068F200043442B /* BTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A0523068F1E0043442B /* BTTextField.m */; };
+		60D28A1423068F200043442B /* UIView+BTConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A0623068F1E0043442B /* UIView+BTConstraint.m */; };
+		60D28A1523068F200043442B /* BTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A0923068F1F0043442B /* BTButton.m */; };
+		60D28A1623068F200043442B /* UIView+BTViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A0C23068F1F0043442B /* UIView+BTViewTool.m */; };
+		60D28A1723068F200043442B /* BTTextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A0D23068F1F0043442B /* BTTextInputView.m */; };
+		60D28A1823068F200043442B /* BTLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A1023068F1F0043442B /* BTLineView.m */; };
+		60D28A1923068F200043442B /* BTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A1123068F1F0043442B /* BTTextView.m */; };
+		60D28A1A23068F200043442B /* UIImage+BTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D28A1223068F200043442B /* UIImage+BTImage.m */; };
 		9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */; };
-		9BAAAC23226459A000ED207D /* UIView+BTConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAAC22226459A000ED207D /* UIView+BTConstraint.m */; };
-		9BACA628224BA23700EF00A8 /* BTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BACA626224BA23600EF00A8 /* BTButton.m */; };
-		9BACA62E224BA24100EF00A8 /* BTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BACA62A224BA24100EF00A8 /* BTTextView.m */; };
-		9BACA62F224BA24100EF00A8 /* BTTextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BACA62D224BA24100EF00A8 /* BTTextInputView.m */; };
-		9BCAA9E122D5C62C000554FC /* BTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAA9E022D5C62C000554FC /* BTTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,11 +48,6 @@
 		0CFA89972213F27F0043E8EB /* BTTimerHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTimerHelp.m; sourceTree = "<group>"; };
 		0CFA89982213F27F0043E8EB /* BTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLocation.m; sourceTree = "<group>"; };
 		0CFA89992213F27F0043E8EB /* BTIconHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTIconHelp.h; sourceTree = "<group>"; };
-		0CFA899B2213F27F0043E8EB /* UIView+BTViewTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BTViewTool.m"; sourceTree = "<group>"; };
-		0CFA899C2213F27F0043E8EB /* UIImage+BTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BTImage.h"; sourceTree = "<group>"; };
-		0CFA899D2213F27F0043E8EB /* UIImage+BTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BTImage.m"; sourceTree = "<group>"; };
-		0CFA899E2213F27F0043E8EB /* UIView+BTViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BTViewTool.h"; sourceTree = "<group>"; };
-		0CFA899F2213F27F0043E8EB /* BTLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLineView.m; sourceTree = "<group>"; };
 		0CFA89A02213F27F0043E8EB /* BTKeyboardHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTKeyboardHelp.h; sourceTree = "<group>"; };
 		0CFA89A12213F27F0043E8EB /* BTPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTPermission.h; sourceTree = "<group>"; };
 		0CFA89A42213F27F0043E8EB /* BTModelProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTModelProperty.h; sourceTree = "<group>"; };
@@ -67,20 +62,25 @@
 		0CFA89AD2213F27F0043E8EB /* BTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLocation.h; sourceTree = "<group>"; };
 		0CFA89B32213F27F0043E8EB /* BTPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPermission.m; sourceTree = "<group>"; };
 		0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTKeyboardHelp.m; sourceTree = "<group>"; };
-		0CFA89B52213F27F0043E8EB /* BTLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLineView.h; sourceTree = "<group>"; };
 		0CFA89B62213F27F0043E8EB /* BTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUtils.h; sourceTree = "<group>"; };
+		60D28A0323068F1E0043442B /* BTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextField.h; sourceTree = "<group>"; };
+		60D28A0423068F1E0043442B /* BTLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLineView.h; sourceTree = "<group>"; };
+		60D28A0523068F1E0043442B /* BTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextField.m; sourceTree = "<group>"; };
+		60D28A0623068F1E0043442B /* UIView+BTConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BTConstraint.m"; sourceTree = "<group>"; };
+		60D28A0723068F1F0043442B /* UIImage+BTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BTImage.h"; sourceTree = "<group>"; };
+		60D28A0823068F1F0043442B /* UIView+BTConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BTConstraint.h"; sourceTree = "<group>"; };
+		60D28A0923068F1F0043442B /* BTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTButton.m; sourceTree = "<group>"; };
+		60D28A0A23068F1F0043442B /* UIView+BTViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BTViewTool.h"; sourceTree = "<group>"; };
+		60D28A0B23068F1F0043442B /* BTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextView.h; sourceTree = "<group>"; };
+		60D28A0C23068F1F0043442B /* UIView+BTViewTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BTViewTool.m"; sourceTree = "<group>"; };
+		60D28A0D23068F1F0043442B /* BTTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextInputView.m; sourceTree = "<group>"; };
+		60D28A0E23068F1F0043442B /* BTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTButton.h; sourceTree = "<group>"; };
+		60D28A0F23068F1F0043442B /* BTTextInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextInputView.h; sourceTree = "<group>"; };
+		60D28A1023068F1F0043442B /* BTLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLineView.m; sourceTree = "<group>"; };
+		60D28A1123068F1F0043442B /* BTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextView.m; sourceTree = "<group>"; };
+		60D28A1223068F200043442B /* UIImage+BTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BTImage.m"; sourceTree = "<group>"; };
 		9B4BFD5D2250B08C009B3C65 /* BTBtnViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBtnViewController.h; sourceTree = "<group>"; };
 		9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBtnViewController.m; sourceTree = "<group>"; };
-		9BAAAC21226459A000ED207D /* UIView+BTConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BTConstraint.h"; sourceTree = "<group>"; };
-		9BAAAC22226459A000ED207D /* UIView+BTConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BTConstraint.m"; sourceTree = "<group>"; };
-		9BACA626224BA23600EF00A8 /* BTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTButton.m; sourceTree = "<group>"; };
-		9BACA627224BA23600EF00A8 /* BTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTButton.h; sourceTree = "<group>"; };
-		9BACA62A224BA24100EF00A8 /* BTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextView.m; sourceTree = "<group>"; };
-		9BACA62B224BA24100EF00A8 /* BTTextInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextInputView.h; sourceTree = "<group>"; };
-		9BACA62C224BA24100EF00A8 /* BTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextView.h; sourceTree = "<group>"; };
-		9BACA62D224BA24100EF00A8 /* BTTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextInputView.m; sourceTree = "<group>"; };
-		9BCAA9DF22D5C62C000554FC /* BTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTextField.h; sourceTree = "<group>"; };
-		9BCAA9E022D5C62C000554FC /* BTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,40 +131,40 @@
 		0CFA89962213F27F0043E8EB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9BCAA9DF22D5C62C000554FC /* BTTextField.h */,
-				9BCAA9E022D5C62C000554FC /* BTTextField.m */,
+				60D28A0E23068F1F0043442B /* BTButton.h */,
+				60D28A0923068F1F0043442B /* BTButton.m */,
+				60D28A0423068F1E0043442B /* BTLineView.h */,
+				60D28A1023068F1F0043442B /* BTLineView.m */,
+				60D28A0323068F1E0043442B /* BTTextField.h */,
+				60D28A0523068F1E0043442B /* BTTextField.m */,
+				60D28A0F23068F1F0043442B /* BTTextInputView.h */,
+				60D28A0D23068F1F0043442B /* BTTextInputView.m */,
+				60D28A0B23068F1F0043442B /* BTTextView.h */,
+				60D28A1123068F1F0043442B /* BTTextView.m */,
+				60D28A0723068F1F0043442B /* UIImage+BTImage.h */,
+				60D28A1223068F200043442B /* UIImage+BTImage.m */,
+				60D28A0823068F1F0043442B /* UIView+BTConstraint.h */,
+				60D28A0623068F1E0043442B /* UIView+BTConstraint.m */,
+				60D28A0A23068F1F0043442B /* UIView+BTViewTool.h */,
+				60D28A0C23068F1F0043442B /* UIView+BTViewTool.m */,
 				0CFA89A42213F27F0043E8EB /* BTModelProperty.h */,
 				0CFA89A82213F27F0043E8EB /* BTModelProperty.m */,
 				0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */,
 				0CFA89A72213F27F0043E8EB /* BTModelAnalisys.m */,
 				0CFA89A92213F27F0043E8EB /* BTModel.h */,
 				0CFA89A62213F27F0043E8EB /* BTModel.m */,
-				9BACA62C224BA24100EF00A8 /* BTTextView.h */,
-				9BACA62A224BA24100EF00A8 /* BTTextView.m */,
-				9BACA62B224BA24100EF00A8 /* BTTextInputView.h */,
-				9BACA62D224BA24100EF00A8 /* BTTextInputView.m */,
-				9BAAAC21226459A000ED207D /* UIView+BTConstraint.h */,
-				9BAAAC22226459A000ED207D /* UIView+BTConstraint.m */,
-				0CFA899E2213F27F0043E8EB /* UIView+BTViewTool.h */,
-				0CFA899B2213F27F0043E8EB /* UIView+BTViewTool.m */,
-				0CFA899C2213F27F0043E8EB /* UIImage+BTImage.h */,
-				0CFA899D2213F27F0043E8EB /* UIImage+BTImage.m */,
 				0CFA89AB2213F27F0043E8EB /* BTTimerHelp.h */,
 				0CFA89972213F27F0043E8EB /* BTTimerHelp.m */,
 				0CFA89AD2213F27F0043E8EB /* BTLocation.h */,
 				0CFA89982213F27F0043E8EB /* BTLocation.m */,
 				0CFA89992213F27F0043E8EB /* BTIconHelp.h */,
 				0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */,
-				0CFA89B52213F27F0043E8EB /* BTLineView.h */,
-				0CFA899F2213F27F0043E8EB /* BTLineView.m */,
 				0CFA89A02213F27F0043E8EB /* BTKeyboardHelp.h */,
 				0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */,
 				0CFA89A12213F27F0043E8EB /* BTPermission.h */,
 				0CFA89B32213F27F0043E8EB /* BTPermission.m */,
 				0CFA89B62213F27F0043E8EB /* BTUtils.h */,
 				0CFA89AA2213F27F0043E8EB /* BTUtils.m */,
-				9BACA627224BA23600EF00A8 /* BTButton.h */,
-				9BACA626224BA23600EF00A8 /* BTButton.m */,
 				0C2C218F2214FF3300BD952A /* BTHelp.h */,
 			);
 			name = Classes;
@@ -251,26 +251,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CFA89BE2213F27F0043E8EB /* BTModelAnalisys.m in Sources */,
+				60D28A1323068F200043442B /* BTTextField.m in Sources */,
 				0CFA89BD2213F27F0043E8EB /* BTModel.m in Sources */,
 				0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */,
-				9BACA62F224BA24100EF00A8 /* BTTextInputView.m in Sources */,
 				0CFA89BF2213F27F0043E8EB /* BTModelProperty.m in Sources */,
 				0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */,
-				0CFA89BC2213F27F0043E8EB /* BTLineView.m in Sources */,
 				0CFA89B82213F27F0043E8EB /* BTTimerHelp.m in Sources */,
-				9BCAA9E122D5C62C000554FC /* BTTextField.m in Sources */,
-				0CFA89BA2213F27F0043E8EB /* UIView+BTViewTool.m in Sources */,
+				60D28A1523068F200043442B /* BTButton.m in Sources */,
+				60D28A1423068F200043442B /* UIView+BTConstraint.m in Sources */,
 				0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */,
 				0CFA89B92213F27F0043E8EB /* BTLocation.m in Sources */,
 				0CFA89C02213F27F0043E8EB /* BTUtils.m in Sources */,
+				60D28A1723068F200043442B /* BTTextInputView.m in Sources */,
 				0CFA89852213F26D0043E8EB /* ViewController.m in Sources */,
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
-				9BAAAC23226459A000ED207D /* UIView+BTConstraint.m in Sources */,
 				9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,
-				9BACA62E224BA24100EF00A8 /* BTTextView.m in Sources */,
-				0CFA89BB2213F27F0043E8EB /* UIImage+BTImage.m in Sources */,
-				9BACA628224BA23700EF00A8 /* BTButton.m in Sources */,
+				60D28A1923068F200043442B /* BTTextView.m in Sources */,
+				60D28A1623068F200043442B /* UIView+BTViewTool.m in Sources */,
+				60D28A1823068F200043442B /* BTLineView.m in Sources */,
+				60D28A1A23068F200043442B /* UIImage+BTImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

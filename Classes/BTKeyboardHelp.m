@@ -8,7 +8,6 @@
 
 #import "BTKeyboardHelp.h"
 #import "BTUtils.h"
-#import "UIView+BTViewTool.h"
 
 @interface BTKeyboardHelp()
 

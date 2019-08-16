@@ -198,6 +198,9 @@
 //获取cache目录下的voice文件夹,没有则创建
 + (NSString*)getCacheVoice;
 
+//获取某一个文件夹下的所有文件
++ (NSArray*)getFolderAllFileName:(NSString*)folderPath fileType:(NSString*)fileType;
+
 #pragma mark webview 与js操作的方法
 
 + (NSString*)createJsStr:(NSString*)name,...;
