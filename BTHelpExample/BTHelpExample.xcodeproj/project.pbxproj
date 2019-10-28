@@ -22,6 +22,7 @@
 		0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */; };
 		0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B32213F27F0043E8EB /* BTPermission.m */; };
 		0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */; };
+		9B2B6C912364196B006AC987 /* NSDate+BTDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B6C902364196B006AC987 /* NSDate+BTDate.m */; };
 		9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		0CFA89B32213F27F0043E8EB /* BTPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPermission.m; sourceTree = "<group>"; };
 		0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTKeyboardHelp.m; sourceTree = "<group>"; };
 		0CFA89B62213F27F0043E8EB /* BTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUtils.h; sourceTree = "<group>"; };
+		9B2B6C8F2364196B006AC987 /* NSDate+BTDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BTDate.h"; sourceTree = "<group>"; };
+		9B2B6C902364196B006AC987 /* NSDate+BTDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BTDate.m"; sourceTree = "<group>"; };
 		9B4BFD5D2250B08C009B3C65 /* BTBtnViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBtnViewController.h; sourceTree = "<group>"; };
 		9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBtnViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +110,8 @@
 		0CFA89962213F27F0043E8EB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9B2B6C8F2364196B006AC987 /* NSDate+BTDate.h */,
+				9B2B6C902364196B006AC987 /* NSDate+BTDate.m */,
 				0CFA89A42213F27F0043E8EB /* BTModelProperty.h */,
 				0CFA89A82213F27F0043E8EB /* BTModelProperty.m */,
 				0CFA89A52213F27F0043E8EB /* BTModelAnalisys.h */,
@@ -220,6 +225,7 @@
 				0CFA89B92213F27F0043E8EB /* BTLocation.m in Sources */,
 				0CFA89C02213F27F0043E8EB /* BTUtils.m in Sources */,
 				0CFA89852213F26D0043E8EB /* ViewController.m in Sources */,
+				9B2B6C912364196B006AC987 /* NSDate+BTDate.m in Sources */,
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
 				9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,

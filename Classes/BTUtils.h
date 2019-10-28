@@ -97,24 +97,6 @@
 //将阿拉伯数字转换为中文数字
 + (NSString *)translationArabicNum:(NSInteger)arabicNum;
 
-#pragma mark NSDate常用函数
-//获取当前的日期,根据系统的时区
-+ (NSDate*)getCurrentDateWithSystemTimeZone;
-
-//根据传入的字符串日期时间和formater 格式转化为date对象
-+ (NSDate*)getDateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
-
-//根据系统时间判断传入时间是否是未来时间
-+ (BOOL)isFutureTime:(NSDate*)date;
-
-//得到距离系统当前时间的显示时间,比如一小时前,三分钟前,时间格式:yyyy-MM-dd HH:mm:ss
-+ (NSString*)getTimeFromNowStr:(NSString*)dateString;
-
-//根据传入的日期格式转化为特定日期字符串
-+ (NSString*)getCurrentTime:(NSString*)formatter;
-
-//得到当前日期时间的字符串,YYYY-MM-dd HH:mm:ss
-+ (NSString*)getCurrentTime;
 
 //传入秒数,转换成00:00:00格式
 + (NSString*)convertSecToTime:(int)second;
