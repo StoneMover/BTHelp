@@ -30,6 +30,12 @@
 
 + (BOOL)UI_IS_IPHONEX;
 
++ (BOOL)UI_IS_IPHONE_6;
+
++ (BOOL)UI_IS_IPHONE_6_P;
+
++ (BOOL)UI_IS_IPHONE_SE;
+
 + (UIApplication*)APP;
 
 + (UIWindow*)APP_WINDOW;
@@ -226,6 +232,9 @@
 
 //是否全部为数字
 + (BOOL)isStrAllNumber:(NSString*)checkedNumString;
+
+//震动
++ (void)shake;
 
 @end
 

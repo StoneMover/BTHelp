@@ -145,11 +145,8 @@
             }
             
         }
-        
-        
-        _isKeyBoardOpen=YES;
     }
-    
+    _isKeyBoardOpen=YES;
     if (self.delegate&&[self.delegate respondsToSelector:@selector(keyboardWillShow:)]) {
         [self.delegate keyboardWillShow:keyboardHeight];
     }

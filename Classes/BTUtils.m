@@ -8,7 +8,7 @@
 
 #import "BTUtils.h"
 #import<CommonCrypto/CommonDigest.h>
-
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation BTUtils
 
@@ -62,6 +62,30 @@
     }
     
     if (BTUtils.SCREEN_W == 414.f && BTUtils.SCREEN_H == 896.f) {
+        return YES;
+    }
+    
+    return NO;
+}
+
++ (BOOL)UI_IS_IPHONE_6{
+    if (BTUtils.SCREEN_W == 375.f && BTUtils.SCREEN_H == 667.f) {
+        return YES;
+    }
+    
+    return NO;
+}
+
++ (BOOL)UI_IS_IPHONE_6_P{
+    if (BTUtils.SCREEN_W == 414.f && BTUtils.SCREEN_H == 736.f) {
+        return YES;
+    }
+    
+    return NO;
+}
+
++ (BOOL)UI_IS_IPHONE_SE{
+    if (BTUtils.SCREEN_W == 320.f && BTUtils.SCREEN_H == 568.f) {
         return YES;
     }
     
@@ -749,6 +773,10 @@
         return NO;
     }
     return YES;
+}
+
++ (void)shake{
+    AudioServicesPlaySystemSound(1520);
 }
 
 @end
