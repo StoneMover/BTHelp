@@ -92,7 +92,7 @@
 
 + (NSDate*)dateYMD:(NSString*)dateStr{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    formatter.dateFormat=@"YYYY-MM-dd";
+    formatter.dateFormat=@"yyyy-MM-dd";
     return [formatter dateFromString:dateStr];
 }
 
@@ -100,14 +100,14 @@
 
 + (NSDate*)dateYMDHMS:(NSString*)dateStr{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    formatter.dateFormat=@"YYYY-MM-dd HH:mm:ss";
+    formatter.dateFormat=@"yyyy-MM-dd HH:mm:ss";
     return [formatter dateFromString:dateStr];
 }
 
 
 + (NSDate*)dateYMDHM:(NSString*)dateStr{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    formatter.dateFormat=@"YYYY-MM-dd HH:mm";
+    formatter.dateFormat=@"yyyy-MM-dd HH:mm";
     return [formatter dateFromString:dateStr];
 }
 
