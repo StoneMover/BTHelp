@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSInteger)calculateAge:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 //是否是未来时间
-- (BOOL)isFutureTime:(NSDate*)date;
+- (BOOL)isFutureTime;
 
 //得到距离系统当前时间的显示时间,比如一小时前,三分钟前,时间格式:yyyy-MM-dd HH:mm:ss
 - (NSString*)dateFromNowStr;

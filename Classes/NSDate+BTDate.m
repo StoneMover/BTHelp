@@ -41,12 +41,12 @@
     return age;
 }
 
-- (BOOL)isFutureTime:(NSDate*)date{
+- (BOOL)isFutureTime{
     NSDate * currentDate=[NSDate date];
     NSTimeZone *zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: currentDate];
     NSDate *localeDate = [currentDate dateByAddingTimeInterval: interval];
-    NSDate * resultDate=[localeDate laterDate:date];
+    NSDate * resultDate=[localeDate laterDate:self];
     if ([resultDate isEqualToDate:localeDate]) {
         return NO;
     }
