@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BTBtnViewController.h"
 #import "BTUtils.h"
+#import "TestModel.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -52,7 +53,11 @@
         }
             break;
         case 1:
-            
+        {
+            NSDictionary * dict = @{@"title":@"三国演义",@"child":@{@"content":@"东汉末年"},@"childs":@[@{@"content":@"分三国"},@{@"content":@"烽火连天不休"}]};
+            TestModel * model = [TestModel modelWithDict:dict];
+            NSLog(@"");
+        }
             break;
         case 2:
             
