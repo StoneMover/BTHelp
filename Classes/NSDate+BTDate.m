@@ -46,11 +46,10 @@
     NSTimeZone *zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: currentDate];
     NSDate *localeDate = [currentDate dateByAddingTimeInterval: interval];
-    NSDate * resultDate=[localeDate laterDate:self];
-    if ([resultDate isEqualToDate:localeDate]) {
-        return NO;
+    if (self.timeIntervalSince1970 > localeDate.timeIntervalSince1970) {
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 
@@ -86,35 +85,43 @@
 
 - (NSString*)dateStr:(NSString*)formater{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     formatter.dateFormat=formater;
-    return [formatter stringFromDate:self];
+    NSString * str = [formatter stringFromDate:self];
+    return str;
+}
+
++ (NSDate*)initLocalDate{
+    NSDate * date = [[NSDate alloc] init];
+    NSTimeZone * zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate: date];
+    NSDate * localeDate = [date dateByAddingTimeInterval: interval];
+    return localeDate;
 }
 
 + (NSDate*)dateYMD:(NSString*)dateStr{
-    NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    formatter.dateFormat=@"yyyy-MM-dd";
-    return [formatter dateFromString:dateStr];
+    return [self dateFromStr:dateStr formatter:@"YYYY-MM-dd"];
 }
 
 
 
 + (NSDate*)dateYMDHMS:(NSString*)dateStr{
-    NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    formatter.dateFormat=@"yyyy-MM-dd HH:mm:ss";
-    return [formatter dateFromString:dateStr];
+    return [self dateFromStr:dateStr formatter:@"YYYY-MM-dd HH:mm:ss"];
 }
 
 
 + (NSDate*)dateYMDHM:(NSString*)dateStr{
-    NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    formatter.dateFormat=@"yyyy-MM-dd HH:mm";
-    return [formatter dateFromString:dateStr];
+    return [self dateFromStr:dateStr formatter:@"YYYY-MM-dd HH:mm"];
 }
 
 + (NSDate*)dateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
     formatter.dateFormat=formatterStr;
-    return [formatter dateFromString:dateStr];
+    NSDate * date = [formatter dateFromString:dateStr];
+    NSTimeZone * zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate: date];
+    NSDate * localeDate = [date dateByAddingTimeInterval: interval];
+    return localeDate;
 }
 
 

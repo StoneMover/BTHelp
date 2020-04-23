@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString*)dateStr:(NSString*)formater;
 
 #pragma mark 根据出传入日期以及格式化样式获取date
+//根据时区获取对应的date
++ (NSDate*)initLocalDate;
+
 //传入2010-01-01 这个字符串获取date
 + (NSDate*)dateYMD:(NSString*)dateStr;
 
