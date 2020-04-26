@@ -122,7 +122,7 @@
                 {
                     //判断数组是否为0
                     NSArray * dictArray=[dict objectForKey:dictKey];
-                    if (dictArray.count==0) {
+                    if (![dictArray isKindOfClass:[NSArray class]]||dictArray.count==0) {
                         break;
                     }
                     
