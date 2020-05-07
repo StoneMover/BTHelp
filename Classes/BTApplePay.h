@@ -20,6 +20,10 @@
 
 //获取商品信息成功回调
 - (void)BTApplePayRequestSuccess:(NSArray*)dictArray;
+- (void)BTApplePayRequestFail:(NSError*)error;
+
+//请求完成回调，可以不用处理，如果成功会先调用BTApplePayRequestSuccess再调用此方法
+- (void)BTApplePayRequestFinish;
 
 //购买失败回调
 - (void)BTApplePayBuyFail:(NSString*)failInfo;
@@ -27,9 +31,6 @@
 //购买成功回调
 - (void)BTApplePayBuySuccess:(NSString*)payment;
 
-//展示loading，如果不需要loading可以不处理,在请求产品数据的时候用到
-- (void)BTAppleAutoShowLoading:(BOOL)isShowLoading;
-- (void)BTAppleShowToast:(NSError*)error;
 
 @end
 

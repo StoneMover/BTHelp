@@ -72,10 +72,6 @@ static BTApplePay * help =nil;
     if (self.isRequesting) {
         return;
     }
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(BTAppleAutoShowLoading:)]) {
-        [self.delegate BTAppleAutoShowLoading:YES];
-    }
     self.isRequesting=YES;
     NSSet *set = [NSSet setWithArray:self.productId];
     self.request = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
@@ -96,9 +92,7 @@ static BTApplePay * help =nil;
 {
     self.isRequesting=NO;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(BTAppleAutoShowLoading:)]) {
-        [self.delegate BTAppleAutoShowLoading:NO];
-    }
+    
     for (SKProduct *product in response.products) {
         // 用来保存价格
         NSMutableDictionary *priceDic = @{}.mutableCopy;
@@ -125,25 +119,32 @@ static BTApplePay * help =nil;
         [dict setValue:product.productIdentifier forKey:@"productIdentifier"];
         [self.dataArrayDict addObject:dict];
     }
-    [self requestProductSuccess];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self requestProductSuccess];
+    });
+    
 }
 
 - (void)requestDidFinish:(SKRequest *)request{
     self.isRequesting=NO;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(BTAppleAutoShowLoading:)]) {
-        [self.delegate BTAppleAutoShowLoading:NO];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+       if (self.delegate && [self.delegate respondsToSelector:@selector(BTApplePayRequestFinish)]) {
+           [self.delegate BTApplePayRequestFinish];
+       }
+    });
 }
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
     self.isRequesting=NO;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(BTAppleAutoShowLoading:)]) {
-        [self.delegate BTAppleAutoShowLoading:NO];
-    }
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(BTAppleShowToast:)]) {
-        [self.delegate BTAppleShowToast:error];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+       if (self.delegate && [self.delegate respondsToSelector:@selector(BTApplePayRequestFail:)]) {
+           [self.delegate BTApplePayRequestFail:error];
+       }
+    });
+    
+    
+    
 }
 
 #pragma mark 逻辑方法
@@ -202,9 +203,12 @@ static BTApplePay * help =nil;
                 NSData * receipt = [NSData dataWithContentsOfURL:receiptURL];
                 NSString * transactionReceiptString = [receipt base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
                 if ([BTUtils isEmpty:transactionReceiptString]) {
-                    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuyFail:)]) {
-                        [self.delegate BTApplePayBuyFail:@"购买失败:凭证获取失败,重启应用后将重新获取凭证"];
-                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                       if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuyFail:)]) {
+                           [self.delegate BTApplePayBuyFail:@"购买失败:凭证获取失败,重启应用后将重新获取凭证"];
+                       }
+                    });
+                    
                 }else{
                     //将凭证、用户id、applicationUsername、存储为一条数据，在与服务器验证成功之后删除
                     BTApplePayReceiptModel * receiptModel =[BTApplePayReceiptModel new];
@@ -212,9 +216,12 @@ static BTApplePay * help =nil;
                     receiptModel.applicationUsername=transaction.payment.applicationUsername;
                     receiptModel.userId=self.userId;
                     [self saveReceiptModel:receiptModel];
-                    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuySuccess:)]) {
-                        [self.delegate BTApplePayBuySuccess:transactionReceiptString];
-                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                       if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuySuccess:)]) {
+                           [self.delegate BTApplePayBuySuccess:transactionReceiptString];
+                       }
+                    });
+                    
                     [queue finishTransaction:transaction];
                     NSLog(@"购买成功-票据：%@,productIdentifier,%@,applicationUsername%@，userId:%@",receiptModel.receipt,transaction.payment.productIdentifier,receiptModel.applicationUsername,self.userId);
                 }
@@ -223,23 +230,39 @@ static BTApplePay * help =nil;
                 break;
                 
             case SKPaymentTransactionStateFailed:
+            {
                 NSLog(@"购买失败");
                 [queue finishTransaction:transaction];
-                if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuyFail:)]) {
-                    [self.delegate BTApplePayBuyFail:@"购买失败"];
-                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuyFail:)]) {
+                        [self.delegate BTApplePayBuyFail:@"购买失败"];
+                    }
+                    
+                });
+            }
                 break;
                 
             case SKPaymentTransactionStateRestored:
+            {
                 NSLog(@"恢复购买");
                 [queue finishTransaction:transaction];
+            }
                 break;
                 
             case SKPaymentTransactionStateDeferred:
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuyFail:)]) {
+                        [self.delegate BTApplePayBuyFail:@"购买失败:最终状态未确定"];
+                    }
+                    
+                });
+
                 NSLog(@"最终状态未确定");
-                if (self.delegate&&[self.delegate respondsToSelector:@selector(BTApplePayBuyFail:)]) {
-                    [self.delegate BTApplePayBuyFail:@"购买失败:最终状态未确定"];
-                }
+                
+            }
                 break;
                 
             default:
