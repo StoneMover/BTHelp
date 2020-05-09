@@ -10,6 +10,7 @@
 #import "BTBtnViewController.h"
 #import "BTUtils.h"
 #import "TestModel.h"
+#import "NSDate+BTDate.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -44,6 +45,11 @@
 #pragma mark tableView delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDate * date = [NSDate initLocalDate];
+    NSString *  year = date.year;
+    NSString *   month = date.month;
+    NSString *  day = date.day;
+    NSString * weekData = date.weekDay;
     switch (indexPath.row) {
         case 0:
         {

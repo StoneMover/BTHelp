@@ -36,11 +36,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate (BTDate)
 
-- (NSInteger)year;
+- (NSString*)year;
 
-- (NSInteger)month;
+- (NSString*)month;
 
-- (NSInteger)day;
+- (NSString*)day;
+
+//英文的周几字符串
+- (NSString*)weekDay;
+
+//数字周几，0是周日
+- (NSInteger)weekDayNum;
+
+//传入头部字符串如周和星期，如果传回周会返回周一、周二..周日等字符串，传星期会返回星期一、星期二..星期天字符串
+- (NSString*)weekDayNumStrWithHead:(NSString*)head;
 
 //计算年龄,生成当前date类,传入年月日即可
 - (NSInteger)calculateAge:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
