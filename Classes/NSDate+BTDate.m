@@ -107,7 +107,7 @@
     return str;
 }
 
-+ (NSDate*)initLocalDate{
++ (instancetype)initLocalDate{
     NSDate * date = [[NSDate alloc] init];
     NSTimeZone * zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: date];
