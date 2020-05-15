@@ -28,6 +28,7 @@
     self.titles=@[@"BTButton&BTTextView",@"BTModel",@"BTKeyboardHelp"];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
+    NSString * phone = [BTUtils phoneEncrypt:@"15623728016"];
 }
 
 #pragma mark tableView data delegate

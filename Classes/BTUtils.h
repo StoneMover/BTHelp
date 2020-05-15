@@ -236,6 +236,9 @@
 //震动
 + (void)shake;
 
+//返回156*****8016电话
++ (NSString*)phoneEncrypt:(NSString*)phone;
+
 @end
 
 

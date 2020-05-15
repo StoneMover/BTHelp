@@ -779,4 +779,17 @@
     AudioServicesPlaySystemSound(1520);
 }
 
++ (NSString*)phoneEncrypt:(NSString*)phone{
+    if ([BTUtils isEmpty:phone]) {
+        return @"";
+    }
+    
+    if (phone.length != 11) {
+        return @"";
+    }
+    
+    NSString * str = [phone stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    return str;
+}
+
 @end
