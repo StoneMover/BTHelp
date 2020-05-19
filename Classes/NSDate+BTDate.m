@@ -27,9 +27,13 @@
 }
 
 - (NSInteger)weekDayNum{
-    NSString * weekDayStr = [self weekDay];
-    NSArray * weekDayStrArray = @[@"Sunday",@"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",@"Saturday"];
-    return [weekDayStrArray indexOfObject:weekDayStr];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
+    NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    calendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    comps = [calendar components:unitFlags fromDate:self];
+    return [comps weekday] - 1;
 }
 
 - (NSString*)weekDayNumStrWithHead:(NSString*)head{
