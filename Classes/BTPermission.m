@@ -114,21 +114,23 @@ static BTPermission * permission;
     
     if (authStatus==PHAuthorizationStatusNotDetermined) {
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-            if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
-                // 没有权限
-                [self showSysAlert:@"温馨提示"
-                          messages:meg
-                              btns:@[@"取消",@"确定"]
-                             block:^(NSInteger index) {
-                                 if (index==1) {
-                                     [BTUtils openSetVc];
-                                 }
-                             }];
-            }else{
-                if (block) {
-                    block();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+                    // 没有权限
+                    [self showSysAlert:@"温馨提示"
+                              messages:meg
+                                  btns:@[@"取消",@"确定"]
+                                 block:^(NSInteger index) {
+                                     if (index==1) {
+                                         [BTUtils openSetVc];
+                                     }
+                                 }];
+                }else{
+                    if (block) {
+                        block();
+                    }
                 }
-            }
+            });
         }];
         return;
     }
