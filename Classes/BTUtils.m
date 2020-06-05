@@ -578,7 +578,7 @@
         NSString * parentPath=[path stringByDeletingLastPathComponent];
         if ([self isFileExit:parentPath]) {
             NSError * error;
-            [fileManager createDirectoryAtPath:path withIntermediateDirectories:path attributes:nil error:&error];
+            [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
         }else{
             [self createPath:parentPath];
             [self createPath:path];
