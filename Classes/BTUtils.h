@@ -94,6 +94,8 @@
 //计算文字的高度,
 + (CGFloat)calculateStrHeight:(NSString*)str width:(CGFloat)width font:(UIFont*)font;
 
++ (CGFloat)calculateStrHeight:(NSString*)str width:(CGFloat)width font:(UIFont*)font lineSpeace:(CGFloat)lineSpeace;
+
 + (CGFloat)calculateLabelHeight:(UILabel*)label;
 
 + (CGFloat)calculateStrWidth:(NSString*)str height:(CGFloat)height font:(UIFont*)font;
