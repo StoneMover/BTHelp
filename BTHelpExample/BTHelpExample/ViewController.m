@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "BTBtnViewController.h"
 #import "BTUtils.h"
 #import "TestModel.h"
 #import "NSDate+BTDate.h"
@@ -25,10 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"BTHelp";
-    self.titles=@[@"BTButton&BTTextView",@"BTModel",@"BTKeyboardHelp"];
+    self.titles=@[@"BTModel",@"BTKeyboardHelp"];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-    NSString * phone = [BTUtils phoneEncrypt:@"15623728016"];
 }
 
 #pragma mark tableView data delegate
@@ -46,24 +44,17 @@
 #pragma mark tableView delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSDate * date = [NSDate initLocalDate];
-    NSString *  year = date.year;
-    NSString *   month = date.month;
-    NSString *  day = date.day;
-    NSString * weekData = date.weekDay;
     switch (indexPath.row) {
         case 0:
         {
-            UIViewController *vc = [BTUtils createVc:@"BTBtnViewController"];
-            vc.title=self.titles[indexPath.row];
-            [self.navigationController pushViewController:vc animated:YES];
+            NSDictionary * dict = @{@"title":@"三国演义",@"child":@{@"content":@"东汉末年"},@"childs":@[@{@"content":@"分三国"},@{@"content":@"烽火连天不休"}]};
+            TestModel * model = [TestModel modelWithDict:dict];
+            NSLog(@"下个断点看有没有解析成功");
         }
             break;
         case 1:
         {
-            NSDictionary * dict = @{@"title":@"三国演义",@"child":@{@"content":@"东汉末年"},@"childs":@[@{@"content":@"分三国"},@{@"content":@"烽火连天不休"}]};
-            TestModel * model = [TestModel modelWithDict:dict];
-            NSLog(@"");
+            
         }
             break;
         case 2:

@@ -26,7 +26,6 @@
 		185CF1FC2447080100866B1A /* BTApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CF1FA2447080100866B1A /* BTApplePay.m */; };
 		18E11F2D2449497F00062203 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E11F2C2449497F00062203 /* TestModel.m */; };
 		9B2B6C912364196B006AC987 /* NSDate+BTDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B6C902364196B006AC987 /* NSDate+BTDate.m */; };
-		9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,8 +66,6 @@
 		18E11F2C2449497F00062203 /* TestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		9B2B6C8F2364196B006AC987 /* NSDate+BTDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BTDate.h"; sourceTree = "<group>"; };
 		9B2B6C902364196B006AC987 /* NSDate+BTDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BTDate.m"; sourceTree = "<group>"; };
-		9B4BFD5D2250B08C009B3C65 /* BTBtnViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBtnViewController.h; sourceTree = "<group>"; };
-		9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBtnViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +157,6 @@
 		9B4BFD5B2250B061009B3C65 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				9B4BFD5D2250B08C009B3C65 /* BTBtnViewController.h */,
-				9B4BFD5E2250B08C009B3C65 /* BTBtnViewController.m */,
 				18E11F2B2449497F00062203 /* TestModel.h */,
 				18E11F2C2449497F00062203 /* TestModel.m */,
 			);
@@ -253,7 +248,6 @@
 				185CF1F5244705F700866B1A /* BTDownloadMananger.m in Sources */,
 				18E11F2D2449497F00062203 /* TestModel.m in Sources */,
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
-				9B4BFD602250B08C009B3C65 /* BTBtnViewController.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
