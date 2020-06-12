@@ -24,7 +24,6 @@
 
 - (instancetype)initTimerWithChangeTime:(CGFloat)changeTime{
     self=[super init];
-    self.timer=[NSTimer timerWithTimeInterval:changeTime target:self selector:@selector(timeChanged) userInfo:nil repeats:YES];
     return self;
 }
 
