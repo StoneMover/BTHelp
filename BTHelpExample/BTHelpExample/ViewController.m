@@ -10,12 +10,18 @@
 #import "BTUtils.h"
 #import "TestModel.h"
 #import "NSDate+BTDate.h"
+#import "BTTimerHelp.h"
+#import "BTIconHelp.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSArray * titles;
+
+@property (nonatomic, strong) BTTimerHelp * timer;
+
+@property (nonatomic, strong) BTIconHelp * iconHelp;
 
 @end
 
@@ -24,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"BTHelp";
-    self.titles=@[@"BTModel",@"BTKeyboardHelp"];
+    self.titles=@[@"BTModel",@"BTKeyboardHelp",@"BTTimer",@"BTIconHelp"];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 }
@@ -58,10 +64,28 @@
         }
             break;
         case 2:
-            
+        {
+            if (self.timer == nil) {
+                self.timer = [[BTTimerHelp alloc] init];
+                self.timer.changeTime = 1;
+                self.timer.block = ^{
+                    
+                };
+                [self.timer start];
+                [self.timer stop];
+            }
+        }
             break;
         case 3:
-            
+        {
+            if (self.iconHelp == nil) {
+                self.iconHelp = [[BTIconHelp alloc] init:self];
+                self.iconHelp.block = ^(UIImage *image) {
+                    
+                };
+                [self.iconHelp go];
+            }
+        }
             break;
         case 4:
             
