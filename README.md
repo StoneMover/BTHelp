@@ -1,6 +1,12 @@
 # BTHelp
 
-开发中常用的一些工具类
+开发中常用的一些工具类，旨在用特定的工具类快速完成特定的功能。
+
+使用方法
+
+```
+pod install 'BTHelp'
+```
 
 ## BTModel
 
@@ -77,65 +83,6 @@ NSLog(@"下个断点看有没有解析成功");
 -(NSDictionary*)autoDataToDictionary;
 ```
 
-## NSDate+BTDate.h
-
-提供更方便的```NSDate```对象的使用方式
-
-初始化，根据时区获取对应的date，避免中国时区少```8```小时的问题
-
-```
-+ (instancetype)initLocalDate;
-```
-
-```NSDateFormatter```初始化方式
-
-```
-//传入2010-01-01 这个字符串获取date
-+ (NSDate*)dateYMD:(NSString*)dateStr;
-
-//传入2010-01-01 13:04:34 这个字符串获取date
-+ (NSDate*)dateYMDHMS:(NSString*)dateStr;
-
-//传入2010-01-01 13:04 这个字符串获取date
-+ (NSDate*)dateYMDHM:(NSString*)dateStr;
-
-//传入日期,以及格式化样式获取date
-+ (NSDate*)dateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
-```
-
-获取格式化字符串
-
-```
-- (NSString*)dateStr:(NSString*)formater;
-```
-
-其它快捷方法
-
-```
-- (NSString*)year;
-
-- (NSString*)month;
-
-- (NSString*)day;
-
-//英文的周几字符串
-- (NSString*)weekDay;
-
-//数字周几，0是周日
-- (NSInteger)weekDayNum;
-
-//传入头部字符串如周和星期，如果传回周会返回周一、周二..周日等字符串，传星期会返回星期一、星期二..星期天字符串
-- (NSString*)weekDayNumStrWithHead:(NSString*)head;
-
-//计算年龄,生成当前date类,传入年月日即可
-- (NSInteger)calculateAge:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-
-//是否是未来时间
-- (BOOL)isFutureTime;
-
-//得到距离系统当前时间的显示时间,比如一小时前,三分钟前,时间格式:yyyy-MM-dd HH:mm:ss
-- (NSString*)dateFromNowStr;
-```
 
 ## BTTimerHelp
 
@@ -184,5 +131,135 @@ self.iconHelp.block = ^(UIImage *image) {
 [self.iconHelp go];
 ```
 
+## BTKeyboardHelp
+
+在```viewDidAppear```中初始化，这个时候布局已经完成，可以避免一些坐标的计算错误问题，在初始化前必须保证的就是界面已经完成了布局
+
+```
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.help == nil) {
+        self.help = [[BTKeyboardHelp alloc] initWithShowView:self.textField moveView:self.displayView margin:0];
+        [self.textField becomeFirstResponder];
+    }
+    
+}
+```
+
+在```vc```的出现、消失的生命周期方法中进行暂停、恢复，防止进入其它页面后使用键盘弹出后的影响
+
+```
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.help.isPause = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.help.isPause = NO;
+}
+```
+
+## BTPermission
+
+权限获取工具类，注意先要在```info.plist```中添加对应的权限使用描述文字
+
+```
+[[BTPermission share] getMicPermission:@"当前暂无麦克风权限，请打开后重试" success:^{
+                
+}];
+
+[[BTPermission share] getAlbumPermission:^{
+                
+}];
+```
+
+## BTApplePay
+
+使用方式见```PayViewController```，目前仅支持消耗类型项目的购买，不支持恢复购买、订阅
 
 
+## NSDate+BTDate.h
+
+提供更方便的```NSDate```对象的使用方式
+
+初始化，根据时区获取对应的date，避免中国时区少```8```小时的问题
+
+```
++ (instancetype)initLocalDate;
+```
+
+```NSDateFormatter```初始化方式
+
+```
+//传入2010-01-01 这个字符串获取date
++ (NSDate*)dateYMD:(NSString*)dateStr;
+
+//传入2010-01-01 13:04:34 这个字符串获取date
++ (NSDate*)dateYMDHMS:(NSString*)dateStr;
+
+//传入2010-01-01 13:04 这个字符串获取date
++ (NSDate*)dateYMDHM:(NSString*)dateStr;
+
+//传入日期,以及格式化样式获取date
++ (NSDate*)dateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
+```
+
+获取格式化字符串
+
+```
+- (NSString*)dateStr:(NSString*)formater;
+```
+
+其它快捷使用方法见类中注释
+
+## BTUtils
+
+工具类，集合常用方法，见注释
+
+## BTDownloadMananger
+
+下载工具类，基于```NSURLSessionDownload```，在主动调用停止下载的情况下可以实现断点续传。无法实现断点续传情况：断网、杀掉应用
+
+加入下载，如果当前下载数量过多会等待下载
+
+```
+[[BTDownloadMananger share] downLoad:@"下载地址"];
+```
+
+加入回调监听
+
+```
+[[BTDownloadMananger share] addDelegate:self];
+```
+
+实现```BTDownloadDelegate```监听下载回调
+
+```
+- (void)downloadStateChange:(BTDownloadModel *)model;
+
+- (void)downloadProgressChange:(BTDownloadModel *)model;
+
+- (void)downloadError:(BTDownloadModel *)model error:(NSError*)error;
+```
+
+不用的时候移除监听
+
+```
+[[BTDownloadMananger share] removeDelegate:self];
+```
+
+取消下载
+
+```
+[[BTDownloadMananger share] cancel:@"下载地址"];
+```
+
+是否正在下载
+
+```
+[[BTDownloadMananger share] isDownloading:@"下载地址"];
+```
+
+## BTLocation
+定位工具类，待完善。

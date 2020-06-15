@@ -9,19 +9,19 @@
 #import "ViewController.h"
 #import "BTUtils.h"
 #import "TestModel.h"
-#import "NSDate+BTDate.h"
-#import "BTTimerHelp.h"
-#import "BTIconHelp.h"
+#import "BTUtils.h"
+#import "TimerViewController.h"
+#import "IconViewController.h"
+#import "KeyboardViewController.h"
+#import "BTPermission.h"
+#import "PayViewController.h"
+#import "BTDownloadMananger.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSArray * titles;
-
-@property (nonatomic, strong) BTTimerHelp * timer;
-
-@property (nonatomic, strong) BTIconHelp * iconHelp;
 
 @end
 
@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"BTHelp";
-    self.titles=@[@"BTModel",@"BTKeyboardHelp",@"BTTimer",@"BTIconHelp"];
+    self.titles=@[@"BTModel",@"BTTimer",@"BTIconHelp",@"BTKeyboard",@"BTPermission",@"Pay"];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 }
@@ -61,40 +61,47 @@
         case 1:
         {
             
+            TimerViewController * vc = (TimerViewController*)[BTUtils createVc:@"TimerViewController" storyBoardName:@"Main"];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 2:
         {
-            if (self.timer == nil) {
-                self.timer = [[BTTimerHelp alloc] init];
-                self.timer.changeTime = 1;
-                self.timer.block = ^{
-                    
-                };
-                [self.timer start];
-                [self.timer stop];
-            }
+            IconViewController * vc = (IconViewController*)[BTUtils createVc:@"IconViewController" storyBoardName:@"Main"];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3:
         {
-            if (self.iconHelp == nil) {
-                self.iconHelp = [[BTIconHelp alloc] init:self];
-                self.iconHelp.block = ^(UIImage *image) {
-                    
-                };
-                [self.iconHelp go];
-            }
+            KeyboardViewController * vc = (KeyboardViewController*)[BTUtils createVc:@"KeyboardViewController" storyBoardName:@"Main"];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 4:
+        {
+            [[BTPermission share] getMicPermission:@"当前暂无麦克风权限，请打开后重试" success:^{
+                
+            }];
             
+            [[BTPermission share] getAlbumPermission:^{
+                
+            }];
+        }
             break;
         case 5:
-            
+        {
+            PayViewController * vc=[PayViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
             break;
         case 6:
-            
+        {
+            [[BTDownloadMananger share] downLoad:@"下载地址"];
+            [[BTDownloadMananger share] addDelegate:self];
+            [[BTDownloadMananger share] removeDelegate:self];
+            [[BTDownloadMananger share] cancel:@"下载地址"];
+            [[BTDownloadMananger share] isDownloading:@"下载地址"];
+        }
             break;
     }
 }

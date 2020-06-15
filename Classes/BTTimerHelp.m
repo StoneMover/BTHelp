@@ -34,6 +34,7 @@
         self.timer=nil;
     }
     self.timer=[NSTimer timerWithTimeInterval:changeTime target:self selector:@selector(timeChanged) userInfo:nil repeats:YES];
+    self.isHasFire = NO;
 }
 
 -(void)timeChanged{
