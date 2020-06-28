@@ -29,6 +29,10 @@
 		18E56471249711F20050C13E /* IconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E56470249711F20050C13E /* IconViewController.m */; };
 		18E5647424971AD60050C13E /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E5647324971AD60050C13E /* KeyboardViewController.m */; };
 		18E56477249725220050C13E /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E56476249725220050C13E /* PayViewController.m */; };
+		18EB5D7024A88FB200965E3B /* NSString+BTString.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB5D6F24A88FB200965E3B /* NSString+BTString.m */; };
+		18EB5D7324A89E2800965E3B /* UIImage+BTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB5D7224A89E2800965E3B /* UIImage+BTImage.m */; };
+		18EB5D7624A8A38700965E3B /* BTFileHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB5D7524A8A38700965E3B /* BTFileHelp.m */; };
+		18EB5D7924A8A45500965E3B /* UIColor+BTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB5D7824A8A45500965E3B /* UIColor+BTColor.m */; };
 		9B2B6C912364196B006AC987 /* NSDate+BTDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B6C902364196B006AC987 /* NSDate+BTDate.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,14 @@
 		18E5647324971AD60050C13E /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
 		18E56475249725220050C13E /* PayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
 		18E56476249725220050C13E /* PayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		18EB5D6E24A88FB200965E3B /* NSString+BTString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+BTString.h"; sourceTree = "<group>"; };
+		18EB5D6F24A88FB200965E3B /* NSString+BTString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BTString.m"; sourceTree = "<group>"; };
+		18EB5D7124A89E2800965E3B /* UIImage+BTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BTImage.h"; sourceTree = "<group>"; };
+		18EB5D7224A89E2800965E3B /* UIImage+BTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BTImage.m"; sourceTree = "<group>"; };
+		18EB5D7424A8A38700965E3B /* BTFileHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTFileHelp.h; sourceTree = "<group>"; };
+		18EB5D7524A8A38700965E3B /* BTFileHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTFileHelp.m; sourceTree = "<group>"; };
+		18EB5D7724A8A45500965E3B /* UIColor+BTColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+BTColor.h"; sourceTree = "<group>"; };
+		18EB5D7824A8A45500965E3B /* UIColor+BTColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BTColor.m"; sourceTree = "<group>"; };
 		9B2B6C8F2364196B006AC987 /* NSDate+BTDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BTDate.h"; sourceTree = "<group>"; };
 		9B2B6C902364196B006AC987 /* NSDate+BTDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BTDate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +140,8 @@
 		0CFA89962213F27F0043E8EB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				185CF1EC244705E500866B1A /* BTDownload */,
+				18EB5D6D24A88F9800965E3B /* category */,
 				0CFA89A92213F27F0043E8EB /* BTModel.h */,
 				0CFA89A62213F27F0043E8EB /* BTModel.m */,
 				0CFA89AB2213F27F0043E8EB /* BTTimerHelp.h */,
@@ -142,12 +156,11 @@
 				0CFA89AA2213F27F0043E8EB /* BTUtils.m */,
 				185CF1F92447080100866B1A /* BTApplePay.h */,
 				185CF1FA2447080100866B1A /* BTApplePay.m */,
-				9B2B6C8F2364196B006AC987 /* NSDate+BTDate.h */,
-				9B2B6C902364196B006AC987 /* NSDate+BTDate.m */,
 				0CFA89AD2213F27F0043E8EB /* BTLocation.h */,
 				0CFA89982213F27F0043E8EB /* BTLocation.m */,
-				185CF1EC244705E500866B1A /* BTDownload */,
 				0C2C218F2214FF3300BD952A /* BTHelp.h */,
+				18EB5D7424A8A38700965E3B /* BTFileHelp.h */,
+				18EB5D7524A8A38700965E3B /* BTFileHelp.m */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -164,6 +177,21 @@
 				185CF1EF244705F700866B1A /* XMLReader.m */,
 			);
 			path = BTDownload;
+			sourceTree = "<group>";
+		};
+		18EB5D6D24A88F9800965E3B /* category */ = {
+			isa = PBXGroup;
+			children = (
+				18EB5D7124A89E2800965E3B /* UIImage+BTImage.h */,
+				18EB5D7224A89E2800965E3B /* UIImage+BTImage.m */,
+				18EB5D6E24A88FB200965E3B /* NSString+BTString.h */,
+				18EB5D6F24A88FB200965E3B /* NSString+BTString.m */,
+				9B2B6C8F2364196B006AC987 /* NSDate+BTDate.h */,
+				9B2B6C902364196B006AC987 /* NSDate+BTDate.m */,
+				18EB5D7724A8A45500965E3B /* UIColor+BTColor.h */,
+				18EB5D7824A8A45500965E3B /* UIColor+BTColor.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 		9B4BFD5B2250B061009B3C65 /* Test */ = {
@@ -256,6 +284,7 @@
 				185CF1F3244705F700866B1A /* BTDownloadModel.m in Sources */,
 				0CFA89BD2213F27F0043E8EB /* BTModel.m in Sources */,
 				0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */,
+				18EB5D7024A88FB200965E3B /* NSString+BTString.m in Sources */,
 				0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */,
 				18E5646E2497054E0050C13E /* TimerViewController.m in Sources */,
 				0CFA89B82213F27F0043E8EB /* BTTimerHelp.m in Sources */,
@@ -264,15 +293,18 @@
 				0CFA89B92213F27F0043E8EB /* BTLocation.m in Sources */,
 				18E5647424971AD60050C13E /* KeyboardViewController.m in Sources */,
 				0CFA89C02213F27F0043E8EB /* BTUtils.m in Sources */,
+				18EB5D7624A8A38700965E3B /* BTFileHelp.m in Sources */,
 				185CF1FC2447080100866B1A /* BTApplePay.m in Sources */,
 				185CF1F4244705F700866B1A /* XMLReader.m in Sources */,
 				0CFA89852213F26D0043E8EB /* ViewController.m in Sources */,
 				9B2B6C912364196B006AC987 /* NSDate+BTDate.m in Sources */,
+				18EB5D7924A8A45500965E3B /* UIColor+BTColor.m in Sources */,
 				185CF1F5244705F700866B1A /* BTDownloadMananger.m in Sources */,
 				18E11F2D2449497F00062203 /* TestModel.m in Sources */,
 				18E56471249711F20050C13E /* IconViewController.m in Sources */,
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,
+				18EB5D7324A89E2800965E3B /* UIImage+BTImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
