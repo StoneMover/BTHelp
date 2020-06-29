@@ -75,7 +75,7 @@
 
     NSLog(@"%@相关信息:",self.downloadUrl);
     NSLog(@"plist中总大小:%@;已经下载大小%@",totalSize,loadedSize);
-    NSString * path =[NSString stringWithFormat:@"%@/%@",BTFileHelp.getDocumentPath,self.path];
+    NSString * path =[NSString stringWithFormat:@"%@/%@",BTFileHelp.documentPath,self.path];
     if ([totalSize isEqualToString:loadedSize]) {
         //文件已经下载完成
         if ([BTFileHelp isFileExit:path]) {

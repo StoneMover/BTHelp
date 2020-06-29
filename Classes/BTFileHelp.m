@@ -10,36 +10,62 @@
 
 @implementation BTFileHelp
 
-+ (NSString*)getHomePath{
++ (NSString*)homePath{
     return NSHomeDirectory();
 }
 
 
 
-+ (NSString*)getDocumentPath{
++ (NSString*)documentPath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     return path;
 }
 
 
-+ (NSString*)getCachePath{
++ (NSString*)cachePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     return path;
 }
 
 
-+ (NSString*)getLibraryPath{
++ (NSString*)libraryPath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     return path;
 }
 
 
-+ (NSString*)getTmpPath{
++ (NSString*)tmpPath{
     NSString *path = NSTemporaryDirectory();
     return path;
+}
+
++ (NSString*)cachePicturePath{
+    NSString * pic=[NSString stringWithFormat:@"%@/pic",[self cachePath]];
+    if (![self isFileExit:pic]) {
+        [self createPath:pic];
+    }
+    
+    return pic;
+}
++ (NSString*)cacheVideoPath{
+    
+    NSString * video =[NSString stringWithFormat:@"%@/video",[self cachePath]];
+    if (![self isFileExit:video]) {
+        [self createPath:video];
+    }
+    
+    return video;
+}
+
++ (NSString*)cacheVoicePath{
+    NSString * voice=[NSString stringWithFormat:@"%@/voice",[self cachePath]];
+    if (![self isFileExit:voice]) {
+        [self createPath:voice];
+    }
+    return voice;
 }
 
 
@@ -99,20 +125,19 @@
 }
 
 + (void)createDocumentPath:(NSString*)path{
-    NSString *pathRestul=[NSString stringWithFormat:@"%@/%@",[self getDocumentPath],path];
+    NSString *pathRestul=[NSString stringWithFormat:@"%@/%@",[self documentPath],path];
     [self createPath:pathRestul];
 }
 
-
-+ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data{
-    return [self saveFile:path withFileName:name withData:data isCover:NO];
++ (NSString*)saveFileWithPath:(NSString*)path fileName:(NSString*)fileName data:(NSData*)data{
+    return [self saveFileWithPath:path fileName:fileName data:data isAppend:NO];
 }
 
-+ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data isCover:(BOOL)cover{
++ (NSString*)saveFileWithPath:(NSString*)path fileName:(NSString*)fileName data:(NSData*)data isAppend:(BOOL)isAppend{
     [self createPath:path];
     NSData * resultData=nil;
-    NSString * resultPath=[NSString stringWithFormat:@"%@/%@",path,name];
-    if ([self isFileExit:resultPath]&&cover) {
+    NSString * resultPath=[NSString stringWithFormat:@"%@/%@",path,fileName];
+    if ([self isFileExit:resultPath]&&isAppend) {
         NSMutableData * dataOri=[NSMutableData dataWithContentsOfFile:resultPath];
         [dataOri appendData:data];
         resultData=dataOri;
@@ -122,34 +147,9 @@
     
     [[NSFileManager defaultManager] createFileAtPath:resultPath contents:resultData attributes:nil];
     
-    return [NSString stringWithFormat:@"%@/%@",path,name];
+    return [NSString stringWithFormat:@"%@/%@",path,fileName];
 }
 
-+ (NSString*)getCachePic{
-    NSString * pic=[NSString stringWithFormat:@"%@/pic",[self getCachePath]];
-    if (![self isFileExit:pic]) {
-        [self createPath:pic];
-    }
-    
-    return pic;
-}
-+ (NSString*)getCacheVideo{
-    
-    NSString * video =[NSString stringWithFormat:@"%@/video",[self getCachePath]];
-    if (![self isFileExit:video]) {
-        [self createPath:video];
-    }
-    
-    return video;
-}
-
-+ (NSString*)getCacheVoice{
-    NSString * voice=[NSString stringWithFormat:@"%@/voice",[self getCachePath]];
-    if (![self isFileExit:voice]) {
-        [self createPath:voice];
-    }
-    return voice;
-}
 
 
 + (NSArray*)getFolderAllFileName:(NSString*)folderPath fileType:(NSString*)fileType{

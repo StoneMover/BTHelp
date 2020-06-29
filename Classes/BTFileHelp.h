@@ -30,19 +30,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 //得到沙盒的root路径
-+ (NSString*)getHomePath;
++ (NSString*)homePath;
 
 //得到沙盒下Document文件夹的路径
-+ (NSString*)getDocumentPath;
++ (NSString*)documentPath;
 
 //得到Cache文件夹的路径
-+ (NSString*)getCachePath;
++ (NSString*)cachePath;
 
 //得到Library文件夹的路径
-+ (NSString*)getLibraryPath;
++ (NSString*)libraryPath;
 
 //得到tmp文件夹的路径
-+ (NSString*)getTmpPath;
++ (NSString*)tmpPath;
+
+//获取cache目录下的图片文件夹,没有则创建
++ (NSString*)cachePicturePath;
+
+//获取cache目录下的video文件夹,没有则创建
++ (NSString*)cacheVideoPath;
+
+//获取cache目录下的voice文件夹,没有则创建
++ (NSString*)cacheVoicePath;
 
 //文件是否存在
 + (BOOL)isFileExit:(NSString*)path;
@@ -61,19 +70,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)createDocumentPath:(NSString*)path;
 
 //保存文件到沙盒,如果存在该文件则继续写入
-+ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data;
++ (NSString*)saveFileWithPath:(NSString*)path fileName:(NSString*)fileName data:(NSData*)data;
 
 //保存文件到沙盒,如果存在该文件则继续写入
-+ (NSString*)saveFile:(NSString*)path withFileName:(NSString*)name withData:(NSData*)data isCover:(BOOL)cover;
++ (NSString*)saveFileWithPath:(NSString*)path fileName:(NSString*)fileName data:(NSData*)data isAppend:(BOOL)isAppend;
 
-//获取cache目录下的图片文件夹,没有则创建
-+ (NSString*)getCachePic;
 
-//获取cache目录下的video文件夹,没有则创建
-+ (NSString*)getCacheVideo;
-
-//获取cache目录下的voice文件夹,没有则创建
-+ (NSString*)getCacheVoice;
 
 //获取某一个文件夹下的所有文件
 + (NSArray*)getFolderAllFileName:(NSString*)folderPath fileType:(NSString*)fileType;
