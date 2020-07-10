@@ -106,5 +106,20 @@
     return array;
 }
 
+- (nullable NSString*)bt_host{
+    NSURL * url = [NSURL URLWithString:self];
+    return url.host;
+}
+
+- (NSDictionary*)bt_urlParameters{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:self];
+    [urlComponents.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [params setObject:obj.value forKey:obj.name];
+    }];
+    
+    return params;
+}
+
 
 @end

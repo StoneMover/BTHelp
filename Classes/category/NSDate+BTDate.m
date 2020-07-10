@@ -22,6 +22,18 @@
     return [self dateStr:@"dd"];
 }
 
+- (NSString*)hour{
+    return [self dateStr:@"HH"];
+}
+
+- (NSString*)minute{
+    return [self dateStr:@"mm"];
+}
+
+- (NSString*)second{
+    return [self dateStr:@"ss"];
+}
+
 - (NSString*)weekDay{
     return [self dateStr:@"EEEE"];
 }
@@ -109,6 +121,30 @@
     formatter.dateFormat=formater;
     NSString * str = [formatter stringFromDate:self];
     return str;
+}
+
+- (BOOL)isSameMonthToDate:(NSDate*)date{
+    NSString * strSelf = [self dateStr:@"YYYY-MM"];
+    NSString * strDate = [date dateStr:@"YYYY-MM"];
+    return [strSelf isEqualToString:strDate];
+}
+
+- (BOOL)isSameDayToDate:(NSDate*)date{
+    NSString * strSelf = [self dateStr:@"YYYY-MM-dd"];
+    NSString * strDate = [date dateStr:@"YYYY-MM-dd"];
+    return [strSelf isEqualToString:strDate];
+}
+
+- (BOOL)isSameHourToDate:(NSDate*)date{
+    NSString * strSelf = [self dateStr:@"YYYY-MM-dd HH"];
+    NSString * strDate = [date dateStr:@"YYYY-MM-dd HH"];
+    return [strSelf isEqualToString:strDate];
+}
+
+- (BOOL)isSameMinuteToDate:(NSDate*)date{
+    NSString * strSelf = [self dateStr:@"YYYY-MM-dd HH:mm"];
+    NSString * strDate = [date dateStr:@"YYYY-MM-dd HH:mm"];
+    return [strSelf isEqualToString:strDate];
 }
 
 + (instancetype)initLocalDate{
