@@ -140,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 //MARK:废弃方法
 
 //返回156*****8016电话
-+ (NSString*)phoneEncrypt:(NSString*)phone DEPRECATED_MSG_ATTRIBUTE("已废弃,使用NSString+BTString");
++ (NSString*)phoneEncrypt:(nullable NSString*)phone DEPRECATED_MSG_ATTRIBUTE("已废弃,使用NSString+BTString");
 
 //是否全部为数字
 + (BOOL)isStrAllNumber:(nullable NSString*)checkedNumString DEPRECATED_MSG_ATTRIBUTE("已废弃,使用NSString+BTString");

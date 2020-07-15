@@ -13,10 +13,6 @@
 @implementation NSString (BTString)
 
 - (NSString*)phoneEncrypt{
-    if ([BTUtils isEmpty:self]) {
-        return @"";
-    }
-    
     if (self.length != 11) {
         return @"";
     }

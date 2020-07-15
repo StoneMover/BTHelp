@@ -474,7 +474,10 @@
 
 
 //MARK:废弃方法
-+ (NSString*)phoneEncrypt:(NSString*)phone{
++ (NSString*)phoneEncrypt:(nullable NSString*)phone{
+    if ([BTUtils isEmpty:phone]) {
+        return @"";
+    }
     return phone.phoneEncrypt;
 }
 
