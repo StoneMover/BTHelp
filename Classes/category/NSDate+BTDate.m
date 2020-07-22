@@ -74,10 +74,7 @@
 }
 
 - (BOOL)isFutureTime{
-    NSDate * currentDate=[NSDate date];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate: currentDate];
-    NSDate *localeDate = [currentDate dateByAddingTimeInterval: interval];
+    NSDate *localeDate = [NSDate initLocalDate];
     if (self.timeIntervalSince1970 > localeDate.timeIntervalSince1970) {
         return YES;
     }
@@ -88,7 +85,7 @@
 - (NSString*)dateFromNowStr{
     NSDate * d= self;
     NSTimeInterval late=[d timeIntervalSince1970]*1;
-    NSDate * dat = [NSDate date];
+    NSDate * dat = [NSDate initLocalDate];
     NSTimeInterval now=[dat timeIntervalSince1970]*1;
     NSTimeInterval cha=now-late;
     int second=cha;
@@ -117,7 +114,7 @@
 
 - (NSString*)dateStr:(NSString*)formater{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     formatter.dateFormat=formater;
     NSString * str = [formatter stringFromDate:self];
     return str;
