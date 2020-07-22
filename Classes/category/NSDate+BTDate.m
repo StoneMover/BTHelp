@@ -117,7 +117,7 @@
 
 - (NSString*)dateStr:(NSString*)formater{
     NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    [formatter setTimeZone:[NSTimeZone systemTimeZone]];
     formatter.dateFormat=formater;
     NSString * str = [formatter stringFromDate:self];
     return str;
