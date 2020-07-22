@@ -149,9 +149,7 @@
 
 + (instancetype)initLocalDate{
     NSDate * date = [[NSDate alloc] init];
-    NSTimeZone * zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate: date];
-    NSDate * localeDate = [date dateByAddingTimeInterval: interval];
+    NSDate * localeDate = [date dateByAddingTimeInterval:[self bt_timeZoneSeconods]];
     return localeDate;
 }
 
@@ -180,5 +178,12 @@
     return localeDate;
 }
 
+
++ (NSInteger)bt_timeZoneSeconods{
+    NSDate * date = [[NSDate alloc] init];
+    NSTimeZone * zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate: date];
+    return interval;
+}
 
 @end

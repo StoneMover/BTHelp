@@ -94,7 +94,8 @@ NS_ASSUME_NONNULL_BEGIN
 //传入日期,以及格式化样式获取date
 + (NSDate*)dateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
 
-
+//获取时区时差秒数
++ (NSInteger)bt_timeZoneSeconods;
 
 @end
 
