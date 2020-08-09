@@ -43,6 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSDictionary*)bt_urlParameters;
 
++ (NSString *)bt_randomStrWithLenth:(NSInteger)lenth;
+
++ (NSString *)bt_randomNumStrWithLenth:(NSInteger)lenth;
+
++ (NSString *)bt_randomCapitalStrWithLenth:(NSInteger)lenth;
+
++ (NSString *)bt_randomLowercaseStrWithLenth:(NSInteger)lenth;
+
++ (NSString *)bt_randomStrWithLenth:(NSInteger)lenth isNumber:(BOOL)isNumber isCapital:(BOOL)isCapital isLowercase:(BOOL)isLowercase;
+
 @end
 
 NS_ASSUME_NONNULL_END

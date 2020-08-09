@@ -118,4 +118,47 @@
 }
 
 
++ (NSString *)bt_randomStrWithLenth:(NSInteger)lenth{
+    return [self bt_randomStrWithLenth:lenth isNumber:YES isCapital:YES isLowercase:YES];
+}
+
++ (NSString *)bt_randomNumStrWithLenth:(NSInteger)lenth{
+    return [self bt_randomStrWithLenth:lenth isNumber:YES isCapital:NO isLowercase:NO];
+}
+
++ (NSString *)bt_randomCapitalStrWithLenth:(NSInteger)lenth{
+    return [self bt_randomStrWithLenth:lenth isNumber:NO isCapital:YES isLowercase:NO];
+}
+
++ (NSString *)bt_randomLowercaseStrWithLenth:(NSInteger)lenth{
+    return [self bt_randomStrWithLenth:lenth isNumber:NO isCapital:NO isLowercase:YES];
+}
+
++ (NSString *)bt_randomStrWithLenth:(NSInteger)lenth isNumber:(BOOL)isNumber isCapital:(BOOL)isCapital isLowercase:(BOOL)isLowercase{
+    NSString * sourceNumber = @"0123456789";
+    NSString * sourceCapital = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    NSString * sourceLowercase = @"abcdefghijklmnopqrstuvwxyz";
+    NSString * sourceStr = @"";
+    if (isNumber) {
+        sourceStr = [sourceStr stringByAppendingString:sourceNumber];
+    }
+    
+    if (isCapital) {
+        sourceStr = [sourceStr stringByAppendingString:sourceCapital];
+    }
+    
+    if (isLowercase) {
+        sourceStr = [sourceStr stringByAppendingString:sourceLowercase];
+    }
+    
+    NSMutableString *resultStr = [[NSMutableString alloc] init];
+    for (int i = 0; i < lenth; i++)
+    {
+        unsigned index = rand() % [sourceStr length];
+        NSString *oneStr = [sourceStr substringWithRange:NSMakeRange(index, 1)];
+        [resultStr appendString:oneStr];
+    }
+    return resultStr;
+}
+
 @end
