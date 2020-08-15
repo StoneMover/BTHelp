@@ -12,7 +12,7 @@
 
 @implementation NSString (BTString)
 
-- (NSString*)phoneEncrypt{
+- (NSString*)bt_phoneEncrypt{
     if (self.length != 11) {
         return @"";
     }
@@ -21,7 +21,7 @@
     return str;
 }
 
-- (BOOL)isStrAllNumber{
+- (BOOL)bt_isStrAllNumber{
     if ([BTUtils isEmpty:self]) {
         return NO;
     }
@@ -34,18 +34,18 @@
 }
 
 //加密&解密
-- (NSString*)base64Decode{
+- (NSString*)bt_base64Decode{
     NSData * data = [[NSData alloc]initWithBase64EncodedString:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
     NSString * string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     return string;
 }
 
-- (NSString*)base64Encode{
+- (NSString*)bt_base64Encode{
     NSData *data = [[NSData alloc]initWithBase64EncodedString:self options:0];
     return [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)md5{
+- (NSString*)bt_md5{
     const char *cStr = [self UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cStr, (CC_LONG)strlen(cStr), digest);
@@ -57,13 +57,13 @@
 }
 
 
-- (CGFloat)calculateStrHeight:(CGFloat)width font:(UIFont*)font{
+- (CGFloat)bt_calculateStrHeight:(CGFloat)width font:(UIFont*)font{
     NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
     CGSize labelSize =[self boundingRectWithSize:CGSizeMake(width, 1500) options:NSStringDrawingUsesLineFragmentOrigin  attributes:dic context:nil].size;
     return labelSize.height;
 }
 
-- (CGFloat)calculateStrHeight:(CGFloat)width font:(UIFont*)font lineSpeace:(CGFloat)lineSpeace{
+- (CGFloat)bt_calculateStrHeight:(CGFloat)width font:(UIFont*)font lineSpeace:(CGFloat)lineSpeace{
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineSpacing = lineSpeace;
     NSDictionary * dic =@{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle};
@@ -73,14 +73,14 @@
 }
 
 
-- (CGFloat)calculateStrWidth:(CGFloat)height font:(UIFont*)font{
+- (CGFloat)bt_calculateStrWidth:(CGFloat)height font:(UIFont*)font{
     NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
     CGSize labelSize =[self boundingRectWithSize:CGSizeMake(1500, height) options:NSStringDrawingUsesLineFragmentOrigin  attributes:dic context:nil].size;
     return labelSize.width;
 }
 
 
-- (nullable NSDictionary *)toDict{
+- (nullable NSDictionary *)bt_toDict{
     NSData * jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError * err;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
@@ -91,7 +91,7 @@
     return dic;
 }
 
-- (nullable NSArray *)toArray{
+- (nullable NSArray *)bt_toArray{
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     NSArray * array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
