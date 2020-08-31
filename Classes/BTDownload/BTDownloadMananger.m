@@ -146,6 +146,12 @@ static BTDownloadMananger * mananger=nil;
     [self cancelWithModel:model];
 }
 
+- (void)canelAll{
+    for (BTDownloadModel * model in self.dataModel) {
+        [self cancelWithModel:model];
+    }
+}
+
 - (void)changeModelStatus:(BTDownloadModel*)model status:(BTDownloadStatus)status{
     [model setValue:[NSNumber numberWithInteger:status] forKey:@"status"];
     dispatch_async(dispatch_get_main_queue(), ^{

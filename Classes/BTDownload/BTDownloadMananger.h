@@ -47,6 +47,8 @@
 
 - (void)cancel:(NSString*)url;
 
+- (void)canelAll;
+
 - (void)setMaxDownLoadNum:(NSInteger)maxDownLoadNum;
 
 - (void)addDelegate:(id<BTDownloadDelegate> )delegate;
