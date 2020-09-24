@@ -91,7 +91,7 @@
     return dic;
 }
 
-- (nullable NSArray *)bt_toArray{
+- (nullable NSArray<NSDictionary *> *)bt_toArray{
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     NSArray * array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];

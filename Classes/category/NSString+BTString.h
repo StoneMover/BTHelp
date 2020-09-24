@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 //将字典转为字符串
 - (nullable NSDictionary *)bt_toDict;
 
-- (nullable NSArray *)bt_toArray;
+- (nullable NSArray<NSDictionary *> *)bt_toArray;
 
 //获取domain（ip）
 - (nullable NSString*)bt_host;
