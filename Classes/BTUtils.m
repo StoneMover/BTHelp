@@ -28,6 +28,10 @@
     return [[UIApplication sharedApplication] statusBarFrame].size.height;
 }
 
++ (CGFloat)IPHONEX_MORE_BAR_HEIGHT{
+    return [[UIApplication sharedApplication] statusBarFrame].size.height - 20;
+}
+
 + (CGFloat)HOME_INDICATOR_HEIGHT{
     if (BTUtils.UI_IS_IPHONEX) {
         return 34;
