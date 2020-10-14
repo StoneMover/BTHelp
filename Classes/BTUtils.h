@@ -4,7 +4,11 @@
 //
 //  Created by whbt_mac on 16/4/23.
 //  Copyright © 2016年 StoneMover. All rights reserved.
-//
+//  IPhone7 375*667;
+//  IPhone7P 414*736
+//  IPhone11Pro 375*812
+//  IPhone11 414*896
+//  IPhone11ProMax 414*896
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
