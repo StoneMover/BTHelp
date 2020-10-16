@@ -130,7 +130,7 @@
                     if ([dictArray[0] isKindOfClass:[NSDictionary class]]){
                         Class  className=[model.classDict objectForKey:dictKey];
                         if (!className) {
-                            [self LogError:@"empty class error!"];
+                            [self LogError:[NSString stringWithFormat:@"empty class name error!:%@-%@",NSStringFromClass(model.class),dictKey]];
                             break;
                         }
                         
@@ -158,13 +158,13 @@
                 case BaseModelTypeBase:{
                     NSDictionary * dictChild=[dict objectForKey:dictKey];
                     if (![dictChild isKindOfClass:[NSDictionary class]]) {
-                        [self LogError:@"return data type error,there is need dictionary,but get other."];
+                        [self LogError:[NSString stringWithFormat:@"return data type error,there is need dictionary,but get other:%@-%@-%@",NSStringFromClass(model.class),dictKey,dictChild]];
                         break;
                     }
                     
                     Class className=[model.classDict objectForKey:dictKey];
                     if (!className) {
-                        [self LogError:@"empty class name error!"];
+                        [self LogError:[NSString stringWithFormat:@"empty class name error!:%@-%@",NSStringFromClass(model.class),dictKey]];
                         break;
                     }
                     
