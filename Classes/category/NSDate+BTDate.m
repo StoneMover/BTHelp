@@ -183,4 +183,8 @@
     return interval;
 }
 
+- (NSTimeInterval)bt_timeIntervalSince1970{
+    return self.timeIntervalSince1970 - [NSDate bt_timeZoneSeconods];
+}
+
 @end

@@ -120,8 +120,8 @@
 
 + (NSString*)bt_randomStr{
     NSString * randomStr = [self bt_randomStrWithLenth:16];
-    NSDate * date = [NSDate date];
-    randomStr = [NSString stringWithFormat:@"%@%.0f",randomStr,date.timeIntervalSince1970];
+    NSDate * date = [NSDate bt_initLocalDate];
+    randomStr = [NSString stringWithFormat:@"%@%.0f",randomStr,date.bt_timeIntervalSince1970];
     return randomStr;
 }
 
