@@ -43,6 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSDictionary*)bt_urlParameters;
 
++ (NSString*)bt_randomStr;
+
 + (NSString *)bt_randomStrWithLenth:(NSInteger)lenth;
 
 + (NSString *)bt_randomNumStrWithLenth:(NSInteger)lenth;

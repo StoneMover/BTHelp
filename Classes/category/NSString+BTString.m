@@ -9,6 +9,7 @@
 #import "NSString+BTString.h"
 #import "BTUtils.h"
 #import<CommonCrypto/CommonDigest.h>
+#import "NSDate+BTDate.h"
 
 @implementation NSString (BTString)
 
@@ -117,6 +118,13 @@
     return params;
 }
 
++ (NSString*)bt_randomStr{
+    NSString * randomStr = [self bt_randomStrWithLenth:16];
+    NSDate * date = [NSDate date];
+    randomStr = [NSString stringWithFormat:@"%@%.0f",randomStr,date.timeIntervalSince1970];
+    return randomStr;
+}
+
 
 + (NSString *)bt_randomStrWithLenth:(NSInteger)lenth{
     return [self bt_randomStrWithLenth:lenth isNumber:YES isCapital:YES isLowercase:YES];
@@ -154,7 +162,8 @@
     NSMutableString *resultStr = [[NSMutableString alloc] init];
     for (int i = 0; i < lenth; i++)
     {
-        unsigned index = rand() % [sourceStr length];
+        //可以用来产生0～(x-1)范围内的随机数
+        NSInteger index =arc4random_uniform((int)sourceStr.length);
         NSString *oneStr = [sourceStr substringWithRange:NSMakeRange(index, 1)];
         [resultStr appendString:oneStr];
     }
