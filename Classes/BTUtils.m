@@ -65,11 +65,12 @@
 }
 
 + (BOOL)UI_IS_IPHONEX{
-    if (BTUtils.SCREEN_W == 375.f && BTUtils.SCREEN_H == 812.f) {
+    
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 812 + 375) {
         return YES;
     }
     
-    if (BTUtils.SCREEN_W == 414.f && BTUtils.SCREEN_H == 896.f) {
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 896 + 414) {
         return YES;
     }
     
@@ -77,7 +78,7 @@
 }
 
 + (BOOL)UI_IS_IPHONE_6{
-    if (BTUtils.SCREEN_W == 375.f && BTUtils.SCREEN_H == 667.f) {
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 667 + 375) {
         return YES;
     }
     
@@ -85,7 +86,7 @@
 }
 
 + (BOOL)UI_IS_IPHONE_6_P{
-    if (BTUtils.SCREEN_W == 414.f && BTUtils.SCREEN_H == 736.f) {
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 736 + 414) {
         return YES;
     }
     
@@ -93,13 +94,12 @@
 }
 
 + (BOOL)UI_IS_IPHONE_SE{
-    if (BTUtils.SCREEN_W == 320.f && BTUtils.SCREEN_H == 568.f) {
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 568 + 320) {
         return YES;
     }
     
     return NO;
 }
-
 + (UIApplication*)APP{
     return [UIApplication sharedApplication];
 }
