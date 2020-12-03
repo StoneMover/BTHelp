@@ -6,9 +6,10 @@
 //  Copyright © 2016年 StoneMover. All rights reserved.
 //  IPhone7 375*667;
 //  IPhone7P 414*736
-//  IPhone11Pro 375*812
-//  IPhone11 414*896
-//  IPhone11ProMax 414*896
+//  IPhone11Pro IPhone12MINI 375*812
+//  IPhone11 IPhone11ProMax 414*896
+//  IPhone12 IPhone12Pro 390 * 844
+//  IPhone12ProMax 428 * 926
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -35,12 +36,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CGFloat)TAB_HEIGHT;
 
+//是否为全面屏
 + (BOOL)UI_IS_IPHONEX;
 
+//是否为IPhone6,IPhone7,IPhone8,IPhoneSE第二代 尺寸
 + (BOOL)UI_IS_IPHONE_6;
 
+//是否为IPhone6Plus,IPhone7Plus,IPhone8Plus 尺寸
 + (BOOL)UI_IS_IPHONE_6_P;
 
+//是否为IPhone5,IPhoneSE第一代尺寸
 + (BOOL)UI_IS_IPHONE_SE;
 
 + (UIApplication*)APP;

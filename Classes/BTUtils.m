@@ -74,6 +74,14 @@
         return YES;
     }
     
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 844 + 390) {
+        return YES;
+    }
+    
+    if (BTUtils.SCREEN_W + BTUtils.SCREEN_H == 926 + 428) {
+        return YES;
+    }
+    
     return NO;
 }
 
