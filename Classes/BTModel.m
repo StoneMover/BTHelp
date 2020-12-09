@@ -123,6 +123,8 @@
                     //判断数组是否为0
                     NSArray * dictArray=[dict objectForKey:dictKey];
                     if (![dictArray isKindOfClass:[NSArray class]]||dictArray.count==0) {
+                        //这里为空数据生成空数组
+                        [model setValue:[NSMutableArray new] forKey:key.propertyName];
                         break;
                     }
                     
