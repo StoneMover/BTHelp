@@ -29,7 +29,10 @@
 }
 
 + (CGFloat)IPHONEX_MORE_BAR_HEIGHT{
-    return [[UIApplication sharedApplication] statusBarFrame].size.height - 20;
+    if ([BTUtils UI_IS_IPHONEX]) {
+        return [[UIApplication sharedApplication] statusBarFrame].size.height - 20;
+    }
+    return 0;
 }
 
 + (CGFloat)HOME_INDICATOR_HEIGHT{
@@ -128,7 +131,7 @@
     return [NSNotificationCenter defaultCenter];
 }
 
-+ (CGFloat)SYS_VERION{
++ (CGFloat)SYS_VERSION{
     return [[UIDevice currentDevice].systemVersion doubleValue];
 }
 
