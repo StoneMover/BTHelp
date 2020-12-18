@@ -164,6 +164,8 @@ NS_ASSUME_NONNULL_BEGIN
 //震动
 + (void)shake;
 
+//获取某月的总天数
++ (NSInteger)getDaysInMonth:(NSInteger)year month:(NSInteger)month;
 
 
 //MARK:废弃方法
