@@ -42,8 +42,9 @@
 }
 
 - (NSString*)bt_base64Encode{
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:self options:0];
-    return [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSData * data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSString * base64String = [data base64EncodedStringWithOptions:0];
+    return base64String;
 }
 
 - (NSString*)bt_md5{
