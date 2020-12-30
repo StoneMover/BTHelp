@@ -59,11 +59,15 @@
     }
 }
 
++ (CGFloat)TAB_HEIGHT_DEFAULT{
+    return 49;
+}
+
 + (CGFloat)TAB_HEIGHT{
     if (BTUtils.UI_IS_IPHONEX) {
-        return 49+34;
+        return BTUtils.TAB_HEIGHT_DEFAULT + BTUtils.HOME_INDICATOR_HEIGHT;
     }else{
-        return 49;
+        return BTUtils.TAB_HEIGHT_DEFAULT;
     }
 }
 
