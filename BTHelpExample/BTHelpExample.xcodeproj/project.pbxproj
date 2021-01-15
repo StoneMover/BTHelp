@@ -20,6 +20,7 @@
 		0CFA89C12213F27F0043E8EB /* BTIconHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89AC2213F27F0043E8EB /* BTIconHelp.m */; };
 		0CFA89C42213F27F0043E8EB /* BTPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B32213F27F0043E8EB /* BTPermission.m */; };
 		0CFA89C52213F27F0043E8EB /* BTKeyboardHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */; };
+		1833B76325B185E8007FD745 /* BTScaleHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1833B76225B185E8007FD745 /* BTScaleHelp.m */; };
 		185CF1F3244705F700866B1A /* BTDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CF1ED244705F700866B1A /* BTDownloadModel.m */; };
 		185CF1F4244705F700866B1A /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CF1EF244705F700866B1A /* XMLReader.m */; };
 		185CF1F5244705F700866B1A /* BTDownloadMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CF1F1244705F700866B1A /* BTDownloadMananger.m */; };
@@ -62,6 +63,8 @@
 		0CFA89B32213F27F0043E8EB /* BTPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPermission.m; sourceTree = "<group>"; };
 		0CFA89B42213F27F0043E8EB /* BTKeyboardHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTKeyboardHelp.m; sourceTree = "<group>"; };
 		0CFA89B62213F27F0043E8EB /* BTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUtils.h; sourceTree = "<group>"; };
+		1833B76125B185E8007FD745 /* BTScaleHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTScaleHelp.h; sourceTree = "<group>"; };
+		1833B76225B185E8007FD745 /* BTScaleHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTScaleHelp.m; sourceTree = "<group>"; };
 		185CF1ED244705F700866B1A /* BTDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDownloadModel.m; sourceTree = "<group>"; };
 		185CF1EE244705F700866B1A /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		185CF1EF244705F700866B1A /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				0C2C218F2214FF3300BD952A /* BTHelp.h */,
 				18EB5D7424A8A38700965E3B /* BTFileHelp.h */,
 				18EB5D7524A8A38700965E3B /* BTFileHelp.m */,
+				1833B76125B185E8007FD745 /* BTScaleHelp.h */,
+				1833B76225B185E8007FD745 /* BTScaleHelp.m */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -303,6 +308,7 @@
 				18E11F2D2449497F00062203 /* TestModel.m in Sources */,
 				18E56471249711F20050C13E /* IconViewController.m in Sources */,
 				0CFA89902213F26E0043E8EB /* main.m in Sources */,
+				1833B76325B185E8007FD745 /* BTScaleHelp.m in Sources */,
 				0CFA89822213F26D0043E8EB /* AppDelegate.m in Sources */,
 				18EB5D7324A89E2800965E3B /* UIImage+BTImage.m in Sources */,
 			);
