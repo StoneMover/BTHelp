@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NSString+BTString.h"
+#import "NSDate+BTDate.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSLog(@"randomStr:%@",[NSString bt_randomStr]);
+    
+    
+//    NSDate * dateSys = [NSDate date];
+//    NSDate * dateBT = [NSDate bt_initLocalDate];
+    
+    NSString * dateStr = @"2020-01-04 21:09:34";
+    NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
+//    formatter.timeZone = NSTimeZone.systemTimeZone;
+    formatter.dateFormat=@"yyyy-MM-dd HH:mm:ss";
+    NSDate * dateSys = [formatter dateFromString:dateStr];
+//    NSDate * dateBt = [NSDate bt_dateFromStr:dateStr formatter:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSString * dateSysStr = [dateSys bt_dateStr:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSString * dateSysStr2 = [formatter stringFromDate:dateSys];
+    
+    
     return YES;
 }
 
