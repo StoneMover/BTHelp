@@ -7,7 +7,7 @@
 //
 
 #import "KeyboardViewController.h"
-#import "BTKeyboardHelp.h"
+#import "BTHelp.h"
 
 @interface KeyboardViewController ()
 

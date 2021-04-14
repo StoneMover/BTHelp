@@ -7,7 +7,7 @@
 //
 
 #import "TimerViewController.h"
-#import "BTTimerHelp.h"
+#import "BTHelp.h"
 #import "BTUtils.h"
 
 @interface TimerViewController ()

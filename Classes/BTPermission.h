@@ -44,3 +44,25 @@ typedef void(^BTPermissionBlock)(NSInteger index);
 
 @end
 
+
+@protocol BTLocationDelegate <NSObject>
+
+- (void)locationSuccess:(NSString*)province city:(NSString*)city;
+
+@end
+
+@interface BTLocation : NSObject
+
+//开始定位
+- (void)start;
+
+//停止定位
+- (void)stop;
+
+//是否有定位权限
+- (BOOL)isHasLocationPermission;
+
+@property (nonatomic, weak) id<BTLocationDelegate>  delegate;
+
+@end
+

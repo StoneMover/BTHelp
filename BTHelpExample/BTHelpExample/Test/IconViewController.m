@@ -7,7 +7,7 @@
 //
 
 #import "IconViewController.h"
-#import "BTIconHelp.h"
+#import "BTHelp.h"
 
 @interface IconViewController ()
 
