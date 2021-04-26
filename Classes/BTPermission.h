@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define BTPermissionObj [BTPermission share]
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^BTPermissionSuccessBlock)(void);
 typedef void(^BTPermissionBlock)(NSInteger index);
@@ -66,3 +66,4 @@ typedef void(^BTPermissionBlock)(NSInteger index);
 
 @end
 
+NS_ASSUME_NONNULL_END

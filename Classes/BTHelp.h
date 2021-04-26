@@ -57,8 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-typedef void(^BTTimerChangeBlock)(void);
-
 @interface BTTimerHelp : NSObject
 
 //间隔时间,必须调用设置
@@ -71,7 +69,7 @@ typedef void(^BTTimerChangeBlock)(void);
 @property(nonatomic,weak,nullable)id<BTTimerHelpDelegate> delegate;
 
 //时间变化后的block回调
-@property (nonatomic, copy) BTTimerChangeBlock block;
+@property (nonatomic, copy) void(^block)(void);
 
 //开始,暂停后重新开始,调用相同的方法
 -(void)start;

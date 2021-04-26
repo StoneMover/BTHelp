@@ -223,15 +223,15 @@ static BTScaleHelp * help = nil;
 
 - (void)actionClick:(NSInteger)index{
     
-    if (index==0&&!BTPermissionObj.isCamera) {
-        [BTPermissionObj getCameraPermission:^{
+    if (index==0&&!BTPermission.share.isCamera) {
+        [BTPermission.share getCameraPermission:^{
             [self actionClick:index];
         }];
         return;
     }
     
-    if (index==1&&!BTPermissionObj.isAlbum) {
-        [BTPermissionObj getAlbumPermission:^{
+    if (index==1&&!BTPermission.share.isAlbum) {
+        [BTPermission.share getAlbumPermission:^{
             [self actionClick:index];
         }];
         return;
