@@ -490,7 +490,7 @@
 
 + (NSString*)convertNumToShortStr:(NSInteger)value isBigSuffix:(BOOL)isBigSuffix basicNum:(NSInteger)basicNum{
     if (value < basicNum) {
-        return [NSString stringWithFormat:@"%ld",value];
+        return [NSString stringWithFormat:@"%ld",(long)value];
     }
     
     if (value > 100000) {
@@ -498,7 +498,7 @@
         if (isBigSuffix) {
             suffix = @"W";
         }
-        return [NSString stringWithFormat:@"%ld%@",value / 10000,suffix];
+        return [NSString stringWithFormat:@"%ld%@",(long)(value / 10000),suffix];
     }
     
     if (value > 10000) {
@@ -518,7 +518,7 @@
         return [NSString stringWithFormat:@"%.1f%@",value / 1000.0,suffix];
     }
     
-    return [NSString stringWithFormat:@"%ld",value];
+    return [NSString stringWithFormat:@"%ld",(long)value];
 }
 
 + (NSString*)convertNumToShortStr:(NSInteger)value{

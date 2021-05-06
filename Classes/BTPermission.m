@@ -46,7 +46,7 @@ static BTPermission * permission;
 - (void)getCameraPermission:(BTPermissionSuccessBlock)block{
     [self getCameraPermission:nil success:block];
 }
-- (void)getCameraPermission:(NSString*)meg success:(BTPermissionSuccessBlock)block{
+- (void)getCameraPermission:(NSString* _Nullable)meg success:(BTPermissionSuccessBlock)block{
     if (!meg) {
         meg=@"当前没有相机权限,是否前往设置?";
     }
@@ -105,7 +105,7 @@ static BTPermission * permission;
     [self getAlbumPermission:nil success:block];
 }
 
-- (void)getAlbumPermission:(NSString*)meg success:(BTPermissionSuccessBlock)block{
+- (void)getAlbumPermission:(NSString*_Nullable)meg success:(BTPermissionSuccessBlock)block{
     if (!meg) {
         meg=@"当前没有相册权限,是否前往设置?";
     }
@@ -166,7 +166,7 @@ static BTPermission * permission;
 - (void)getMicPermission:(BTPermissionSuccessBlock)block{
     [self getMicPermission:nil success:block];
 }
-- (void)getMicPermission:(NSString*)meg success:(BTPermissionSuccessBlock)block{
+- (void)getMicPermission:(NSString*_Nullable)meg success:(BTPermissionSuccessBlock)block{
     if (!meg) {
         meg=@"当前没有麦克风权限,是否前往设置?";
     }

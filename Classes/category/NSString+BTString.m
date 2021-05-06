@@ -182,7 +182,7 @@
 }
 
 + (NSString *)bt_integer:(NSInteger)integerValue{
-    return [NSString stringWithFormat:@"%ld",integerValue];
+    return [NSString stringWithFormat:@"%ld",(long)integerValue];
 }
 
 + (NSString *)bt_float:(CGFloat)floatValue{
