@@ -167,6 +167,13 @@
     return localeDate;
 }
 
++ (NSDate*)bt_dateFromStrWithOutTimeZone:(NSString*)dateStr formatter:(NSString*)formatterStr{
+    NSDateFormatter * formatter =[[NSDateFormatter alloc] init];
+    formatter.dateFormat=formatterStr;
+    NSDate * date = [formatter dateFromString:dateStr];
+    return date;
+}
+
 
 + (NSInteger)bt_timeZoneSeconods{
     NSDate * date = [[NSDate alloc] init];
@@ -177,6 +184,50 @@
 
 - (NSTimeInterval)bt_timeIntervalSince1970{
     return self.timeIntervalSince1970 - [NSDate bt_timeZoneSeconods];
+}
+
+
+- (NSInteger)bt_monthDay{
+    NSCalendar * calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSRange range = [calender rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self];
+    return range.length;
+}
+
+- (NSInteger)bt_seasonDay{
+    NSInteger totalDay = 0;
+    
+    NSInteger season = [self bt_nowSeason];
+    NSInteger basic = (season - 1) * 3;
+    for (int i = 0; i<3; i++) {
+        NSInteger month = i + 1 + basic;
+        NSDate * date = [NSDate bt_dateYMD:[NSString stringWithFormat:@"%@-%02ld-01",self.bt_year,month]];
+        totalDay += date.bt_yearDay;
+    }
+    
+    return totalDay;
+}
+
+
+- (NSInteger)bt_yearDay{
+    NSCalendar * calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSRange range = [calender rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:self];
+    return range.length;
+}
+
+
+- (NSInteger)bt_nowSeason{
+    NSString * month = [self bt_dateStr:@"MM"];
+    NSInteger season = month.integerValue / 3 + 1;
+    return season;
+}
+
+- (NSInteger)bt_nowWeekNum{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags =  NSCalendarUnitWeekdayOrdinal;
+    calendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    comps = [calendar components:unitFlags fromDate:self];
+    return [comps weekdayOrdinal];
 }
 
 @end

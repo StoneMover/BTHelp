@@ -90,6 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 根据出传入日期以及格式化样式获取date
 //根据时区获取对应的date，以下获取方法都会自动校正时区，会比调用系统方法生成的对象多出8个小时
 + (instancetype)bt_initLocalDate;
+
 //会自动增加时区差值
 + (instancetype)bt_dateWithTimeIntervalSince1970:(NSTimeInterval)secs;
 
@@ -105,6 +106,8 @@ NS_ASSUME_NONNULL_BEGIN
 //传入日期,以及格式化样式获取date
 + (NSDate*)bt_dateFromStr:(NSString*)dateStr formatter:(NSString*)formatterStr;
 
++ (NSDate*)bt_dateFromStrWithOutTimeZone:(NSString*)dateStr formatter:(NSString*)formatterStr;
+
 //获取时区时差秒数,如果给的时间戳是基于格林尼治的时间戳，那么加上这个值获取当前时区的时间戳
 + (NSInteger)bt_timeZoneSeconods;
 
@@ -112,6 +115,22 @@ NS_ASSUME_NONNULL_BEGIN
   仅限校正时区后的对象使用，会减去时区相差的秒数，得到格林尼治时间的时间戳
  */
 - (NSTimeInterval)bt_timeIntervalSince1970;
+
+
+//获取当前对象月份天数
+- (NSInteger)bt_monthDay;
+
+//获取季度天数
+- (NSInteger)bt_seasonDay;
+
+//获取当前对象年份天数
+- (NSInteger)bt_yearDay;
+
+//获取当前为第几季
+- (NSInteger)bt_nowSeason;
+
+//获取当前为第几周
+- (NSInteger)bt_nowWeekNum;
 
 @end
 
