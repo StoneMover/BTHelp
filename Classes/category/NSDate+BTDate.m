@@ -73,6 +73,11 @@
     return age;
 }
 
+- (NSInteger)bt_calculateAgeFromNow{
+    NSDate * dateNow = [NSDate bt_initLocalDate];
+    return [self bt_calculateAge:dateNow.bt_year.integerValue month:dateNow.bt_month.integerValue day:dateNow.bt_day.integerValue];
+}
+
 - (BOOL)bt_isFutureTime{
     NSDate *localeDate = [NSDate bt_initLocalDate];
     if (self.timeIntervalSince1970 > localeDate.timeIntervalSince1970) {

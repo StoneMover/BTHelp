@@ -16,6 +16,7 @@
 #import "BTPermission.h"
 #import "PayViewController.h"
 #import "BTDownloadMananger.h"
+#import "NSString+BTString.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,6 +32,7 @@
     [super viewDidLoad];
     self.title=@"BTHelp";
     self.titles=@[@"BTModel",@"BTTimer",@"BTIconHelp",@"BTKeyboard",@"BTPermission",@"Pay"];
+    [NSString bt_randomStrWithLenth:0 isNumber:0 isCapital:0 isLowercase:0];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 }
