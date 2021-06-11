@@ -36,6 +36,16 @@
     
     NSString * dateSysStr2 = [formatter stringFromDate:dateSys];
     
+    NSString * testStr = @"123ABcdef!/'";
+    NSInteger number1 = [testStr bt_countNumInStr];
+    
+    NSInteger number2 = [testStr bt_countLetterInStr];
+    
+    NSInteger number3 = [testStr bt_countLowercaseLetterInStr];
+    
+    NSInteger number4 = [testStr bt_countUppercaseLetterInStr];
+    
+    NSInteger number5 = [testStr bt_countOtherInStr];
     
     return YES;
 }
