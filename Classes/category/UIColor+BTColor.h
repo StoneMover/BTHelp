@@ -48,14 +48,27 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)bt_colorWithHexString: (NSString *)color;
 
 
-/// RGB为51的颜色
++ (UIColor*)bt_34Color;
+
 + (UIColor*)bt_51Color;
 
-/// RGB为235的颜色
++ (UIColor*)bt_83Color;
+
++ (UIColor*)bt_96Color;
+
++ (UIColor*)bt_136Color;
+
++ (UIColor*)bt_153Color;
+
++ (UIColor*)bt_204Color;
+
++ (UIColor*)bt_229Color;
+
 + (UIColor*)bt_235Color;
 
-/// RGB为83的颜色
-+ (UIColor*)bt_83Color;
++ (UIColor*)bt_245Color;
+
++ (UIColor*)bt_248Color;
 
 @end
 
